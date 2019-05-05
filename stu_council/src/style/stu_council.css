@@ -1,0 +1,119 @@
+/* headercom */
+.menubar li {
+    list-style-type: none;
+}
+
+.menubar li ul {
+    display: none;
+    list-style-type: none;
+}
+
+.menubar li:hover ul {
+    display: block;
+}
+
+/* footercom */
+
+/* home */
+
+/* login */
+
+/* introduce */
+
+/* location */
+
+/* board */
+
+/* petition */
+
+/* conference */
+
+/* financial */
+
+/* formdoc */
+
+/* rental */
+
+/* 화면 너비 769 ~ 1240 px */
+@media (max-width: 1240px) {
+    /* headercom */
+
+    /* footercom */
+
+    /* home */
+
+    /* login */
+
+    /* introduce */
+
+    /* location */
+
+    /* board */
+
+    /* petition */
+
+    /* conference */
+
+    /* financial */
+
+    /* formdoc */
+
+    /* rental */
+
+}
+
+/* 화면 너비 481 ~ 768 px */
+@media (max-width: 768px) {
+    /* headercom */
+
+    /* footercom */
+
+    /* home */
+
+    /* login */
+
+    /* introduce */
+
+    /* location */
+
+    /* board */
+
+    /* petition */
+
+    /* conference */
+
+    /* financial */
+
+    /* formdoc */
+
+    /* rental */
+
+}
+
+/* 화면 너비 0 ~ 480 px */
+@media (max-width: 480px) {
+    /* headercom */
+
+    /* footercom */
+
+    /* home */
+
+    /* login */
+
+    /* introduce */
+
+    /* location */
+
+    /* board */
+
+    /* petition */
+
+    /* conference */
+
+    /* financial */
+
+    /* formdoc */
+
+    /* rental */
+
+}
