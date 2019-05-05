@@ -1,0 +1,12 @@
+.menubar li {
+    list-style-type: none;
+}
+
+.menubar li ul {
+    display: none;
+    list-style-type: none;
+}
+
+.menubar li:hover ul {
+    display: block;
+}
