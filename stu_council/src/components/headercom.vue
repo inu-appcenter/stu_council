@@ -2,6 +2,9 @@
     <div id="headercom">
       <div class="home_logo">
         <router-link to="/">home</router-link>
+        <router-link to="/login">login</router-link>
+        <!-- <router-link to="/logout" v-else>logout</router-link> -->
+
       </div>
       <div class="menubar">
         <li><router-link to="/introduce">총학생회</router-link>
@@ -35,10 +38,19 @@
 <script>
 export default {
     name: 'headercom',
+
     data () {
     return {
+
     }
   },
+
+  methods: {
+    
+  },
+
+  computed: {
+  }
 }
 </script>
 
