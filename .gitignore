@@ -1,12 +1,14 @@
 .DS_Store
 node_modules/
-dist/
-npm-debug.log
-yarn-error.log
+.firebase/
+LEGACY/
+*.cache
 
 # Editor directories and files
 .idea
+*.log
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+*.env
