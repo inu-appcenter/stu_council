@@ -14,10 +14,10 @@ import store from '@/store'
 
 //index.js router import
 import router from '@/router'
-import axios from 'axios';
+import axios from 'axios'
 import {
   polyfill
-} from 'es6-promise';
+} from 'es6-promise'
 
 Vue.config.productionTip = true
 // axios 사용설정
