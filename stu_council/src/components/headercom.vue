@@ -28,7 +28,8 @@
         </li>
         <li><router-link to="/rental">학생복지</router-link>
           <ul>
-            <li><router-link to="/rental">물품대여</router-link></li>                               
+            <li><router-link to="/rental">물품대여</router-link></li> 
+            <li><router-link to="/bus">통학버스 및 귀향버스</router-link></li>
           </ul>
         </li>
       </div>
