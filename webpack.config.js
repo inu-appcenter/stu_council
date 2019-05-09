@@ -10,9 +10,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
-  plugins: [
-    new Dotenv()
-  ],
+  // plugins: [
+  //   new Dotenv()
+  // ],
   module: {
     rules: [{
         test: /\.css$/,
