@@ -11,12 +11,17 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "es6-promise": "^4.2.6",
+    "event-source-polyfill": "^1.0.5",
+    "promise": "^8.0.3",
+    "promise-polyfill": "^8.1.0",
     "router": "^1.3.3",
     "vue": "^2.5.11",
     "vue-daum-map": "^1.0.12",
     "vue-devtools": "^5.0.0-beta.1",
     "vue-router": "^3.0.6",
-    "vuex": "^3.1.0",
+    "vuex": "^3.1.1",
     "webpack-dev-middleware": "^1.12.2"
   },
   "browserslist": [
