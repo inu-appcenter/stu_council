@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "dotenv-webpack": "^1.7.0",
     "es6-promise": "^4.2.6",
     "event-source-polyfill": "^1.0.5",
     "promise": "^8.0.3",
