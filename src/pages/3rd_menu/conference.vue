@@ -1,12 +1,13 @@
 <template>
-    <div id="conference">
-        <p>conference</p>
-    </div>
+  <div id="conference">
+    <p>conference</p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "conference",
+  name: "conference",
+
 }
 </script>
 

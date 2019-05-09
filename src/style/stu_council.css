@@ -1,16 +1,16 @@
 /* headercom */
-.menubar li {
-    list-style-type: none;
+/* .menubar li {
+  list-style-type: none;
 }
 
 .menubar li ul {
-    display: none;
-    list-style-type: none;
+  display: none;
+  list-style-type: none;
 }
 
 .menubar li:hover ul {
-    display: block;
-}
+  display: block;
+} */
 
 /* footercom */
 
@@ -36,84 +36,84 @@
 
 /* 화면 너비 769 ~ 1240 px */
 @media (max-width: 1240px) {
-    /* headercom */
+  /* headercom */
 
-    /* footercom */
+  /* footercom */
 
-    /* home */
+  /* home */
 
-    /* login */
+  /* login */
 
-    /* introduce */
+  /* introduce */
 
-    /* location */
+  /* location */
 
-    /* board */
+  /* board */
 
-    /* petition */
+  /* petition */
 
-    /* conference */
+  /* conference */
 
-    /* financial */
+  /* financial */
 
-    /* formdoc */
+  /* formdoc */
 
-    /* rental */
+  /* rental */
 
 }
 
 /* 화면 너비 481 ~ 768 px */
 @media (max-width: 768px) {
-    /* headercom */
+  /* headercom */
 
-    /* footercom */
+  /* footercom */
 
-    /* home */
+  /* home */
 
-    /* login */
+  /* login */
 
-    /* introduce */
+  /* introduce */
 
-    /* location */
+  /* location */
 
-    /* board */
+  /* board */
 
-    /* petition */
+  /* petition */
 
-    /* conference */
+  /* conference */
 
-    /* financial */
+  /* financial */
 
-    /* formdoc */
+  /* formdoc */
 
-    /* rental */
+  /* rental */
 
 }
 
 /* 화면 너비 0 ~ 480 px */
 @media (max-width: 480px) {
-    /* headercom */
+  /* headercom */
 
-    /* footercom */
+  /* footercom */
 
-    /* home */
+  /* home */
 
-    /* login */
+  /* login */
 
-    /* introduce */
+  /* introduce */
 
-    /* location */
+  /* location */
 
-    /* board */
+  /* board */
 
-    /* petition */
+  /* petition */
 
-    /* conference */
+  /* conference */
 
-    /* financial */
+  /* financial */
 
-    /* formdoc */
+  /* formdoc */
 
-    /* rental */
+  /* rental */
 
 }

@@ -1,0 +1,15 @@
+.menubar {
+
+  li {
+    list-style-type: none;
+
+    ul {
+      display: none;
+      list-style-type: none;
+
+      &:hover {
+        display: block;
+      }
+    }
+  }
+}
