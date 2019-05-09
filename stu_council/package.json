@@ -16,7 +16,8 @@
     "vue-daum-map": "^1.0.12",
     "vue-devtools": "^5.0.0-beta.1",
     "vue-router": "^3.0.6",
-    "vuex": "^3.1.0"
+    "vuex": "^3.1.0",
+    "webpack-dev-middleware": "^1.12.2"
   },
   "browserslist": [
     "> 1%",
@@ -33,7 +34,7 @@
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
+    "webpack": "^3.12.0",
     "webpack-dev-server": "^2.9.1"
   }
 }
