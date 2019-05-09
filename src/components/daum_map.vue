@@ -21,20 +21,19 @@ export default {
         VueDaumMap
     },
 
-    data() {
-        return {
-            appKey: '5cae4bedea290bb528d059a8f19df251', //키값 .env 에 넣을것
-            center: {lat:37.374449, lng:126.631773},
-            // 인천대학교 중심 좌표 -> 37.3750548,126.6307111
-            // 복지회관 중심 좌표 -> 37.374449, 126.631773
-            level: 3, // 지도의 레벨(확대, 축소 정도),
-            mapTypeId: VueDaumMap.MapTypeId.NORMAL, // 맵 타입
-            libraries: [], // 추가로 불러올 라이브러리
-            map: null, // 지도 객체. 지도가 로드되면 할당됨.
-            mLat: 37.374449,
-            mLng: 126.631773
-        }
-    },
+
+    data: () => ({
+      appKey: '5cae4bedea290bb528d059a8f19df251', //키값 .env 에 넣을것
+      center: {lat:37.374449, lng:126.631773},
+      // 인천대학교 중심 좌표 -> 37.3750548,126.6307111
+      // 복지회관 중심 좌표 -> 37.374449, 126.631773
+      level: 3, // 지도의 레벨(확대, 축소 정도),
+      mapTypeId: VueDaumMap.MapTypeId.NORMAL, // 맵 타입
+      libraries: [], // 추가로 불러올 라이브러리
+      map: null, // 지도 객체. 지도가 로드되면 할당됨.
+      mLat: 37.374449,
+      mLng: 126.631773
+    }),
 
     methods: {
         onLoad (map) {

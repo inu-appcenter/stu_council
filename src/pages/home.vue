@@ -7,9 +7,11 @@
 
 <script>
 export default {
-    name: 'home',
-    methods: {
-    },
-    
+  name: 'home',
+
+  methods: {
+
+  },
+
 }
 </script>

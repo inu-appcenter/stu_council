@@ -16,16 +16,14 @@ export default {
 
     },
 
-    data() {
-        return {
-            id: '',
-            password: '',
-        }
-    },
+    data: () => ({
+      id: '',
+      password: '',
+    }),
 
     methods: {
         approve_login(id, password) {
-            
+
         }
     },
 

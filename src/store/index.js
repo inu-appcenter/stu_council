@@ -10,6 +10,7 @@ import actions from '@/store/actions.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  // 위에서 import 한것들을 여기서 사용
   state,
   getters,
   mutations,
