@@ -6,8 +6,10 @@
     ul {
       display: none;
       list-style-type: none;
+    }
 
-      &:hover {
+    &:hover {
+      ul {
         display: block;
       }
     }
