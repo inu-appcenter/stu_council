@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 
 //page import
 import home from '../pages/home'
-import login from '../pages/login'
-import logout from '../pages/logout'
+import login from '../pages/member/login'
+import logout from '../pages/member/logout'
 
 
 import introduce from '../pages/1st_menu/introduce'
