@@ -1,18 +1,38 @@
 <template>
   <div id="signup" class="container">
-    <h1>회원가입</h1>
-      학번 <input type="text" v-model.trim="sign_id"><br>
-      비밀번호 <input type="password" v-model.trim="sign_password"><br>
-      비밀번호 확인<input type="password" v-model.trim="sign_check_password"><br>
-      이름 <input type="text" v-model.trim="sign_name"><br>
-      핸드폰 <input type="text" @keypress="isNum()" v-model.trim="sign_phone"><br>
-      학과 <select v-model="sign_major">
+    <div class="signup__wrapper">
+      <span class="signup__wrapper-title">회원가입</span>
+      <label>
+        <span>학번</span>
+        <input class="signup__wrapper-input" type="text" v-model.trim="sign_id"><br>
+      </label>
+      <label>
+        <span>비밀번호</span>
+        <input class="signup__wrapper-input" type="password" v-model.trim="sign_password"><br>
+      </label>
+      <label>
+        <span>비밀번호 확인</span>
+        <input class="signup__wrapper-input" type="password" v-model.trim="sign_check_password"><br>
+      </label>
+      <label>
+        <span>이름</span>
+        <input class="signup__wrapper-input" type="text" v-model.trim="sign_name"><br>
+      </label>
+      <label>
+        <span>핸드폰</span>
+        <input class="signup__wrapper-input" type="text" @keypress="isNum()" v-model.trim="sign_phone"><br>
+      </label>
+      <label>
+        <span>학과</span>
+        <select v-model="sign_major">
           <option value="정보통신공학과">정보통신공학과</option>
           <option value="">-----</option>
-      </select><br>
+        </select><br>
+      </label>
       <input type="checkbox" v-model="sign_agree" value="agree">
       <label>이용약관, 개인정보취급방침에 동의합니다.</label>
-      <input @click="bt_listener" type="submit" value="회원가입">
+      <input class="signup__wrapper-btn" @click="bt_listener" type="submit" value="회원가입">
+    </div>
   </div>
 </template>
 

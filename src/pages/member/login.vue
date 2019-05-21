@@ -1,8 +1,11 @@
 <template>
   <div id="login" class="container">
-    <input v-on:keyup.enter="bt_listener()" type="text" v-model.trim="id" placeholder="학번">
-    <input v-on:keyup.enter="bt_listener()" type="password" v-model.trim="password" placeholder="비밀번호">
-    <input @click="bt_listener()" type="submit" value="로그인">
+    <div class="login__wrapper">
+      <span class="login__wrapper-title">로그인</span>
+      <input class="login__wrapper-input" v-on:keyup.enter="bt_listener()" type="text" v-model.trim="id" placeholder="학번">
+      <input class="login__wrapper-input" v-on:keyup.enter="bt_listener()" type="password" v-model.trim="password" placeholder="비밀번호">
+      <input class="login__wrapper-btn" @click="bt_listener()" type="submit" value="로그인">
+    </div>
   </div>
 </template>
 

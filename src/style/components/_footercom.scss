@@ -1,11 +1,11 @@
 #footercom {
   width: 100%;
   color: #fff;
-  padding: $grid3x 0 $grid6x;
+  padding-top: $grid3x;
+  padding-bottom: $grid6x;
   background-color: $brand-blue;
 
   .container {
-    height: $grid24x;
 
     .footercom__logo {
       float: left;

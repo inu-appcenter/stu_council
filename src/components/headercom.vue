@@ -57,7 +57,7 @@ export default {
 
   methods: {
     check_session() {
-      if(this.$session.exists()) {
+      if (this.$session.exists()) {
         this.check_login = false
       }
     }

@@ -12,9 +12,16 @@ modules
 ;
 
 /*
-componentslocation
+components
 */
 @import './components/headercom',
 './components/footercom',
 './components/location'
+;
+
+/*
+pages
+*/
+@import './pages/login',
+'./pages/signup'
 ;

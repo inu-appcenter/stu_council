@@ -1,0 +1,58 @@
+$width: 328px;
+$input: 224px;
+$width_inherited: 264px;
+$height: $grid10x;
+
+#signup {
+  display: table;
+  margin: $grid32x auto;
+
+  .signup__wrapper {
+    width: $width;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+
+    .signup__wrapper-title {
+      width: 144px;
+      margin: 0 auto;
+      display: block;
+      height: $height;
+      font-weight: 700;
+      margin-bottom: $grid6x;
+      border-bottom: solid $grid $brand-yellow;
+      @include font-size($grid6x);
+    }
+
+    label {
+
+      span {
+        // float: left;
+        height: $height;
+        display: inline-block;
+        width: calc(#{$width} - #{$input});
+      }
+
+      .signup__wrapper-input {
+        float: right;
+        width: $input;
+        height: $height;
+        margin-bottom: $grid3x;
+        border: 1px solid #666;
+      }
+    }
+
+    .signup__wrapper-btn {
+      width: $width_inherited;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+      height: $grid12x;
+      font-weight: 600;
+      background-color: $brand-blue;
+      @include font-size($grid4x);
+    }
+  }
+}
