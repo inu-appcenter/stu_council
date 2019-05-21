@@ -10,36 +10,27 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: 'signupsuccess',
+  name: 'signupsuccess',
 
-    computed: {
-        userId() {
-            return this.$route.params.id
-        }
-    },
+  computed: {
+    ...mapState([
+      'check_session',
+    ]),
 
-    created() {
-        this.check_session()       
+    userId() {
+      return this.$route.params.id
     },
+  },
 
-    data: function() {
-        return {
-            
-        }
-    },
-    methods: {
-        check_session() {
-            if(this.$session.exists()) {
-            alert("로그인 상태로 접근할 수 없는 페이지입니다.")
-            this.$router.push({name:'home'}) // 고쳤으면함
-            }
-        }   
-    }
+  created() {
+    this.check_session(this.$session.exists())
+  },
 
 }
 </script>
 
 <style>
-
 </style>
