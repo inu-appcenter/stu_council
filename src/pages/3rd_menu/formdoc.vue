@@ -1,5 +1,5 @@
 <template>
-  <div id="formdoc">
+  <div id="formdoc" class="container">
     <p>formdoc</p>
   </div>
 </template>

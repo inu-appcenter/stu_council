@@ -1,5 +1,5 @@
 <template>
-  <div id="signupsuccess">
+  <div id="signupsuccess" class="container">
     <h1>회원가입이 완료되었습니다</h1>
     <h2>{{ userId }}@inu.ac.kr로</h2>
     <h3>임시비밀번호가 발송되었습니다.</h3>

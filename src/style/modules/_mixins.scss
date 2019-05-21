@@ -1,0 +1,115 @@
+/* ==============================
+  mixin default font
+============================== */
+@mixin font-stack-html() {
+  -webkit-font-family: 'NotoSansCJKkr', Sans-serif;
+  -khtml-font-family: 'NotoSansCJKkr', Sans-serif;
+  -moz-font-family: 'NotoSansCJKkr', Sans-serif;
+  -ms-font-family: 'NotoSansCJKkr', Sans-serif;
+  -o-font-family: 'NotoSansCJKkr', Sans-serif;
+  font-family: 'NotoSansCJKkr', Sans-serif;
+}
+
+
+/* ==============================
+  text rendering
+============================== */
+@mixin font-settings() {
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -khtml-font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga';
+  -ms-font-feature-settings: 'liga';
+  -o-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
+}
+
+
+/* ==============================
+  default font-size, line-height
+============================== */
+@function calculateRem($size) {
+  $remSize: $size / $grid4x;
+  @return $remSize * 1rem;
+}
+
+@mixin line-height($size) {
+  line-height: $size * 1.6;
+  line-height: calculateRem($size) * 1.6;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  @include line-height($size);
+}
+
+
+/* ==============================
+  transform
+============================== */
+@mixin transform ($val) {
+  -webkit-transform: $val;
+  -khtml-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+
+/* ==============================
+  transition
+============================== */
+@mixin transition ($transition...) {
+  -webkit-transition: $transition;
+  -khtml-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+
+/* ==============================
+  box-shadow
+============================== */
+@mixin box-shadow ($val:$grid, $val2:$grid2x, $color:$black08) {
+  -webkit-box-shadow: 0 $val $val2 $color;
+  -khtml-box-shadow: 0 $val $val2 $color;
+  -moz-box-shadow: 0 $val $val2 $color;
+  -ms-box-shadow: 0 $val $val2 $color;
+  -o-box-shadow: 0 $val $val2 $color;
+  box-shadow: 0 $val $val2 $color;
+}
+
+
+/* ==============================
+  drop-shadow
+============================== */
+@mixin drop-shadow ($val:0, $val2:$grid, $val3:$grid2x, $color:$black16) {
+  -webkit-filter: drop-shadow($val $val2 $val3 $color);
+  -khtml-filter: drop-shadow($val $val2 $val3 $color);
+  -moz-filter: drop-shadow($val $val2 $val3 $color);
+  -ms-filter: drop-shadow($val $val2 $val3 $color);
+  -o-filter: drop-shadow($val $val2 $val3 $color);
+  filter: drop-shadow($val $val2 $val3 $color);
+}
+
+
+/* ==============================
+  border-radius
+============================== */
+@mixin border-radius ($val:$grid4x) {
+  -webkit-border-radius: $val;
+  -khtml-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}

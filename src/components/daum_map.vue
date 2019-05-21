@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <vue-daum-map
+      class="map"
       :appKey="appKey"
       :center.sync="center"
       :level.sync="level"
@@ -57,3 +58,4 @@ export default {
 
 }
 </script>
+

@@ -30,6 +30,9 @@ export default new VueRouter({
   mode: 'history',
 
   routes: [{
+      path: '*',
+      redirect: '/'
+    }, {
       path: '/',
       name: 'home',
       component: home,

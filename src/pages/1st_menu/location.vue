@@ -1,5 +1,5 @@
 <template>
-  <div id="location">
+  <div id="location" class="container">
     <p>location</p>
     <DaumMap></DaumMap>
     <p>위치는 불라불라 입니다.</p>

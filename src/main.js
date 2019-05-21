@@ -14,6 +14,8 @@ import {
 
 Vue.config.productionTip = true
 Vue.prototype.$http = axios
+// .env 에서 카카오 키 관리
+// Kakao.init(process.env.KAKAO_KEY)
 
 //vue-session
 import VueSession from 'vue-session'

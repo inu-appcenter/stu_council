@@ -1,7 +1,7 @@
 <template>
-  <div id="login">
-    <input v-on:keyup.enter="bt_listener()" type="text" v-model="id" placeholder="학번">
-    <input v-on:keyup.enter="bt_listener()" type="password" v-model="password" placeholder="비밀번호">
+  <div id="login" class="container">
+    <input v-on:keyup.enter="bt_listener()" type="text" v-model.trim="id" placeholder="학번">
+    <input v-on:keyup.enter="bt_listener()" type="password" v-model.trim="password" placeholder="비밀번호">
     <input @click="bt_listener()" type="submit" value="로그인">
   </div>
 </template>

@@ -6,11 +6,15 @@ modules
 @import './modules/grid',
 './modules/mqbp',
 './modules/color',
-'./modules/global'
+'./modules/mixins',
+'./modules/global',
+'./modules/layout'
 ;
 
 /*
-components
+componentslocation
 */
-@import './components/menubar'
+@import './components/headercom',
+'./components/footercom',
+'./components/location'
 ;

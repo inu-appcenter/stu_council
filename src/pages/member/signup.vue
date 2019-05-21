@@ -1,11 +1,11 @@
 <template>
-  <div id="signup">
+  <div id="signup" class="container">
     <h1>회원가입</h1>
-      학번 <input type="text" v-model="sign_id"><br>
-      비밀번호 <input type="password" v-model="sign_password"><br>
-      비밀번호 확인<input type="password" v-model="sign_check_password"><br>
-      이름 <input type="text" v-model="sign_name"><br>
-      핸드폰 <input type="text" @keypress="isNum()" v-model="sign_phone"><br>
+      학번 <input type="text" v-model.trim="sign_id"><br>
+      비밀번호 <input type="password" v-model.trim="sign_password"><br>
+      비밀번호 확인<input type="password" v-model.trim="sign_check_password"><br>
+      이름 <input type="text" v-model.trim="sign_name"><br>
+      핸드폰 <input type="text" @keypress="isNum()" v-model.trim="sign_phone"><br>
       학과 <select v-model="sign_major">
           <option value="정보통신공학과">정보통신공학과</option>
           <option value="">-----</option>
