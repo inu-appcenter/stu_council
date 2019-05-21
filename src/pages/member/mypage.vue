@@ -1,14 +1,13 @@
 <template>
-    
+
 </template>
 
 <script>
 export default {
-    name: 'mypage'
+  name: 'mypage',
 
 }
 </script>
 
 <style>
-
 </style>

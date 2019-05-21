@@ -20,12 +20,12 @@ export default {
       'check_session',
     ]),
 
-    userId() {
+    userId () {
       return this.$route.params.id
     },
   },
 
-  created() {
+  created () {
     this.check_session(this.$session.exists())
   },
 
