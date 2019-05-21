@@ -8,12 +8,14 @@
 
 <script>
 import DaumMap from '@/components/daum_map'
+
 export default {
-  name: "location",
+  name: 'location',
 
   components: {
     DaumMap,
   },
+
 }
 </script>
 

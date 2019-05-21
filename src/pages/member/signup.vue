@@ -81,8 +81,8 @@ export default {
     },
 
     isNum () {
-      if(event.keyCode<48 || event.keyCode>57) {
-        event.returnValue=false
+      if(event.keyCode < 48 || event.keyCode > 57) {
+        event.returnValue = false
         alert("휴대폰 번호는 숫자 11자리만 입력해주세요.")
       }
     },

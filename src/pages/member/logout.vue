@@ -6,7 +6,7 @@
 export default {
   name: 'logout',
 
-  created() {
+  created () {
     this.$session.clear()
     this.$session.destroy()
     window.location.href = './'

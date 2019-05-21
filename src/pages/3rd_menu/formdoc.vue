@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "formdoc",
+  name: 'formdoc',
 
 }
 </script>
