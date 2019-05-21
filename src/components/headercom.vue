@@ -2,8 +2,10 @@
   <div id="headercom">
     <div class="home_logo">
       <router-link to="/">home</router-link>
-      <router-link to="/login">login</router-link>
-      <!-- <router-link to="/logout" v-else>logout</router-link> -->
+      <router-link to="/signup" v-if="check_login">회원가입</router-link>
+      <router-link to="/mypage" v-else>마이페이지</router-link>
+      <router-link to="/login" v-if="check_login">로그인</router-link>
+      <router-link to="/logout" v-else>로그아웃</router-link>
 
     </div>
     <div class="menubar">
@@ -40,18 +42,31 @@
 export default {
   name: 'headercom',
 
+  created() {
+    this.check_session()
+  },
 
-  data: () => ({
 
-  }),
+  data: function() {
+    return {
+      check_login: true,
+    }
+  },
 
   methods: {
+    check_session() {
+      if(this.$session.exists()) {
+        this.check_login = false
+      }
+    }
 
   },
 
   computed: {
 
   },
+
+  
 
 }
 </script>

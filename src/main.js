@@ -24,22 +24,10 @@ Vue.config.productionTip = true
 Vue.prototype.$http = axios
 
 
-// 아래의 코드들은 전역으로 설정관리하기 위해 '/src/store/' 로 옮겨졌습니다!
-// const store = new Vuex.Store({
-//   state: {
-//     token: 'logout'
-//   },
+//vue-session
+import VueSession from 'vue-session'
+Vue.use(VueSession)
 
-//   mutations: {
-//     setToken: function (state, data) {
-//       state.token = data
-//     }
-//   },
-
-//   action: {
-
-//   }
-// })
 
 new Vue({
   el: '#app',

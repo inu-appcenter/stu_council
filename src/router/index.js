@@ -6,6 +6,9 @@ import VueRouter from 'vue-router'
 import home from '../pages/home'
 import login from '../pages/member/login'
 import logout from '../pages/member/logout'
+import signup from '../pages/member/signup'
+import mypage from '../pages/member/mypage'
+import signupsuccess from '../pages/member/signupsuccess'
 
 
 import introduce from '../pages/1st_menu/introduce'
@@ -33,6 +36,9 @@ export default new VueRouter ({
   routes: [
     {path: '/', name:'home', component: home,},
     {path: '/login', name:'login', component: login,},
+    {path: '/signup/signup_success', name:'signupsuccess', component: signupsuccess,},
+    {path: '/signup', name:'signup', component: signup,},
+    {path: '/mypage', name:'mypage', component: mypage,},
     {path: '/logout', name:'logout', component: logout,},
     {path: '/introduce', name:'introduce', component: introduce,},
     {path: '/location', name:'location', component: location,},
