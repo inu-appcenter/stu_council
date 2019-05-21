@@ -2,7 +2,7 @@
   <div id="headercom">
       <div class="above_link">
         <router-link to="/login" v-if="check_login" class="above_first">로그인</router-link>
-        <span v-else class="above_first" @click="logout">로그아웃</span>
+        <span v-else class="above_first" @click="_logout">로그아웃</span>
         <router-link to="/signup" v-if="check_login" class="above_second">회원가입</router-link>
         <router-link to="/mypage" v-else class="above_second">마이페이지</router-link>
       </div>
@@ -44,12 +44,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'headercom',
 
   data: _ => ({
     check_login: true,
   }),
+
+  computed: {
+    logout () {
+      return this.$store.state.logout
+    },
+  },
 
   created () {
     this.check_session()
@@ -63,15 +71,10 @@ export default {
     },
 
     // logout.vue 를 여기에 작성했는데 의도하신게 맞나요?
-    logout () {
-      let _confirm = confirm('로그아웃 하시겠습니까?')
-
-      if (_confirm === true) {
-        this.$session.clear()
-        this.$session.destroy()
-        this.$router.push('/login')
-        this.check_login = true
-      }
+    // FIXED:
+    // 슬랙 보고 home.vue 에서도 메소드로 사용할 수 있도록 변경했습니다!
+    _logout () {
+      this.logout(this.$session)
     },
   },
 

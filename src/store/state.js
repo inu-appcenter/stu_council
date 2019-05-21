@@ -10,6 +10,16 @@ const state = {
     }
   },
 
+  logout(session) {
+    let _confirm = confirm('로그아웃 하시겠습니까?')
+    if (_confirm === true) {
+      session.clear()
+      session.destroy()
+      router.push('/login')
+      this.check_login = true
+    }
+  },
+
   footer_info: {
     top: [
       '인천광역시 연수구 아카데미로 119 17호관 206호',
