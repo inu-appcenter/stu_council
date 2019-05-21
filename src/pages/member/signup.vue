@@ -5,7 +5,7 @@
             비밀번호 <input type="password" v-model="sign_password"><br>
             비밀번호 확인<input type="password" v-model="sign_check_password"><br>
             이름 <input type="text" v-model="sign_name"><br>
-            핸드폰 <input type="text" v-model="sign_phone"><br>
+            핸드폰 <input type="text" @keypress="isNum()" v-model="sign_phone"><br>
             학과 <select v-model="sign_major">
                 <option value="정보통신공학과">정보통신공학과</option>
                 <option value="">-----</option>
@@ -61,6 +61,9 @@ export default {
             else if(self.sign_phone == '') {
                 alert("휴대폰 번호를 입력해주세요.")
             }
+            else if(!(self.sign_phone.length == 11)) {
+                alert("휴대폰 번호는 11자리로 입력해주세요.")
+            }
             else if(self.sign_major == '') {
                 alert("학과를 선택해주세요.")
             }
@@ -75,6 +78,13 @@ export default {
             }
             else {
                 self.go_signup(self.sign_id, self.sign_password, self.sign_name, self.sign_phone, self.sign_major)
+            }
+        },
+
+        isNum() {
+            if(event.keyCode<48 || event.keyCode>57) {
+                event.returnValue=false
+                alert("휴대폰 번호는 숫자 11자리만 입력해주세요.")
             }
         },
 

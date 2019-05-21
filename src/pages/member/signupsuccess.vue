@@ -32,7 +32,7 @@ export default {
         check_session() {
             if(this.$session.exists()) {
             alert("로그인 상태로 접근할 수 없는 페이지입니다.")
-            this.$router.push({name:'home'}) // 위와 마찬가지, signup.vue에도 똑같은 함수 존재
+            this.$router.push({name:'home'}) // 고쳤으면함
             }
         }   
     }
