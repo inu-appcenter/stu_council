@@ -11,7 +11,7 @@ import axios from 'axios'
 import { mapState } from 'vuex'
 
 export default {
-  name: "login",
+  name: 'login',
 
   created () {
     this.check_session(this.$session.exists())
@@ -43,27 +43,27 @@ export default {
 
     go_login (id, password) {
       var self = this
-        axios.post('http://117.16.231.66:7003/login/signIn',
-        {id: self.id, passwd: self.password})
-        .then(response => {
-          self.store_token = response.data.token
-          self.$session.start()
-          self.$session.set('member_token', self.store_token)
-          window.location.href ='/'  // 로그인 전으로 이동하면 더 좋을 것 같음, self.$router.go(-1)로 할 경우 로그아웃 후 바로 로그인 했을시 바로 로그아웃 되버리는 현상 존재
-          console.log(response)
-        })
-        .catch(error => {
-          if (error.response.data.ans == self.password_error) {
-            alert("학번과 비밀번호를 확인해주세요.")
-          }
-          else if (error.response.data.ans = self.certification_error) {
-            alert("인천대학교 포털 웹메일에서 인증 후 로그인 가능합니다.")
-          }
-          else {
-            alert("error")
-          }
-          console.log(error.response)
-        })
+      axios.post('http://117.16.231.66:7003/login/signIn',
+      {id: self.id, passwd: self.password})
+      .then(response => {
+        self.store_token = response.data.token
+        self.$session.start()
+        self.$session.set('member_token', self.store_token)
+        window.location.href ='/'  // 로그인 전으로 이동하면 더 좋을 것 같음, self.$router.go(-1)로 할 경우 로그아웃 후 바로 로그인 했을시 바로 로그아웃 되버리는 현상 존재
+        console.log(response)
+      })
+      .catch(error => {
+        if (error.response.data.ans == self.password_error) {
+          alert("학번과 비밀번호를 확인해주세요.")
+        }
+        else if (error.response.data.ans = self.certification_error) {
+          alert("인천대학교 포털 웹메일에서 인증 후 로그인 가능합니다.")
+        }
+        else {
+          alert("error")
+        }
+        console.log(error.response)
+      })
     },
   },
 }

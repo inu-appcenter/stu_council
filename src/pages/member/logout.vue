@@ -4,6 +4,8 @@
 
 <script>
 export default {
+  name: 'logout',
+
   created() {
     this.$session.clear()
     this.$session.destroy()

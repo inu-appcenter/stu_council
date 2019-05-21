@@ -9,12 +9,11 @@
 export default {
   name: 'home',
 
-  created() {
-    
+  created () {
+
   },
 
   methods: {
-    
 
   },
 

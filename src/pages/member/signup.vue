@@ -1,19 +1,19 @@
 <template>
-    <div id="signup">
-            <h1>회원가입</h1>
-            학번 <input type="text" v-model="sign_id"><br>
-            비밀번호 <input type="password" v-model="sign_password"><br>
-            비밀번호 확인<input type="password" v-model="sign_check_password"><br>
-            이름 <input type="text" v-model="sign_name"><br>
-            핸드폰 <input type="text" @keypress="isNum()" v-model="sign_phone"><br>
-            학과 <select v-model="sign_major">
-                <option value="정보통신공학과">정보통신공학과</option>
-                <option value="">-----</option>
-            </select><br>
-            <input type="checkbox" v-model="sign_agree" value="agree">
-            <label>이용약관, 개인정보취급방침에 동의합니다.</label>
-            <input @click="bt_listener" type="submit" value="회원가입">
-    </div>
+  <div id="signup">
+    <h1>회원가입</h1>
+      학번 <input type="text" v-model="sign_id"><br>
+      비밀번호 <input type="password" v-model="sign_password"><br>
+      비밀번호 확인<input type="password" v-model="sign_check_password"><br>
+      이름 <input type="text" v-model="sign_name"><br>
+      핸드폰 <input type="text" @keypress="isNum()" v-model="sign_phone"><br>
+      학과 <select v-model="sign_major">
+          <option value="정보통신공학과">정보통신공학과</option>
+          <option value="">-----</option>
+      </select><br>
+      <input type="checkbox" v-model="sign_agree" value="agree">
+      <label>이용약관, 개인정보취급방침에 동의합니다.</label>
+      <input @click="bt_listener" type="submit" value="회원가입">
+  </div>
 </template>
 
 <script>
@@ -80,14 +80,14 @@ export default {
       }
     },
 
-    isNum() {
+    isNum () {
       if(event.keyCode<48 || event.keyCode>57) {
         event.returnValue=false
         alert("휴대폰 번호는 숫자 11자리만 입력해주세요.")
       }
     },
 
-    go_signup(sign_id, sign_password, sign_name, sign_phone, sign_major) {
+    go_signup (sign_id, sign_password, sign_name, sign_phone, sign_major) {
       var self = this
       axios.post('http://117.16.231.66:7003/login/signUp',
       {
@@ -97,13 +97,13 @@ export default {
         major: self.sign_major,
         name: self.sign_name
       })
-      .then(function(response) {
+      .then(response => {
         if(response.data.ans == self.check_sign_success) {
           self.$router.push({name:'signupsuccess', params: {id: self.sign_id}})
           console.log(response)
         }
       })
-      .catch(function(error) {
+      .catch(error => {
         if(error.response.data.ans == self.check_sign_fail) {
           alert("이미 회원가입된 학번입니다.")
         }
@@ -117,6 +117,3 @@ export default {
 
 }
 </script>
-
-<style>
-</style>
