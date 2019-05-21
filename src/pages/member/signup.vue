@@ -90,7 +90,7 @@ export default {
             })
             .then(function(response) {
                 if(response.data.ans == self.check_sign_success) {
-                    self.$router.push({name:'signupsuccess'})
+                    self.$router.push({name:'signupsuccess', params: {id: self.sign_id}})
                     console.log(response)
                 }
             })

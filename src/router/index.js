@@ -36,7 +36,7 @@ export default new VueRouter ({
   routes: [
     {path: '/', name:'home', component: home,},
     {path: '/login', name:'login', component: login,},
-    {path: '/signup/signup_success', name:'signupsuccess', component: signupsuccess,},
+    {path: '/signup/signup_success/:id', name:'signupsuccess', component: signupsuccess,},
     {path: '/signup', name:'signup', component: signup,},
     {path: '/mypage', name:'mypage', component: mypage,},
     {path: '/logout', name:'logout', component: logout,},
