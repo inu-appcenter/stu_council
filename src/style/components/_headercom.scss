@@ -29,15 +29,13 @@
   text-align: right;
   padding-top: $grid3x;
 
-  a {
+  a,
+  span {
+    cursor: pointer;
     height: 22px;
     margin: 0px 7px 7px 7px;
     font-size: 15px;
     font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: $text333;
   }
