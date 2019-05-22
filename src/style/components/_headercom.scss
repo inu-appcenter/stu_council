@@ -79,15 +79,37 @@
         padding-right: $grid10x;
       }
 
+      @media #{$default} {
+        @include font-size($grid4x);
+      }
+
       >a {
-        padding-left: $grid10x;
-        padding-top: $grid6x;
-        padding-bottom: $grid6x;
         cursor: pointer;
         color: $text111;
+        padding: $grid6x 0 $grid6x $grid10x;
 
         &:hover {
           color: $brand-blue;
+        }
+
+        // 임시방편... 디자이너분들이 mqbp를 지정해주셔야 합니다!
+        @media #{$mq_1240} {
+          padding: $grid7x 0 $grid7x $grid6x;
+          @include font-size($grid5x);
+        }
+
+        @media #{$pro_land} {
+          padding: $grid7x 0 $grid7x $grid4x;
+          @include font-size($grid5x);
+        }
+
+        @media #{$default} {
+          padding: $grid8x 0 $grid8x $grid4x;
+          @include font-size($grid4x);
+        }
+
+        @media #{$pro2} {
+          padding-left: $grid2x;
         }
       }
 
@@ -116,7 +138,7 @@
               display: block;
               width: 100%;
               margin-top: 2px;
-              background-color: #f0f0f0;
+              background-color: #f4f4f4;
               text-align: center;
               padding: $grid4x 0;
               position: relative;

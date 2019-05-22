@@ -26,16 +26,18 @@ $height: $grid10x;
     }
 
     label {
+      width: $width;
+      display: flex;
 
       span {
-        // float: left;
         height: $height;
+        text-align: left;
         display: inline-block;
         width: calc(#{$width} - #{$input});
+        @include line-height($grid7x);
       }
 
       .signup__wrapper-input {
-        float: right;
         width: $input;
         height: $height;
         margin-bottom: $grid3x;
@@ -51,6 +53,7 @@ $height: $grid10x;
       cursor: pointer;
       height: $grid12x;
       font-weight: 600;
+      margin-top: $grid5x;
       background-color: $brand-blue;
       @include font-size($grid4x);
     }

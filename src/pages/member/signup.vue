@@ -29,8 +29,13 @@
           <option value="">-----</option>
         </select><br>
       </label>
-      <input type="checkbox" v-model="sign_agree" value="agree">
-      <label>이용약관, 개인정보취급방침에 동의합니다.</label>
+      <div class="signup__wrapper-checkbox">
+        <label class="signup__wrapper-checkbox_input" for="checkbox">
+          <input id="checkbox" type="checkbox" v-model="sign_agree" value="agree">
+          이용약관, 개인정보취급방침에 동의합니다.
+          <span class="checkmark"></span>
+        </label>
+      </div>
       <input class="signup__wrapper-btn" @click="bt_listener" type="submit" value="회원가입">
     </div>
   </div>

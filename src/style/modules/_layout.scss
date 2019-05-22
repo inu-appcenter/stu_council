@@ -6,6 +6,10 @@
     padding: 0 $grid32x;
   }
 
+  @media #{$pro_land} {
+    padding: 0 $grid28x;
+  }
+
   @media #{$pro2} {
     padding: 0 $grid24x;
   }

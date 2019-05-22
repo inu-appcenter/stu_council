@@ -113,3 +113,85 @@
   -o-border-radius: $val;
   border-radius: $val;
 }
+
+
+/* ==============================
+  custom checkbox
+============================== */
+.signup__wrapper-checkbox {
+
+  input[type='checkbox'] {
+    height: 0 !important;
+    width: 0 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)" !important;
+    -ms-filter: "alpha(opacity=0)" !important;
+    filter: alpha(opacity=0) !important;
+    -webkit-opacity: 0 !important;
+    -khtml-opacity: 0 !important;
+    -moz-opacity: 0 !important;
+    -ms-opacity: 0 !important;
+    -o-opacity: 0 !important;
+    opacity: 0 !important;
+    -webkit-appearance: none !important;
+    -khtml-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .signup__wrapper-checkbox_input {
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    margin-top: $grid4x;
+    padding-left: $grid8x;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+    @include font-size($grid4x);
+
+    .checkmark {
+      top: 2px;
+      left: 0;
+      width: $grid5x !important;
+      height: $grid5x !important;
+      position: absolute;
+      background-color: $black08;
+      @include border-radius($grid);
+      @include transition(all 0.1s ease);
+    }
+
+    &:hover input[type="checkbox"]~.checkmark {
+      background-color: $black16;
+    }
+
+    input[type="checkbox"]:checked~.checkmark {
+      background-color: $brand-yellow;
+    }
+
+    .checkmark:after {
+      content: "";
+      display: none !important;
+      position: absolute !important;
+    }
+
+    input[type="checkbox"]:checked~.checkmark:after {
+      display: block !important;
+    }
+
+    .checkmark:after {
+      top: 3px;
+      right: 7px;
+      width: $grid;
+      height: 9px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      @include transform(rotate(45deg));
+    }
+  }
+}
