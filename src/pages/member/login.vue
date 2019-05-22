@@ -36,8 +36,8 @@ export default {
   methods: {
     bt_listener () {
       var self = this
-      if(self.id == '' || self.password == '') {
-        alert("학번과 패스워드를 입력해주세요.")
+      if(! self.id || ! self.password) {
+        alert('학번과 패스워드를 입력해주세요.')
       }
       else {
         self.go_login(self.id, self.password)
@@ -57,13 +57,13 @@ export default {
       })
       .catch(error => {
         if (error.response.data.ans == self.password_error) {
-          alert("학번과 비밀번호를 확인해주세요.")
+          alert('학번과 비밀번호를 확인해주세요.')
         }
-        else if (error.response.data.ans = self.certification_error) {
-          alert("인천대학교 포털 웹메일에서 인증 후 로그인 가능합니다.")
+        else if (error.response.data.ans == self.certification_error) {
+          alert('인천대학교 포털 웹메일에서 인증 후 로그인 가능합니다.')
         }
         else {
-          alert("error")
+          alert(`error\n${error}`)
         }
         console.log(error.response)
       })

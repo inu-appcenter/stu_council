@@ -1,4 +1,4 @@
-$width: 328px;
+$width: 340px;
 $input: 224px;
 $width_inherited: 264px;
 $height: $grid10x;
@@ -37,11 +37,58 @@ $height: $grid10x;
         @include line-height($grid7x);
       }
 
+      .select-css,
       .signup__wrapper-input {
         width: $input;
         height: $height;
+        padding-left: $grid4x;
+        padding-right: $grid4x;
         margin-bottom: $grid3x;
         border: 1px solid #666;
+      }
+    }
+
+    .select-css {
+      display: block;
+      width: calc(100% - #{$grid20x}) !important;
+      height: $height;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin: 0;
+      border-radius: 0;
+      text-overflow: ellipsis;
+      background-color: #fff;
+      margin-bottom: $grid8x;
+      -webkit-appearance: none !important;
+      -khtml-appearance: none !important;
+      -moz-appearance: none !important;
+      -ms-appearance: none !important;
+      -o-appearance: none !important;
+      appearance: none !important;
+      -webkit-user-select: none !important;
+      -khtml-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      -o-user-select: none !important;
+      user-select: none !important;
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      &:hover {
+        // border-color: #888;
+      }
+
+      &:focus {
+        border-color: #aaa;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+        outline: none;
+      }
+
+      option {
+        font-weight: normal;
       }
     }
 

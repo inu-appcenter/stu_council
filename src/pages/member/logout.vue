@@ -9,7 +9,7 @@ export default {
   created () {
     this.$session.clear()
     this.$session.destroy()
-    window.location.href = './'
+    window.location.href = '/'
     this.$router.go(-1)
   },
 

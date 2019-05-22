@@ -24,6 +24,8 @@ $width: 264px;
     .login__wrapper-input {
       width: $width;
       height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
       margin-bottom: $grid3x;
       border: 1px solid #666;
     }

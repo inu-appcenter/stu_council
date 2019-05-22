@@ -12,7 +12,7 @@ const state = {
 
   logout(session) {
     let _confirm = confirm('로그아웃 하시겠습니까?')
-    if (_confirm === true) {
+    if (_confirm) {
       session.clear()
       session.destroy()
       router.push('/login')

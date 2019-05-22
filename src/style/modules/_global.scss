@@ -21,6 +21,7 @@ a {
 }
 
 
+select,
 button {
   border: none;
   outline: none;
@@ -41,6 +42,8 @@ button {
   }
 }
 
+
+select:focus,
 input:focus,
 select:focus,
 button:focus,
@@ -63,39 +66,26 @@ textarea:focus {
 }
 
 
-
 ::-webkit-input-placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
 
 ::-khtml-placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
 
 ::-moz-placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
 
 ::-ms-placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
 
 ::-o-placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
 
 ::placeholder {
   color: #666;
-  padding-left: $grid4x;
-  padding-right: $grid4x;
 }
