@@ -9,7 +9,7 @@
     <div class="container">
       <div class="below_link">
         <div class="home_logo">
-          <router-link to="/"><img src="src/assets/header_logo.png"></router-link>
+          <router-link to="/"><img src="../assets/header_logo.png"></router-link> <!--src/assets/header_logo.png-->
         </div>
         <div class="menubar">
           <li><router-link to="/introduce">총학생회</router-link>

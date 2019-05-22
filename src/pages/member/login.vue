@@ -63,7 +63,7 @@ export default {
           alert('인천대학교 포털 웹메일에서 인증 후 로그인 가능합니다.')
         }
         else {
-          alert(`error\n${error}`)
+          alert(`${error}`)
         }
         console.log(error.response)
       })
