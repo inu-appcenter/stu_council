@@ -70,6 +70,10 @@ export default {
     check_sign_fail: 'Id',
   }),
 
+  // watch: {
+  //   sign_id: _.debounce
+  // },
+
   methods: {
     bt_listener() {
       var self = this

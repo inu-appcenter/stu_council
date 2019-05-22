@@ -77,7 +77,11 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
+      },
     ]
   },
   resolve: {
@@ -92,13 +96,13 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    
+
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     }
-    
+
   },
   performance: {
     hints: false

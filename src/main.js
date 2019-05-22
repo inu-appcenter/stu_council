@@ -7,6 +7,7 @@ import Vue from 'vue'
 import App from './App'
 import store from '@/store'
 import router from '@/router'
+import VueLodash from 'vue-lodash'
 import axios from 'axios'
 import {
   polyfill
@@ -20,6 +21,7 @@ Vue.prototype.$http = axios
 //vue-session
 import VueSession from 'vue-session'
 Vue.use(VueSession)
+Vue.use(VueLodash)
 
 
 new Vue({
