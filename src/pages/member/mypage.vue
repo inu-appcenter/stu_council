@@ -4,7 +4,7 @@
       <span class="update_wrapper-tile">개인정보수정</span>
       <label>
         <span>학번</span>
-        <input class="update__wrapper-input" type="text" v-model.trim="update_id"><br>
+        <input class="update__wrapper-input" type="text" v-model.trim="update_id" disabled><br>
       </label>
       <label>
         <span>현재 비밀번호</span>
@@ -39,11 +39,20 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapState } from 'vuex'
+import axios from 'axios'
+
 export default {
   name: 'mypage',
 
+  computed: {
+    ...mapState([
+      'fail_access',
+    ]),   
+  },
+
   created() {
+    this.fail_access(! this.$session.exists())
     this.bring_information()
   },
 

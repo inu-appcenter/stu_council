@@ -10,6 +10,13 @@ const state = {
     }
   },
 
+  fail_access: e => {
+    if (e) {
+      alert('로그인 하신 후 이용해주세요.')
+      router.push('/')
+    }
+  },
+
   logout(session) {
     let _confirm = confirm('로그아웃 하시겠습니까?')
     if (_confirm) {
