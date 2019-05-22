@@ -44,8 +44,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'headercom',
 
@@ -70,9 +68,6 @@ export default {
       }
     },
 
-    // logout.vue 를 여기에 작성했는데 의도하신게 맞나요?
-    // FIXED:
-    // 슬랙 보고 home.vue 에서도 메소드로 사용할 수 있도록 변경했습니다!
     _logout () {
       this.logout(this.$session)
     },

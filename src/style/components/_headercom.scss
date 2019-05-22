@@ -73,15 +73,17 @@
       flex-direction: row;
       justify-content: center;
       position: relative;
-      padding-left: $grid10x;
-      padding-top: $grid6x;
       @include font-size($grid6x);
 
       &:not(:last-child) {
         padding-right: $grid10x;
       }
 
-      a {
+      >a {
+        padding-left: $grid10x;
+        padding-top: $grid6x;
+        padding-bottom: $grid6x;
+        cursor: pointer;
         color: $text111;
 
         &:hover {
@@ -99,19 +101,27 @@
         color: $brand-blue;
 
         ul {
+          margin-top: $grid21x;
           display: inline-block;
           width: 200px;
-          padding: $grid9x 0 0 0;
 
-          li {
-            display: block;
-            width: 100%;
-            margin-top: 2px;
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: $grid4x 0;
-            position: relative;
-            @include font-size($grid4x);
+          a {
+            color: $text111;
+
+            &:hover {
+              color: $brand-blue;
+            }
+
+            li {
+              display: block;
+              width: 100%;
+              margin-top: 2px;
+              background-color: #f0f0f0;
+              text-align: center;
+              padding: $grid4x 0;
+              position: relative;
+              @include font-size($grid4x);
+            }
           }
         }
       }
