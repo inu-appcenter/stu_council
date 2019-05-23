@@ -1,7 +1,18 @@
-<template>
+<template lang="pug">
   <div id="signup" class="container">
     <div class="signup__wrapper">
       <span class="signup__wrapper-title">회원가입</span>
+
+      //- label(
+      //-   v-for="info in user_info"
+      //- )
+      //-   span {{ info.title }}
+      //-   input(
+      //-     class="signup__wrapper-input"
+      //-     :type="info.type"
+      //-     v-model.trim="info.value"
+      //-   )
+
       <label>
         <span>학번</span>
         <input class="signup__wrapper-input" type="text" v-model.trim="sign_id"><br>
@@ -20,7 +31,7 @@
       </label>
       <label>
         <span>핸드폰</span>
-        <input class="signup__wrapper-input" type="text" @keypress="isNum()" v-model.trim="sign_phone"><br>
+        <input class="signup__wrapper-input" type="tel" @keypress="isNum()" v-model.trim="sign_phone"><br>
       </label>
       <label>
         <span>학과</span>
@@ -31,8 +42,7 @@
       </label>
       <div class="signup__wrapper-checkbox">
         <label class="signup__wrapper-checkbox_input" for="checkbox">
-          <input id="checkbox" type="checkbox" v-model="sign_agree" value="agree">
-          이용약관, 개인정보취급방침에 동의합니다.
+          <input id="checkbox" type="checkbox" v-model="sign_agree" value="agree">이용약관, 개인정보취급방침에 동의합니다.
           <span class="checkmark"></span>
         </label>
       </div>
@@ -43,20 +53,37 @@
 
 <script>
 import axios from 'axios'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { global } from '@/global'
 
 export default {
   name: 'signup',
 
-  created() {
+  mounted() {
     this.check_session(this.$session.exists())
+    // this._isNum(this.isNum)
+    // console.log(this.get_user_value)
   },
 
   computed: {
     ...mapState([
       'check_session',
+      'user_info',
+      // '_isNum',
     ]),
+
+    // ...mapGetters([
+    //   'get_user_value',
+    // ]),
+
+    // user_info: {
+    //   get () {
+    //     return this.$store.state.user_info
+    //   },
+    //   set (value) {
+    //     this.$store.commit('USER_INFO', value)
+    //   }
+    // },
   },
 
   data: _ => ({
@@ -70,10 +97,6 @@ export default {
     check_sign_success: 'success',
     check_sign_fail: 'Id',
   }),
-
-  // watch: {
-  //   sign_id: _.debounce
-  // },
 
   methods: {
     bt_listener() {

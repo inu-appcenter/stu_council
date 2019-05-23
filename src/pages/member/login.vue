@@ -17,7 +17,7 @@ import { global } from '@/global'
 export default {
   name: 'login',
 
-  created () {
+  mounted () {
     this.check_session(this.$session.exists())
   },
 

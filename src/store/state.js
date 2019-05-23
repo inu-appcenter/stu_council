@@ -1,4 +1,9 @@
+import axios from 'axios'
 import router from '@/router'
+import VueSession from 'vue-session'
+import {
+  global
+} from '@/global'
 
 const state = {
   token: 'logout',
@@ -25,6 +30,64 @@ const state = {
       router.push('/login')
       this.check_login = true
     }
+  },
+
+  // _isNum: e => {
+  //   let getInputTypeTel = document.querySelectorAll('input[value][type="tel"]');
+
+  //   [...getInputTypeTel].forEach(tel => {
+  //     tel.setAttribute('keypress', e)
+  //   })
+  // },
+
+  // get_user_info() {
+  //   let base = global.base
+
+  //   axios.post(`${base}/login/myPage`, {
+  //       token: this.$session.get('member_token')
+  //     })
+  //     .then(response => {
+  //       let update_id = response.data.id
+  //       let update_name = response.data.name
+  //       let update_phone = response.data.tel
+  //       let update_major = response.data.major
+  //     })
+
+  //   console.log(`ID: ${this.update_id}`)
+  // },
+
+  user_info: {
+    id: {
+      value: '',
+      title: '학번',
+      type: 'text',
+
+    },
+    pw: {
+      value: '',
+      title: '비밀번호',
+      type: 'password',
+
+    },
+    pw_confirm: {
+      value: '',
+      title: '비밀번호 확인',
+      type: 'password',
+
+    },
+    name: {
+      value: '',
+      title: '이름',
+      type: 'text',
+
+    },
+    phone: {
+      value: '',
+      title: '핸드폰',
+      type: 'tel',
+      keypress: 'isNum',
+
+    },
   },
 
   footer_info: {

@@ -25,7 +25,7 @@ export default {
     },
   },
 
-  created () {
+  mounted () {
     this.check_session(this.$session.exists())
   },
 

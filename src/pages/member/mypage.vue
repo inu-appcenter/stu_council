@@ -49,12 +49,14 @@ export default {
   computed: {
     ...mapState([
       'fail_access',
+      'get_user_info',
     ]),
   },
 
-  created() {
+  mounted() {
     this.fail_access(! this.$session.exists())
     this.bring_information()
+    this.get_user_info()
   },
 
   data: _=> ({

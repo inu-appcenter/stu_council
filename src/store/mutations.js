@@ -6,4 +6,10 @@ export default {
     state.token = data
   },
 
+  USER_INFO: value => {
+    for (let info in state.user_info) {
+      info.value = value
+    }
+  },
+
 }
