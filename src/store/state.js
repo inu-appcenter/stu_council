@@ -32,14 +32,6 @@ const state = {
     }
   },
 
-  // _isNum: e => {
-  //   let getInputTypeTel = document.querySelectorAll('input[value][type="tel"]');
-
-  //   [...getInputTypeTel].forEach(tel => {
-  //     tel.setAttribute('keypress', e)
-  //   })
-  // },
-
   // get_user_info() {
   //   let base = global.base
 
@@ -85,7 +77,6 @@ const state = {
       value: '',
       title: '핸드폰',
       type: 'tel',
-      keypress: 'isNum',
 
     },
   },

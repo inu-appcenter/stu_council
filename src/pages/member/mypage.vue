@@ -49,14 +49,14 @@ export default {
   computed: {
     ...mapState([
       'fail_access',
-      'get_user_info',
+      // 'get_user_info',
     ]),
   },
 
   mounted() {
     this.fail_access(! this.$session.exists())
     this.bring_information()
-    this.get_user_info()
+    // this.get_user_info()
   },
 
   data: _=> ({
@@ -72,17 +72,17 @@ export default {
 
   methods: {
     isNum () {
-      if(event.keyCode < 48 || event.keyCode > 57) {
+      if (event.keyCode < 48 || event.keyCode > 57) {
         event.returnValue = false
         alert('휴대폰 번호는 숫자 11자리만 입력해주세요.')
       }
     },
 
-    bt_listener() {
+    bt_listener () {
       let self = this
     },
 
-    bring_information() {
+    bring_information () {
       let self = this
       let base = global.base
 

@@ -59,17 +59,27 @@ import { global } from '@/global'
 export default {
   name: 'signup',
 
+  // created() {
+  //   let getInputTypeTel = document.querySelectorAll('input[type="tel"]')
+
+  //   getInputTypeTel.forEach(tel => {
+  //     tel.addEventListener('keydown', (e) => {
+  //       if (event.keyCode < 48 || event.keyCode > 57) {
+  //         event.returnValue = false
+  //         alert('휴대폰 번호는 숫자 11자리만 입력해주세요.')
+  //       }
+  //     })
+  //   })
+  // },
+
   mounted() {
     this.check_session(this.$session.exists())
-    // this._isNum(this.isNum)
-    // console.log(this.get_user_value)
   },
 
   computed: {
     ...mapState([
       'check_session',
       'user_info',
-      // '_isNum',
     ]),
 
     // ...mapGetters([
@@ -99,7 +109,7 @@ export default {
   }),
 
   methods: {
-    bt_listener() {
+    bt_listener () {
       let self = this
       if(! self.sign_id) {
         alert('학번을 입력해주세요.')
