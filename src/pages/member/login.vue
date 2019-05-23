@@ -12,6 +12,7 @@
 <script>
 import axios from 'axios'
 import { mapState } from 'vuex'
+import { global } from '@/global'
 
 export default {
   name: 'login',
@@ -35,8 +36,8 @@ export default {
 
   methods: {
     bt_listener () {
-      var self = this
-      if(! self.id || ! self.password) {
+      let self = this
+      if (! self.id || ! self.password) {
         alert('학번과 패스워드를 입력해주세요.')
       }
       else {
@@ -45,8 +46,10 @@ export default {
     },
 
     go_login (id, password) {
-      var self = this
-      axios.post('http://117.16.231.66:7003/login/signIn',
+      let self = this
+      let base = global.base
+
+      axios.post(`${base}/login/signIn`,
       {id: self.id, passwd: self.password})
       .then(response => {
         self.store_token = response.data.token

@@ -30,13 +30,13 @@ const state = {
   footer_info: {
     top: [
       '인천광역시 연수구 아카데미로 119 17호관 206호',
-      'Email : 36inunb@gmail.com',
-      'Tel : 032) 835 - 4400',
+      'Email: 36inunb@gmail.com',
+      'Tel: 032) 835 - 4400',
     ],
     bottom: [
       'Copyright 인천대학교 앱센터 All rights Reserved',
-      '제작 : 인천대학교 앱센터',
-      '기획 :  인천대학교 제 36대 총학생회 뉴바운스',
+      '제작: 인천대학교 앱센터',
+      '기획: 인천대학교 제 36대 총학생회 뉴바운스',
     ],
   },
 

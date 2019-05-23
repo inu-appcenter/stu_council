@@ -39,8 +39,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import axios from 'axios'
+import { mapState } from 'vuex'
+import { global } from '@/global'
 
 export default {
   name: 'mypage',
@@ -48,7 +49,7 @@ export default {
   computed: {
     ...mapState([
       'fail_access',
-    ]),   
+    ]),
   },
 
   created() {
@@ -76,13 +77,14 @@ export default {
     },
 
     bt_listener() {
-      var self = this
-      
+      let self = this
     },
 
     bring_information() {
-      var self = this
-      axios.post('http://117.16.231.66:7003/login/myPage',
+      let self = this
+      let base = global.base
+
+      axios.post(`${base}/login/myPage`,
       {
         token: self.$session.get('member_token')
       })
@@ -93,7 +95,7 @@ export default {
         self.update_major = response.data.major
       })
     }
-    
+
   }
 
 }

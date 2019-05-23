@@ -44,6 +44,7 @@
 <script>
 import axios from 'axios'
 import { mapState } from 'vuex'
+import { global } from '@/global'
 
 export default {
   name: 'signup',
@@ -76,7 +77,7 @@ export default {
 
   methods: {
     bt_listener() {
-      var self = this
+      let self = this
       if(! self.sign_id) {
         alert('학번을 입력해주세요.')
       }
@@ -110,15 +111,17 @@ export default {
     },
 
     isNum () {
-      if(event.keyCode < 48 || event.keyCode > 57) {
+      if (event.keyCode < 48 || event.keyCode > 57) {
         event.returnValue = false
         alert('휴대폰 번호는 숫자 11자리만 입력해주세요.')
       }
     },
 
     go_signup (sign_id, sign_password, sign_name, sign_phone, sign_major) {
-      var self = this
-      axios.post('http://117.16.231.66:7003/login/signUp',
+      let self = this
+      let base = global.base
+
+      axios.post(`${base}/login/signUp`,
       {
         id: self.sign_id,
         passwd: self.sign_password,
