@@ -1,5 +1,6 @@
 <template>
   <div id="conference" class="container">
+    <div id="notice_board_title">소통창구</div>
     <notice-board
     class="board"
     :fix_notice_items = "fix_items"
