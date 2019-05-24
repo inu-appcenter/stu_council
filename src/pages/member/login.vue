@@ -5,6 +5,7 @@
       <input class="login__wrapper-input" v-on:keyup.enter="bt_listener()" type="text" v-model.trim="id" placeholder="학번">
       <input class="login__wrapper-input" v-on:keyup.enter="bt_listener()" type="password" v-model.trim="password" placeholder="비밀번호">
       <input class="login__wrapper-btn" @click="bt_listener()" type="submit" value="로그인">
+      <router-link to="/findpw">비밀번호 찾기</router-link><span> | </span><router-link to="/signup">회원가입</router-link>
     </div>
   </div>
 </template>
