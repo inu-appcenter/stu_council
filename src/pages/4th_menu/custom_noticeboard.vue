@@ -1,9 +1,9 @@
 <template>
   <div id="conference" class="container">
-    <div id="notice_board_title">학생복지</div>
     <notice-board
     class="board"
     :fix_notice_items = "fix_items"
+    :page_name = "page_name"
     ></notice-board>
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
 
   data: () => ({
     fix_items: global.fourthPageItems,
+    page_name: '학생복지',
     }),
 
 

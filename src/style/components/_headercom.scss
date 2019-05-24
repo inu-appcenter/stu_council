@@ -13,26 +13,31 @@
   }
 
   a,
-  li,
   ul,
   ol {
     text-decoration: none;
     list-style-type: none;
   }
+
+  li{
+    text-decoration: none;
+    list-style-type: none;
+    height:15px;
+  }
 }
 
 .above_link {
   padding: 0 $container;
-  height: 36px;
+  height: 28px;
   background-color: $brand-yellow;
   vertical-align: middle;
   text-align: right;
-  padding-top: $grid3x;
+  padding-top: $grid2x;
 
   a,
   span {
     cursor: pointer;
-    height: 22px;
+    height: 10px;
     margin: 0px 7px 7px 7px;
     font-size: 15px;
     font-weight: 500;
@@ -51,16 +56,15 @@
 
 .below_link {
   width: 100%;
-  height: 84px;
-
+  height: 75px;
 
   .home_logo {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1px;
+    margin-bottom: 15px;
     display: inline-block;
 
     img {
-      height: 44px;
+      height: 40px;
     }
   }
 
@@ -73,7 +77,7 @@
       flex-direction: row;
       justify-content: center;
       position: relative;
-      @include font-size($grid6x);
+      @include font-size($grid5x);
 
       &:not(:last-child) {
         padding-right: $grid10x;
@@ -123,7 +127,7 @@
         color: $brand-blue;
 
         ul {
-          margin-top: $grid21x;
+          margin-top: $grid18x;
           display: inline-block;
           width: 200px;
 
@@ -140,7 +144,7 @@
               margin-top: 2px;
               background-color: #f4f4f4;
               text-align: center;
-              padding: $grid4x 0;
+              padding: $grid2x $grid2x $grid4x $grid3x;
               position: relative;
               @include font-size($grid4x);
             }
