@@ -80,6 +80,7 @@ export default {
     },
 
     data: () => ({
+        selected: true,
     }),
 
   methods: {
@@ -109,7 +110,7 @@ export default {
           else{
               console.error("경로가 잘못 되었습니다")
           }
-      }
+      },
   },
 }
 </script>
