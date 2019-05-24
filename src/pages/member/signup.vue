@@ -17,9 +17,9 @@
         <span>학번</span>
         <input class="signup__wrapper-input" type="text" v-model.trim="sign_id"><br>
       </label>
-      <label>
+      <label style="height:48px">
         <span>비밀번호</span>
-        <input class="signup__wrapper-input" type="password" v-model.trim="sign_password"><br>
+        <input class="signup__wrapper-input" type="password" v-model.trim="sign_password" placeholder="영문,숫자,특수문자 혼합 6~14자"><br> 
       </label>
       <label>
         <span>비밀번호 확인</span>
@@ -106,11 +106,19 @@ export default {
     sign_agree: '',
     check_sign_success: 'success',
     check_sign_fail: 'Id',
+    pw: '',
+    num: '',
+    eng: '',
+    spe: '',
   }),
 
   methods: {
     bt_listener () {
       let self = this
+      self.pw = self.sign_password
+      self.num = self.pw.search(/[0-9]/g)
+      self.eng = self.pw.search(/[a-z]/ig)
+      self.spe = self.pw.search(/[!@#$%^&*?_~]/gi)
       if(! self.sign_id) {
         alert('학번을 입력해주세요.')
       }
@@ -134,6 +142,12 @@ export default {
       }
       else if(self.sign_password.length < 6 || self.sign_password.length > 14) {
         alert('비밀번호는 6~14자로 입력해주세요.')
+      }
+      else if(self.pw.search(/\s/)!=-1) {
+        alert("비밀번호는 공백없이 입력해주세요.")
+      }
+      else if(self.num<0||self.eng<0||self.spe<0) {
+        alert("영문, 숫자, 특수문자를 혼합하여 입력해주세요.\n특수문자는 !@#$%^&>_~만 사용가능합니다.")
       }
       else if(! self.sign_agree) {
         alert('이용약관, 개인정보취급방침 동의에 체크해주세요.')

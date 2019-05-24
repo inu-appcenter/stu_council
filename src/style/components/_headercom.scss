@@ -22,7 +22,6 @@
   li{
     text-decoration: none;
     list-style-type: none;
-    height:15px;
   }
 }
 
@@ -139,6 +138,7 @@
             }
 
             li {
+              height: 15px;
               display: block;
               width: 100%;
               margin-top: 2px;

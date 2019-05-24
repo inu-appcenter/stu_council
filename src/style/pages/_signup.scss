@@ -6,6 +6,10 @@ $height: $grid10x;
 #signup {
   display: table;
   margin: $grid32x auto;
+  
+  .sign_info {
+    font-size: 9px;
+  }
 
   .signup__wrapper {
     width: $width;
@@ -45,6 +49,12 @@ $height: $grid10x;
         padding-right: $grid4x;
         margin-bottom: $grid3x;
         border: 1px solid #666;
+
+        ::placeholder {
+          color: #666666;
+          font-size: 8px;
+        }
+        
       }
     }
 

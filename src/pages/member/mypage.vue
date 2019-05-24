@@ -33,7 +33,7 @@
           <option value="">-----</option>
         </select><br>
       </label>
-      <input class="update__wrapper-btn" type="submit" value="수정하기">
+      <input class="update__wrapper-btn" @click="bt_listener()" type="submit" value="수정하기">
     </div>
   </div>
 </template>
@@ -68,6 +68,10 @@ export default {
     update_phone: '',
     update_major: '',
     update_agree: '',
+    pw: '',
+    num: '',
+    eng: '',
+    spe: '',
   }),
 
   methods: {
@@ -80,13 +84,64 @@ export default {
 
     bt_listener () {
       let self = this
+      self.pw = self.update_password
+      self.num = self.pw.search(/[0-9]/g)
+      self.eng = self.pw.search(/[a-z]/ig)
+      self.spe = self.pw.search(/[!@#$%^&*?_~]/gi)
+
+      if(! self.sign_password) {
+        alert('비밀번호를 입력해주세요.')
+      }
+      else if(! self.update_name) {
+        alert('이름을 입력해주세요.')
+      }
+      else if(! self.update_phone) {
+        alert('휴대폰 번호를 입력해주세요.')
+      }
+      else if(self.update_phone.length != 11) {
+        alert('휴대폰 번호는 11자리로 입력해주세요.')
+      }
+       else if(! self.update_major) {
+        alert('학과를 선택해주세요.')
+      }
+      else if(self.update_password.length >0) {
+        if(self.pw.search(/\s/)!=-1) {
+          alert("비밀번호는 공백없이 입력해주세요.")
+        }
+        else if(self.update_password.length < 6 || self.update_password.length > 14) {
+          alert('비밀번호는 6~14자로 입력해주세요.\n비밀번호 수정을 원하지 않는다면 빈칸으로 남겨주세요.')
+        }
+        else if(self.update_password != self.update_check_password) {
+          alert('두 비밀번호가 동일해야합니다.')
+        }
+        else if(self.num<0||self.eng<0||self.spe<0) {
+          alert("영문, 숫자, 특수문자를 혼합하여 입력해주세요.\n특수문자는 !@#$%^&>_~만 사용가능합니다.")
+        }
+        else {
+          self.go_update()
+        }
+      }
+      else {
+        self.go_update()
+      }
     },
+
+    go_update() {
+      let self = this
+      let base = global.base
+
+      axios.post(`${base}/account/changeInfo`, {
+        
+      })
+    },
+
+
 
     bring_information () {
       let self = this
       let base = global.base
 
-      axios.post(`${base}/login/myPage`,
+      axios.post(`${base}/account/myPage`,
       {
         token: self.$session.get('member_token')
       })
