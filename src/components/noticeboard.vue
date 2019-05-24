@@ -9,7 +9,9 @@
         </div>
         <div id="contents_board">
             <table>
-                {{contents_list_name}}
+                <div>
+                    {{contents_list_name}}
+                </div>
             </table>
         </div>
     </div>
@@ -23,7 +25,12 @@ import { global } from '@/global'
 export default {
     name: 'noticeboard',
 
-    props: ['fix_notice_items'],
+    props: {
+        fix_notice_items: {
+        type: Array,
+        default: () =>(['아이템1', '아이템2', '아이템3', '아이템4', '아이템5'])
+        },
+    },
 
     created(){
         this.getContentsList()
@@ -31,7 +38,6 @@ export default {
 
     data: () => ({
         contents_list_name: '',
-        fix_notice_items: ['아이템1', '아이템2', '아이템3', '아이템4', '아이템5'],
     }),
 
   methods: {
