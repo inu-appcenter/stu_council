@@ -34,7 +34,8 @@ export default new VueRouter({
   routes: [{
       path: '*',
       redirect: '/'
-    }, {
+    },
+    {
       path: '/',
       name: 'home',
       component: home,
