@@ -8,9 +8,9 @@
             </table>
         </div>
         <div id="contents_board">
-            <table>
+            <table v-for="(item, index) in contents_list" :key="index">
                 <div>
-                    {{contents_list_name}}
+                    {{item}}
                 </div>
             </table>
         </div>
@@ -37,7 +37,7 @@ export default {
     },
 
     data: () => ({
-        contents_list_name: '',
+        contents_list: [],
     }),
 
   methods: {
@@ -45,7 +45,11 @@ export default {
           var self = this
           axios.get(`${global.base}/board/all`)
           .then(response =>{
-              self.contents_list_name = response.data.name
+              var dataIndex = 0
+              for(var item in response.data){
+                self.contents_list.push(response.data[item].title)
+                dataIndex += 1
+              }
           })
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
