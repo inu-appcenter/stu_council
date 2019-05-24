@@ -8,6 +8,8 @@ import logout from '../pages/member/logout'
 import signup from '../pages/member/signup'
 import mypage from '../pages/member/mypage'
 import signupsuccess from '../pages/member/signupsuccess'
+import findpw from '../pages/member/find_pw'
+import findsuccess from '../pages/member/find_success'
 
 import introduce from '../pages/1st_menu/introduce'
 import location from '../pages/1st_menu/location'
@@ -41,6 +43,16 @@ export default new VueRouter({
       path: '/login',
       name: 'login',
       component: login,
+    },
+    {
+      path: '/findpw',
+      name: 'findpw',
+      component: findpw,
+    },
+    {
+      path: '/findpw/findsuccess/:id',
+      name: 'findsuccess',
+      component: findsuccess,
     },
     {
       path: '/signup/signup_success/:id',

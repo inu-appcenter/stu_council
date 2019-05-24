@@ -170,11 +170,11 @@ export default {
 
       axios.post(`${base}/login/signUp`,
       {
-        id: self.sign_id,
-        passwd: self.sign_password,
-        tel: self.sign_phone,
-        major: self.sign_major,
-        name: self.sign_name
+        id: sign_id,
+        passwd: sign_password,
+        tel: sign_phone,
+        major: sign_major,
+        name: sign_name
       })
       .then(response => {
         if(response.data.ans == self.check_sign_success) {

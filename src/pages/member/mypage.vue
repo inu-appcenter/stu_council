@@ -118,22 +118,43 @@ export default {
           alert("영문, 숫자, 특수문자를 혼합하여 입력해주세요.\n특수문자는 !@#$%^&>_~만 사용가능합니다.")
         }
         else {
-          self.go_update()
+          self.go_update(self.sign_password, self.update_password, self.update_name, self.update_phone, self.update_major)
         }
       }
       else {
-        self.go_update()
+        self.go_update(self.sign_password, self.update_password, self.update_name, self.update_phone, self.update_major)
       }
     },
-
-    go_update() {
+  /*
+    go_update (sign_id, sign_password, sign_name, sign_phone, sign_major) {
       let self = this
       let base = global.base
 
-      axios.post(`${base}/account/changeInfo`, {
-        
+      axios.post(`${base}/account/changeInfo`,
+          {
+            headers: {
+            "x-access-token": self.$session.get('member_token')
+
+            },
+            body: {
+                "passwd": self.sign_password,
+                "newPasswd": self.update_password,
+                "tel": self.update_phone,
+                "major": self.update_major,
+                "name": self.update_name
+          }
+        }
+      )
+      .then(response => {
+        console.log(response)
       })
-    },
+      .error(error => {
+        console.error(error.response)
+      })
+
+      
+
+    },*/
 
 
 
