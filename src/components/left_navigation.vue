@@ -10,10 +10,6 @@
 </template>
 
 <style>
-    .navigation_body{
-        padding-top: 100px;
-    }
-
     #navigation_title{
         width: 250px;
         height: 34px;

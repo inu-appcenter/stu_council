@@ -1,34 +1,86 @@
 <template>
   <div id="rental" class="container">
-    <custom-navigation></custom-navigation>
-    <div id="notice_contents">
-      <div id="content_name">{{content_name}}</div>
-      <div id="content_body">
-        <table v-for="(item, index) in contents_list" :key="index">
-          <div>
-              {{item}}
-          </div>
-      </table>
+    <div class="body_container">
+      <custom-navigation></custom-navigation>
+      <div id="notice_contents">
+        <div id="content_name">{{content_name}}</div>
+        <div id="content_body">
+          <table>
+            <tr>
+              <td id="title" class="headTd">번호</td>
+              <td id="title" class="headTd">제목</td>
+              <td id="title" class="headTd">글쓴이</td>
+              <td id="title" class="headTd">날짜</td>
+              <td id="title" class="headTd">조회</td>
+            </tr>
+            <tr v-for="(item, index) in contents_list" :key="index">
+              <td class="headTd" style="width:5%;">{{index+1}}</td>
+              <td class="contentTd" style="width:50%;">{{item.title}}</td>
+              <td style="width:10%;">{{item.author}}</td>
+              <td style="width:10%;">{{item.date}}</td>
+              <td style="width:10%;">{{item.viewTime}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style>
+
+    table{
+    border-spacing: 0px;
+  }
+
+  tr, td{
+    text-align: center;
+    padding: 1px 5px;
+    border-bottom: 1px solid #111111;
+  }
+
+  #title.headTd{
+    padding: 20px 0px;
+  }
+
+  .contentTd{
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #111111;
+  }
+
+  .headTd{
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #111111;
+  }
+
   #rental.container{
+    padding: 70px 128px;
+  }
+
+  .body_container{
     display: flex;
     width: 100%;
-    padding: 0px 128px;
-    margin: 0px;
   }
 
   #notice_contents{
-    margin-top: 100px;
     margin-left: 7%;
+    width: 100%;
   }
 
   #content_name{
-    width: 250px;
     height: 34px;
     font-family: NotoSansCJKkr;
     font-size: 23px;
@@ -41,8 +93,8 @@
   }
 
   #content_body{
+    width: 100%;
     margin-top: 7px;
-    width: 250px;
     background-color: #ffffff;
     border-top: 3px solid #000000;
     border-bottom: 3px solid #000000;
@@ -74,12 +126,11 @@ export default {
   methods: {
     getContentsList(){
           var self = this
-          axios.get(`${global.base}/board/all`)
+          axios.post(`${global.base}/board/all`, {boardKind: 5})
           .then(response =>{
-              var dataIndex = 0
-              for(var item in response.data){
-                self.contents_list.push(response.data[item].title)
-                dataIndex += 1
+            var rentalData = response.data[0]
+              for(var item in rentalData){
+                self.contents_list.push(rentalData[item])
               }
           })
           .catch(error => {
