@@ -203,7 +203,7 @@ export default {
         self.go_update(self.sign_password, self.update_password, self.update_name, self.update_phone, self.update_major)
       }
     },
-  /*
+  
     go_update (sign_id, sign_password, sign_name, sign_phone, sign_major) {
       let self = this
       let base = global.base
@@ -229,7 +229,7 @@ export default {
         console.error(error.response)
       })
     },
-*/
+
 
 
     bring_information () {
