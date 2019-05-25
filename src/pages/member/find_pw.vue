@@ -8,7 +8,7 @@
         <label>
             <input placeholder="이름" class="find__wrapper-input" type="text" v-model.trim="find_name"><br>
         </label>
-        <input class="find__wrapper-btn" @click="bt_listener()" type="submit" value="수정하기">
+        <input class="find__wrapper-btn" @click="bt_listener()" type="submit" value="임시비밀번호 전송">
     </div>
 </template>
 

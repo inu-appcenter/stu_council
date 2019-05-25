@@ -1,7 +1,7 @@
 <template>
-  <div id="mypage">
-    <div class="update_wrapper">
-      <span class="update_wrapper-tile">개인정보수정</span>
+  <div id="mypage" class="container">
+    <div class="update__wrapper">
+      <span class="update__wrapper-title">개인정보수정</span>
       <label>
         <span>학번</span>
         <input class="update__wrapper-input" type="text" v-model.trim="update_id" disabled><br>
