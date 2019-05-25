@@ -1,8 +1,7 @@
 <template>
   <div id="location" class="container">
-    <p>location</p>
+    <p>인천광역시 연수구 아카데미로 119 17호관 206호</p>
     <DaumMap></DaumMap>
-    <p>위치는 불라불라 입니다.</p>
   </div>
 </template>
 

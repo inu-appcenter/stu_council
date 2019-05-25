@@ -28,7 +28,7 @@
       </label>
       <label>
         <span>학과</span>
-        <select class="select-css" v-model="update_major" size="5">
+        <select class="select-css" v-model="update_major">
           <option value="" disabled>---------학과선택---------</option>
           <option value="교직원">교직원</option>
           <option value="" disabled>------------ㄱ------------</option>
@@ -211,18 +211,15 @@ export default {
       axios.post(`${base}/account/changeInfo`,
             {
               "token": self.$session.get('member_token'),
-              auth: {
-                passwd: self.sign_password,
-                newPasswd: self.update_password,
-                tel: self.update_phone,
-                major: self.update_major,
-                name: self.update_name
-                }
+              passwd: self.sign_password,
+              newPasswd: self.update_password,
+              tel: self.update_phone,
+              major: self.update_major,
+              name: self.update_name    
             }
-          
-        
       )
       .then(response => {
+        self.$router.push('/')
         console.log(response)
       })
       .catch(error => {

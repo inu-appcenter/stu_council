@@ -61,7 +61,7 @@ export default {
                 console.log(response)
             })
             .catch(error => {
-                alert('학번과 이름이 일치하지 않습니다.')
+                alert('정확한 학번과 이름을 입력해주세요.\n회원가입을 하지 않으셨다면 회원가입을 해주세요.')
             })
         }
     },
