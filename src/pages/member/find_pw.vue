@@ -1,14 +1,16 @@
 <template>
-    <div id="find_pw">
-        <span class="find_wrapper-title">비밀번호 찾기</span><br>
-        <label>
-            <input placeholder="학번" class="find__wrapper-input" type="text" v-model.trim="find_id">
-            <span>@inu.ac.kr</span><br>
-        </label>
-        <label>
-            <input placeholder="이름" class="find__wrapper-input" type="text" v-model.trim="find_name"><br>
-        </label>
-        <input class="find__wrapper-btn" @click="bt_listener()" type="submit" value="임시비밀번호 전송">
+    <div id="find_pw" class="container">
+        <div class="find_pw__wrapper">
+            <span class="find_pw__wrapper-title">비밀번호 찾기</span><br>
+            <label>
+                <input placeholder="학번" class="find_pw__wrapper-input-1" type="text" v-model.trim="find_id">
+                <span class="url">@inu.ac.kr</span><br>
+            </label>
+            <label>
+                <input placeholder="이름" class="find_pw__wrapper-input-2" type="text" v-model.trim="find_name"><br>
+            </label>
+            <input class="find_pw__wrapper-btn" @click="bt_listener()" type="submit" value="임시비밀번호 전송">
+        </div>
     </div>
 </template>
 

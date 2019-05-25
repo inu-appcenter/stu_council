@@ -1,32 +1,31 @@
 $width: 264px;
 
-#login {
+#find_pw {
   display: table;
   margin: $grid64x auto;
 
-  a {
-    margin-left: 4px;
-    margin-right: 4px;
-    height: 20px;
-    color: #003e8f !important;
+  .url {
+    width: 81px;
+    height: 24px;
     font-family: NotoSansCJKkr;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
+    color: #666666;
   }
 
-  .login__wrapper {
+  .find_pw__wrapper {
     width: $width;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
 
-    .login__wrapper-title {
-      width: 144px;
+    .find_pw__wrapper-title {
+      width: 160px;
       margin: 0 auto;
       display: block;
       height: $grid10x;
@@ -36,8 +35,8 @@ $width: 264px;
       @include font-size($grid6x);
     }
 
-    .login__wrapper-input {
-      width: $width;
+    .find_pw__wrapper-input-1 {
+      width: 184px;
       height: $grid10x;
       padding-left: $grid4x;
       padding-right: $grid4x;
@@ -45,7 +44,16 @@ $width: 264px;
       border: 1px solid #666;
     }
 
-    .login__wrapper-btn {
+    .find_pw__wrapper-input-2 {
+        width: $width;
+        height: $grid10x;
+        padding-left: $grid4x;
+        padding-right: $grid4x;
+        margin-bottom: $grid3x;
+        border: 1px solid #666;
+      }
+
+    .find_pw__wrapper-btn {
       width: 100%;
       border: none;
       outline: none;
