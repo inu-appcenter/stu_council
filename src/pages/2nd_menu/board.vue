@@ -67,7 +67,7 @@
   }
 
   #board.container{
-    padding: 70px 128px;
+    padding: 90px 128px;
   }
 
   .body_container{

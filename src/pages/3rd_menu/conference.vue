@@ -22,6 +22,9 @@
             </tr>
           </table>
         </div>
+        <div class="customPagination">
+          <pagination id="pagination"></pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -37,6 +40,15 @@
     text-align: center;
     padding: 1px 5px;
     border-bottom: 1px solid #111111;
+  }
+
+  .customPagination{
+    display: flex;
+    margin: 30px;
+  }
+
+  #pagination{
+    margin: auto;
   }
 
   #title.headTd{
@@ -67,7 +79,7 @@
   }
 
   #conference.container{
-    padding: 70px 128px;
+    padding: 90px 128px;
   }
 
   .body_container{
@@ -107,6 +119,7 @@
 import customNavigation from '@/pages/3rd_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
+import pagination from '@/components/pagination'
 
 export default {
   name: 'conference',
@@ -117,6 +130,7 @@ export default {
 
   components: {
         customNavigation,
+        pagination,
     },
 
   data: () => ({
