@@ -19,11 +19,11 @@
       </label>
       <label style="height:48px">
         <span>비밀번호</span>
-        <input class="signup__wrapper-input" type="password" v-model.trim="sign_password" placeholder="영문,숫자,특수문자 혼합 6~14자"><br> 
+        <input style="font-size:14px" class="signup__wrapper-input" type="password" v-model.trim="sign_password" placeholder="영문,숫자,특수문자 혼합 6~14자"><br> 
       </label>
       <label>
         <span>비밀번호 확인</span>
-        <input class="signup__wrapper-input" type="password" v-model.trim="sign_check_password"><br>
+        <input class="signup__wrapper-input" style="font-size:14px" type="password" v-model.trim="sign_check_password"><br>
       </label>
       <label>
         <span>이름</span>
@@ -35,9 +35,87 @@
       </label>
       <label>
         <span>학과</span>
-        <select class="select-css" v-model="sign_major">
+        <select class="select-css" v-model="sign_major" >
+          <option value="" disabled>---------학과선택---------</option>
+          <option value="교직원">교직원</option>
+          <option value="" disabled>------------ㄱ------------</option>
+          <option value="건설환경공학부">건설환경공학부</option>
+          <option value="경영학부">경영학부</option>
+          <option value="경제학과">경제학과</option>
+          <option value="공연예술학과">공연예술학과</option>
+          <option value="국어교육과">국어교육과</option>
+          <option value="국어국문학과">국어국문학과</option>
+          <option value="글로벌물류학과">글로벌물류학과</option>
+          <option value="기계공학과">기계공학과</option>
+          <option value="" disabled>------------ㄷ------------</option>
+          <option value="도시건축학부">도시건축학부</option>
+          <option value="도시공학과">도시공학과</option>
+          <option value="도시시설관리공학과">도시시설관리공학과</option>
+          <option value="도시행정학과">도시행정학과</option>
+          <option value="독어독문학과">독어독문학과</option>
+          <option value="디자인학부">디자인학부</option>
+          <option value="" disabled>------------ㄹ------------</option>
+          <option value="러시아통상학과">러시아통상학과</option>
+          <option value="" disabled>------------ㅁ------------</option>
+          <option value="메카트로닉스공학과">메카트로닉스공학과</option>
+          <option value="무역학부">무역학부</option>
+          <option value="문헌정보학과">문헌정보학과</option>
+          <option value="물리학과">물리학과</option>
+          <option value="미국통상학과">미국통상학과</option>
+          <option value="" disabled>------------ㅂ------------</option>
+          <option value="바이오경영학과">바이오경영학과</option>
+          <option value="법학부">법학부</option>
+          <option value="불어불문학과">불어불문학과</option>
+          <option value="" disabled>------------ㄹ------------</option>
+          <option value="사회복지학과">사회복지학과</option>
+          <option value="산업경영공학과">산업경영공학과</option>
+          <option value="생명공학부">생명공학부</option>
+          <option value="생명과학부">생명과학부</option>
+          <option value="세무회계학과">세무회계학과</option>
+          <option value="소비자·아동학과">소비자·아동학과</option>
+          <option value="수학과">수학과</option>
+          <option value="수학교육과">수학교육과</option>
+          <option value="신문방송학과">신문방송학과</option>
+          <option value="신소재공학과">신소재공학과</option>
+          <option value="" disabled>------------ㅇ------------</option>
+          <option value="안전공학과">안전공학과</option>
+          <option value="에너지화학공학과">에너지화학공학과</option>
+          <option value="역사교육과">역사교육과</option>
+          <option value="영어교육과">영어교육과</option>
+          <option value="영어영문학과">영어영문학과</option>
+          <option value="운동건강과학부">운동건강과학부</option>
+          <option value="유아교육과">유아교육과</option>
+          <option value="영어교육과">영어교육과</option>
+          <option value="영어영문학과">영어영문학과</option>
+          <option value="유아교육과">유아교육과</option>
+          <option value="윤리교육과">윤리교육과</option>
+          <option value="융합시스템공학과">융합시스템공학과</option>
+          <option value="일본통상학과">일본통상학과</option>
+          <option value="일어교육과">일어교육과</option>
+          <option value="일어일문학과">일어일문학과</option>
+          <option value="임베디드시스템공학과">임베디드시스템공학과</option>
+          <option value="일본통상학과">일본통상학과</option>
+          <option value="" disabled>------------ㅈ------------</option>
+          <option value="전기공학과">전기공학과</option>
+          <option value="전자공학과">전자공학과</option>
+          <option value="정보전자공학과">정보전자공학과</option>
           <option value="정보통신공학과">정보통신공학과</option>
-          <option value="">-----</option>
+          <option value="정치외교학과">정치외교학과</option>
+          <option value="조형예술학부">조형예술학부</option>
+          <option value="중국통상학과">중국통상학과</option>
+          <option value="중어중국학과">중어중국학과</option>
+          <option value="" disabled>------------ㅊ------------</option>
+          <option value="창의인재개발학과">창의인재개발학과</option>
+          <option value="체육교육과">체육교육과</option>
+          <option value="체육학부">체육학부</option>
+          <option value="" disabled>------------ㅋ------------</option>
+          <option value="컴퓨터공학부">컴퓨터공학부</option>
+          <option value="" disabled>------------ㅍ------------</option>
+          <option value="패션산업학과">패션산업학과</option>
+          <option value="" disabled>------------ㅎ------------</option>
+          <option value="해양학과">해양학과</option>
+          <option value="행정학과">행정학과</option>
+          <option value="화학과">화학과</option>
         </select><br>
       </label>
       <div class="signup__wrapper-checkbox">
