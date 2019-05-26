@@ -14,7 +14,7 @@
               <td id="title" class="headTd">조회</td>
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
-              <td class="headTd" style="width:5%;">{{index+1}}</td>
+              <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;">{{item.title}}</td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
@@ -30,6 +30,7 @@
 <style>
 
   table{
+    width: 100%;
     border-spacing: 0px;
   }
 
@@ -125,14 +126,26 @@ export default {
     }),
 
   methods: {
+    getDate(date){
+          var result = date.split(' ')
+          return result[0]
+    },
     getContentsList(){
           var self = this
-          axios.post(`${global.base}/board/all`, {boardKind: 5})
+          axios.post(`${global.base}/board/all`, {boardKind: 4})
           .then(response =>{
-            var financialData = response.data[1]
+            var financialData = response.data[0]
             console.log(financialData)
               for(var item in financialData){
-                self.contents_list.push(financialData[item])
+                var content = new Object()
+
+                content.index = parseInt(item) + 1
+                content.title = financialData[item].title
+                content.author = financialData[item].author
+                content.date = self.getDate(financialData[item].date)
+                content.viewTime = financialData[item].viewTime
+
+                self.contents_list.push(content)
               }
           })
           .catch(error => {

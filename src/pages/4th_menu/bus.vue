@@ -14,7 +14,7 @@
               <td id="title" class="headTd">조회</td>
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
-              <td class="headTd" style="width:5%;">{{index+1}}</td>
+              <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;">{{item.title}}</td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
@@ -30,6 +30,7 @@
 <style>
 
     table{
+    width: 100%;
     border-spacing: 0px;
   }
 
@@ -125,14 +126,27 @@ export default {
     }),
 
   methods: {
+    getDate(date){
+          var result = date.split(' ')
+          return result[0]
+    },
     getContentsList(){
           var self = this
-          axios.post(`${global.base}/board/all`, {boardKind: 5})
+          axios.post(`${global.base}/board/all`, {boardKind: 7})
           .then(response =>{
-            var busData = response.data[1]
-              for(var item in busData){
-                self.contents_list.push(busData[item])
-              }
+            var busData = response.data[0]
+            for(var item in busData){
+              
+              var content = new Object()
+
+              content.index = parseInt(item) + 1
+              content.title = busData[item].title
+              content.author = busData[item].author
+              content.date = self.getDate(busData[item].date)
+              content.viewTime = busData[item].viewTime
+
+              self.contents_list.push(content)
+            }
           })
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");

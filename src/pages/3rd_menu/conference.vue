@@ -14,7 +14,7 @@
               <td id="title" class="headTd">조회</td>
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
-              <td class="headTd" style="width:5%;">{{index+1}}</td>
+              <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;">{{item.title}}</td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
@@ -33,6 +33,7 @@
 <style>
 
   table{
+    width: 100%;
     border-spacing: 0px;
   }
 
@@ -140,6 +141,10 @@ export default {
     }),
 
   methods: {
+    getDate(date){
+          var result = date.split(' ')
+          return result[0]
+    },
     getContentsList(){
           var self = this
           // let config = {
@@ -147,11 +152,19 @@ export default {
           //     "token": self.aaa
           //   }
           // }
-          axios.post(`${global.base}/board/all`,{boardKind: 5})
+          axios.post(`${global.base}/board/all`,{boardKind: 3})
           .then(response =>{
             var conferenceData = response.data[0]
               for(var item in conferenceData){
-                self.contents_list.push(conferenceData[item])
+                var content = new Object()
+
+                content.index = parseInt(item) + 1
+                content.title = conferenceData[item].title
+                content.author = conferenceData[item].author
+                content.date = self.getDate(conferenceData[item].date)
+                content.viewTime = conferenceData[item].viewTime
+
+                self.contents_list.push(content)
               }
           })
           .catch(error => {
