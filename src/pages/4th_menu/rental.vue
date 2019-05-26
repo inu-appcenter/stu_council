@@ -107,6 +107,7 @@
 import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
+import detailPage from '@/pages/member/detail'
 
 export default {
   name: 'rental',
@@ -117,6 +118,7 @@ export default {
 
   components: {
         customNavigation,
+        detailPage,
     },
 
   data: () => ({

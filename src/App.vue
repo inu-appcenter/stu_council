@@ -18,6 +18,9 @@ export default {
     footercom,
   },
 
+  data: () => ({
+    }),
+
 }
 </script>
 

@@ -1,35 +1,49 @@
 <template>
-    <div>
-        <div>
-            <div class="detailComponent" id="titleDiv">
-                <p class="fixComponent">제목</p>
-                <p class="flexComponent">{{title}}</p>
-            </div>
-        </div>
-        <div id="secondDiv">
-            <div class="detailComponent">
-                <p class="fixComponent">작성자</p>
-                <p class="flexComponent">{{author}}</p>
-            </div>
-            <div class="detailComponent">
-                <p class="fixComponent">작성일</p>
-                <p class="flexComponent">{{date}}</p>
-            </div>
-            <div class="detailComponent">
-                <p class="fixComponent">조회수</p>
-                <p class="flexComponent">{{viewCount}}</p>
-            </div>
-        </div>
+  <div id=detail class="container">
+    <div class="body_container">
+      <custom-navigation></custom-navigation>
+      <div id="notice_contents">
+        <div id="content_name">{{content_name}}</div>
+        <div id="content_body">
+            <table>
+                <div>
+                    <div class="detailComponent" id="titleDiv">
+                        <p class="fixComponent">제목</p>
+                        <p class="flexComponent">{{title}}</p>
+                    </div>
+                </div>
+                <div id="secondDiv">
+                    <div class="detailComponent">
+                        <p class="fixComponent">작성자</p>
+                        <p class="flexComponent">{{author}}</p>
+                    </div>
+                    <div class="detailComponent">
+                        <p class="fixComponent">작성일</p>
+                        <p class="flexComponent">{{date}}</p>
+                    </div>
+                    <div class="detailComponent">
+                        <p class="fixComponent">조회수</p>
+                        <p class="flexComponent">{{viewCount}}</p>
+                    </div>
+                </div>
 
         <div>
             <div class="detailComponent" id="content">
                 <p>{{body}}</p>
             </div>
         </div>
+            </table>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style>
+  table{
+    width: 100%;
+    border-spacing: 0px;
+  }
     .detailComponent{
         display: flex;
         width: 100%;
@@ -79,10 +93,45 @@
         background-color: #ffffff;
         border-bottom: 3px solid #f5f5f5;
     }
+
+    #detail.container{
+    padding: 90px 128px;
+  }
+
+  .body_container{
+    display: flex;
+    width: 100%;
+  }
+
+  #notice_contents{
+    margin-left: 7%;
+    width: 100%;
+  }
+
+  #content_name{
+    height: 34px;
+    font-family: NotoSansCJKkr;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.48;
+    letter-spacing: normal;
+    color: #003e8f;
+  }
+
+  #content_body{
+    width: 100%;
+    margin-top: 7px;
+    background-color: #ffffff;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+  }
 </style>
 
 
 <script>
+import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
 
@@ -95,7 +144,12 @@ export default {
       this.getData()
   },
 
+  components: {
+      customNavigation,
+  },
+
   data: () => ({
+      content_name: '물품대여',
       boardId: '0',
       boardKind: 'INUAPPCEN',
       title: '',
