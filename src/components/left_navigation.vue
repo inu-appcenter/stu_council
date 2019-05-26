@@ -82,7 +82,14 @@ export default {
   methods: {
       btnEvent(itemName){
           var self = this
-          if(itemName == '회의보고'){
+          if(itemName == '총학생회 소개'){
+              self.$router.push('introduce')
+          }
+          else if(itemName == '총학생회 위치'){
+              self.$router.push('location')
+
+          }
+          else if(itemName == '회의보고'){
               self.$router.push('conference')
           }
           else if(itemName == '재정보고'){
