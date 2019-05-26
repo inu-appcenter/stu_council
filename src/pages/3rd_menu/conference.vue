@@ -15,7 +15,7 @@
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
-              <td class="contentTd" style="width:50%;">{{item.title}}</td>
+              <td class="contentTd" style="width:50%;"><a v-bind:href="detail_url">{{item.title}}</a></td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
@@ -137,6 +137,7 @@ export default {
   data: () => ({
     contents_list: [],
     content_name: '회의보고',
+    detail_url: '/detail/index=1&&title=title',
     // aaa: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMTMwMTQ4NCIsIm5hbWUiOiLsnoTrj5nsmYQiLCJtYWpvciI6ImNvbXB1dGVyU2NpZW5jZSIsInRlbCI6IjAxMDEyMzQ1Njc4IiwidHlwZSI6MSwiaWF0IjoxNTU4NzI1NDg3LCJleHAiOjE1NjEzMTc0ODcsInN1YiI6InVzZXJJbmZvIn0.pifZ9bqo8bYDHl3OT6PyDZO54EQxj_tl_Fd5wwkEnc8',
     }),
 

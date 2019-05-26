@@ -15,7 +15,7 @@
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
-              <td class="contentTd" style="width:50%;">{{item.title}}</td>
+              <td class="contentTd" style="width:50%;"><a v-bind:href="detail_url">{{item.title}}</a></td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
@@ -123,6 +123,7 @@ export default {
   data: () => ({
     contents_list: [],
     content_name: '통학버스 및 귀향버스',
+    detail_url: '/detail/index=1&&title=title',
     }),
 
   methods: {

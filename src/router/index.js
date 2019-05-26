@@ -10,6 +10,7 @@ import mypage from '../pages/member/mypage'
 import signupsuccess from '../pages/member/signupsuccess'
 import findpw from '../pages/member/find_pw'
 import findsuccess from '../pages/member/find_success'
+import detail from '../pages/member/detail'
 
 import introduce from '../pages/1st_menu/introduce'
 import location from '../pages/1st_menu/location'
@@ -30,6 +31,11 @@ Vue.use(VueRouter)
 // Hyouk: jslint 때문에 저장할때마다 자동으로 린팅이 되어서 ㅠㅠ 아래처럼 바뀌네요...
 export default new VueRouter({
   mode: 'history',
+
+  data: () => ({
+    index: '0',
+    title: 'noTitle'
+  }),
 
   routes: [{
       path: '*',
@@ -120,6 +126,11 @@ export default new VueRouter({
       name: 'bus',
       component: bus,
     },
+    {
+      path: '/detail/index=:inde&&title=:title',
+      name: 'detail',
+      component: detail,
+    }
   ],
 
   //페이지 이동시 화면 좌측상단으로 이동
