@@ -134,14 +134,25 @@
 import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
+import { mapState } from 'vuex'
 
 export default {
   name: 'detail',
 
+  computed: {
+    ...mapState([
+      'fail_access',
+    ]),
+  },
+
   created() {
-      this.boardId = this.$route.query.boardId
-      this.boardKind = this.$route.query.boardKind
-      this.getData()
+      this.fail_access(! this.$session.exists())
+  },
+
+  mounted() {
+    this.boardId = this.$route.query.boardId
+    this.boardKind = this.$route.query.boardKind
+    this.getData()
   },
 
   components: {
@@ -158,7 +169,6 @@ export default {
       viewCount: '',
       body: '',
       files: '',
-      testKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMTMwMTQ4NCIsIm5hbWUiOiLsnoTrj5nsmYQiLCJtYWpvciI6ImNvbXB1dGVyU2NpZW5jZSIsInRlbCI6IjAxMDEyMzQ1Njc4IiwidHlwZSI6MSwiaWF0IjoxNTU4ODczMTM1LCJleHAiOjE1NjE0NjUxMzUsInN1YiI6InVzZXJJbmZvIn0.7Fjsj_sJm6P_wlOBFNOjgVdISEfZ9k7oZyrZoAXCA_I'
     }),
 
     methods: {
@@ -170,7 +180,7 @@ export default {
             var self = this
             let config = {
                 headers: {
-                'x-access-token': self.testKey
+                'x-access-token': self.$session.get('member_token')
                 }
             }
             axios.post(`${global.base}/board/one`, {boardKind: self.boardKind, boardId: self.boardId}, config)
