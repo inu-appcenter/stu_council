@@ -36,7 +36,7 @@
 
   tr, td{
     text-align: center;
-    padding: 1px 5px;
+    padding: 10px 10px;
     border-bottom: 1px solid #111111;
   }
 
@@ -123,6 +123,7 @@ export default {
 
   data: () => ({
     contents_list: [],
+    notice_list: [],
     content_name: '물품대여',
     boardKind: 6,
     boardId: 'INUAPPCEN'
@@ -151,7 +152,6 @@ export default {
           .then(response =>{
             var rentalData = response.data[0]
             for(var item in rentalData){
-              
               var content = new Object()
 
               content.index = parseInt(item) + 1
@@ -161,7 +161,12 @@ export default {
               content.viewTime = rentalData[item].viewTime
               content.boardId = rentalData[item].boardId
 
-              self.contents_list.push(content)
+              if(rentalData[item].notice){
+                self.notice_list.push(content)
+              }
+              else{
+                self.contents_list.push(content)
+              }
             }
           })
           .catch(error => {

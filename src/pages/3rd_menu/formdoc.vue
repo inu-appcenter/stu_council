@@ -36,7 +36,7 @@
 
   tr, td{
     text-align: center;
-    padding: 1px 5px;
+    padding: 10px 10px;
     border-bottom: 1px solid #111111;
   }
 

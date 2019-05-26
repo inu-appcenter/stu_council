@@ -38,8 +38,8 @@
   }
 
   tr, td{
+    padding: 10px 10px;
     text-align: center;
-    padding: 1px 5px;
     border-bottom: 1px solid #111111;
   }
 
