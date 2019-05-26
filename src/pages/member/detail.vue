@@ -1,15 +1,86 @@
 <template>
     <div>
-        <div>제목</div>
         <div>
-            <p>{{title}}</p>
-            <p>{{author}}</p>
-            <p>{{date}}</p>
-            <p>{{viewCount}}</p>
-            <p>{{body}}</p>
+            <div class="detailComponent" id="titleDiv">
+                <p class="fixComponent">제목</p>
+                <p class="flexComponent">{{title}}</p>
+            </div>
+        </div>
+        <div id="secondDiv">
+            <div class="detailComponent">
+                <p class="fixComponent">작성자</p>
+                <p class="flexComponent">{{author}}</p>
+            </div>
+            <div class="detailComponent">
+                <p class="fixComponent">작성일</p>
+                <p class="flexComponent">{{date}}</p>
+            </div>
+            <div class="detailComponent">
+                <p class="fixComponent">조회수</p>
+                <p class="flexComponent">{{viewCount}}</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="detailComponent" id="content">
+                <p>{{body}}</p>
+            </div>
         </div>
     </div>
 </template>
+
+<style>
+    .detailComponent{
+        display: flex;
+        width: 100%;
+        padding: 5px 30px;
+    }
+
+    .detailComponent#content{
+        min-height: 150px;
+        padding: 35px 30px;
+    }
+
+    #secondDiv{
+        display: flex;
+        margin-top: 7px;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .fixComponent{
+        width: 41px;
+        height: 22px;
+        font-family: NotoSansCJKkr;
+        font-size: 15px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.47;
+        letter-spacing: normal;
+        text-align: left;
+        color: #111111;
+    }
+    .flexComponent{
+        margin-left: 54px;
+        font-family: NotoSansCJKkr;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.47;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+    }
+    .detailComponent#titleDiv{
+        margin-top: 7px;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 3px solid #f5f5f5;
+    }
+</style>
+
 
 <script>
 import axios from 'axios'
@@ -37,6 +108,10 @@ export default {
     }),
 
     methods: {
+        getDate(date){
+          var result = date.split(' ')
+          return result[0]
+        },
         getData(){
             var self = this
             let config = {
@@ -49,7 +124,7 @@ export default {
                 var detailData = response.data
                 self.title = detailData.title
                 self.author = detailData.author
-                self.date = detailData.date
+                self.date = self.getDate(detailData.date)
                 self.viewCount = detailData.viewTime
                 self.body = detailData.content
             })
