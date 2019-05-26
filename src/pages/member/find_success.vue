@@ -1,5 +1,5 @@
 <template>
-    <div id="find_success">
+    <div id="find_success" class="container">
         <div class="find_success__wrapper">
             <span class="find_success__wrapper-title">비밀번호 찾기</span>
             <span class="find_success__wrapper_content-1">{{ userId }}@inu.ac.kr로</span><br>
