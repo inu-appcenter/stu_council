@@ -9,7 +9,7 @@
             <input type="text" v-model="content" >
         </div>
         <div>
-            파일 입력부분
+            <input type="file" ref="file" v-on:change="handleFileUpload()">
         </div>
         <div>
             <button type="button" @click="submit()">게시하기</button>
@@ -33,6 +33,10 @@ export default {
     }),
 
     methods: {
+        handleFileUpload(){
+        var self = this
+        self.file = self.$refs.file.files[0];
+        },
         submit(){
             var self = this
 
@@ -46,6 +50,7 @@ export default {
             formData.append('boardKind', 6)
             formData.append('title', self.title)
             formData.append('content', self.content)
+            formData.append('userFile', self.file)
 
             axios.post(`${global.base}/board/create`, formData, config)
            .then(response =>{
