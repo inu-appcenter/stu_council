@@ -43,20 +43,19 @@ $width: 264px;
       height: $grid10x;
       padding-left: $grid4x;
       padding-right: $grid4x;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: normal;
       color: #333333;
-
     }
 
     button {
       margin-top: 12px;
+      margin-bottom: 20px;
       width: 100%;
       border: none;
       outline: none;
       cursor: pointer;
-      height: $grid12x;
-      font-weight: 600;
+      height: $grid12x;      
       background-color: $brand-blue;
       @include font-size($grid4x);
 
@@ -65,7 +64,7 @@ $width: 264px;
         height: 24px;
         font-family: NotoSansCJKkr;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;

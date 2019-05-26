@@ -56,7 +56,6 @@ $width: 264px;
       outline: none;
       cursor: pointer;
       height: $grid12x;
-      font-weight: 600;
       background-color: $brand-blue;
       @include font-size($grid4x);
 
@@ -65,7 +64,7 @@ $width: 264px;
         height: 24px;
         font-family: NotoSansCJKkr;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
