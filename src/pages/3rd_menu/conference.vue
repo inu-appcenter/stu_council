@@ -139,7 +139,6 @@ export default {
     content_name: '회의보고',
     boardKind: 3,
     boardId: 'INUAPPCEN'
-    // aaa: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMTMwMTQ4NCIsIm5hbWUiOiLsnoTrj5nsmYQiLCJtYWpvciI6ImNvbXB1dGVyU2NpZW5jZSIsInRlbCI6IjAxMDEyMzQ1Njc4IiwidHlwZSI6MSwiaWF0IjoxNTU4NzI1NDg3LCJleHAiOjE1NjEzMTc0ODcsInN1YiI6InVzZXJJbmZvIn0.pifZ9bqo8bYDHl3OT6PyDZO54EQxj_tl_Fd5wwkEnc8',
     }),
 
   methods: {
@@ -160,11 +159,6 @@ export default {
     },
     getContentsList(){
           var self = this
-          // let config = {
-          //   headers: {
-          //     "token": self.aaa
-          //   }
-          // }
           axios.post(`${global.base}/board/all`,{boardKind: 3})
           .then(response =>{
             var conferenceData = response.data[0]
