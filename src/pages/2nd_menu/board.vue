@@ -15,7 +15,7 @@
             </tr>
             <tr v-for="(item, index) in contents_list" :key="index">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
-              <td class="contentTd" style="width:50%;"><a v-bind:href="detail_url">{{item.title}}</a></td>
+              <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.author}}</td>
               <td style="width:10%;">{{item.date}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
@@ -122,12 +122,22 @@ export default {
   data: () => ({
     contents_list: [],
     content_name: '게시판',
-    naver: 'https://naver.com/',
-    detail_url: '/detail/index=1&&title=title',
+    boardKind: 2,
+    boardId: 'INUAPPCEN'
     }),
 
   methods: {
-
+    putParams(id){
+      var self = this
+      self.boardId = id
+      self.$router.push({
+        name: 'detail',
+        query: {
+          boardKind: self.boardKind,
+          boardId: self.boardId
+          },
+        })
+      },
     getDate(date){
           var result = date.split(' ')
           return result[0]
@@ -146,6 +156,7 @@ export default {
                 content.author = boardData[item].author
                 content.date = self.getDate(boardData[item].date)
                 content.viewTime = boardData[item].viewTime
+                content.boardId = boardData[item].boardId
 
               self.contents_list.push(content)
               }

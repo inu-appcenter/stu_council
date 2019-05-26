@@ -127,7 +127,7 @@ export default new VueRouter({
       component: bus,
     },
     {
-      path: '/detail/index=:inde&&title=:title',
+      path: '/detail',
       name: 'detail',
       component: detail,
     }

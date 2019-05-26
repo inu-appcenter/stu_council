@@ -9,6 +9,11 @@
 export default {
   name: 'detail',
 
+  created() {
+      alert(this.$route.query.boardId)
+      alert(this.$route.query.boardKind)
+  },
+
   data: () => ({
 
     }),
