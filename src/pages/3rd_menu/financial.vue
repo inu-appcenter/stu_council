@@ -3,7 +3,11 @@
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
-        <div id="content_name">{{content_name}}</div>
+        <div id="content_name">
+          <div>
+            {{content_name}}
+          </div>
+        </div>
         <div id="content_body">
           <table>
             <tr>
@@ -82,8 +86,9 @@
   }
 
   #content_name{
-    width: 250px;
+    display: flex;
     height: 34px;
+    width: 100%;
     font-family: NotoSansCJKkr;
     font-size: 23px;
     font-weight: bold;

@@ -3,7 +3,14 @@
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
-        <div id="content_name">{{content_name}}</div>
+        <div id="content_name">
+          <div>
+            {{content_name}}
+          </div>
+          <div id="bt_write_div">
+            <button type="button" id="bt_write" @click='getEnroll()'>글쓰기</button>
+          </div>
+        </div>
         <div id="content_body">
           <table>
             <tr>
@@ -29,9 +36,28 @@
 
 <style>
 
-    table{
-    width: 100%;
-    border-spacing: 0px;
+#bt_write_div{
+  margin-left: auto;
+}
+
+#bt_write{
+  width: 60px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #003e8f;
+  font-family: NotoSansCJKkr;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+  table{
+  width: 100%;
+  border-spacing: 0px;
   }
 
   tr, td{
@@ -82,7 +108,9 @@
   }
 
   #content_name{
+    display: flex;
     height: 34px;
+    width: 100%;
     font-family: NotoSansCJKkr;
     font-size: 23px;
     font-weight: bold;
@@ -108,6 +136,7 @@ import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
 import detailPage from '@/pages/member/detail'
+import router from '@/router'
 
 export default {
   name: 'rental',
@@ -130,6 +159,10 @@ export default {
     }),
 
   methods: {
+    getEnroll(){
+      var self = this
+      self.$router.push('enroll')
+        },
     putParams(id){
       var self = this
       self.boardId = id
