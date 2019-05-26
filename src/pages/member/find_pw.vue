@@ -1,7 +1,7 @@
 <template>
     <div id="find_pw" class="container">
         <div class="find_pw__wrapper">
-            <span class="find_pw__wrapper-title">비밀번호 찾기</span><br>
+            <span class="find_pw__wrapper-title">비밀번호 찾기</span>
             <label>
                 <input placeholder="학번" class="find_pw__wrapper-input-1" type="text" v-model.trim="find_id">
                 <span class="url">@inu.ac.kr</span><br>
