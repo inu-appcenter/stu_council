@@ -1,0 +1,82 @@
+#detail {
+
+  table {
+    width: 100%;
+    border-spacing: 0px;
+  }
+
+  .detailComponent {
+    display: flex;
+    width: 100%;
+    padding: $grid $grid8x;
+  }
+
+  .detailComponent #content {
+    min-height: 150px;
+    padding: $grid9x $grid8x;
+  }
+
+  #secondDiv {
+    display: flex;
+    margin-top: $grid2x;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .fixComponent {
+    width: $grid12x;
+    height: $grid6x;
+    font-weight: bold;
+    text-align: left;
+    color: #111;
+    @include font-size($grid4x);
+  }
+
+  .flexComponent {
+    margin-left: $grid16x;
+    text-align: left;
+    color: #000000;
+    @include font-size($grid4x);
+  }
+
+  .detailComponent #titleDiv {
+    margin-top: $grid2x;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 3px solid #f5f5f5;
+  }
+
+  #detail .container {
+    padding: 90px 128px;
+  }
+
+  .body_container {
+    margin: $grid20x 0;
+    display: flex;
+    width: 100%;
+  }
+
+  #notice_contents {
+    margin-left: 7%;
+    width: 100%;
+  }
+
+  #content_name {
+    display: flex;
+    height: $grid8x;
+    width: 100%;
+    color: $brand-blue;
+    font-weight: 700;
+    @include font-size($grid6x);
+    @include line-height($grid4x);
+  }
+
+  #content_body {
+    width: 100%;
+    margin-top: $grid2x;
+    background-color: #fff;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+  }
+}

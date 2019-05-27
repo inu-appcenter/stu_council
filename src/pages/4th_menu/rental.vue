@@ -1,9 +1,16 @@
 <template>
-  <div id="rental" class="container">
+  <div id="rental" class="container globalBoard">
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
-        <div id="content_name">{{content_name}}</div>
+        <div id="content_name">
+          <div>
+            {{content_name}}
+          </div>
+          <div id="bt_write_div">
+            <button type="button" id="bt_write" @click='getEnroll()'>글쓰기</button>
+          </div>
+        </div>
         <div id="content_body">
           <table>
             <tr>
@@ -28,78 +35,20 @@
 </template>
 
 <style>
+#bt_write_div {
+  margin-left: auto;
+}
 
-    table{
-    width: 100%;
-    border-spacing: 0px;
-  }
-
-  tr, td{
-    text-align: center;
-    padding: 10px 10px;
-    border-bottom: 1px solid #111111;
-  }
-
-  #title.headTd{
-    padding: 20px 0px;
-  }
-
-  .contentTd{
-    font-family: NotoSansCJKkr;
-    font-size: 15px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.47;
-    letter-spacing: normal;
-    text-align: left;
-    color: #111111;
-  }
-
-  .headTd{
-    font-family: NotoSansCJKkr;
-    font-size: 15px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.47;
-    letter-spacing: normal;
-    color: #111111;
-  }
-
-  #rental.container{
-    padding: 90px 128px;
-  }
-
-  .body_container{
-    display: flex;
-    width: 100%;
-  }
-
-  #notice_contents{
-    margin-left: 7%;
-    width: 100%;
-  }
-
-  #content_name{
-    height: 34px;
-    font-family: NotoSansCJKkr;
-    font-size: 23px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.48;
-    letter-spacing: normal;
-    color: #003e8f;
-  }
-
-  #content_body{
-    width: 100%;
-    margin-top: 7px;
-    background-color: #ffffff;
-    border-top: 3px solid #000000;
-    border-bottom: 3px solid #000000;
-  }
+#bt_write {
+  width: 60px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #003e8f;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
 </style>
 
 
@@ -108,6 +57,7 @@ import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
 import detailPage from '@/pages/member/detail'
+import router from '@/router'
 
 export default {
   name: 'rental',
@@ -130,6 +80,10 @@ export default {
     }),
 
   methods: {
+    getEnroll(){
+      var self = this
+      self.$router.push('enroll')
+        },
     putParams(id){
       var self = this
       self.boardId = id

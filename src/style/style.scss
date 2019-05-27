@@ -16,7 +16,9 @@ components
 */
 @import './components/headercom',
 './components/footercom',
-'./components/location'
+'./components/location',
+'./components/_left_navigation',
+'./components/globalBoard'
 ;
 
 /*
@@ -28,5 +30,6 @@ pages
 './pages/find_pw',
 './pages/find_success',
 './pages/signupsuccess',
-'./pages/introduce'
+'./pages/introduce',
+'./pages/detail'
 ;

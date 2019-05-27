@@ -203,7 +203,7 @@ export default {
         self.go_update(self.sign_password, self.update_password, self.update_name, self.update_phone, self.update_major)
       }
     },
-  
+
     go_update (sign_id, sign_password, sign_name, sign_phone, sign_major) {
       let self = this
       let base = global.base
@@ -215,7 +215,7 @@ export default {
               newPasswd: self.update_password,
               tel: self.update_phone,
               major: self.update_major,
-              name: self.update_name    
+              name: self.update_name
             }
       )
       .then(response => {

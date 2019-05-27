@@ -3,7 +3,11 @@
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
-        <div id="content_name">{{content_name}}</div>
+        <div id="content_name">
+          <div>
+            {{content_name}}
+          </div>
+        </div>
         <div id="content_body">
             <table>
                 <div>
@@ -39,6 +43,7 @@
   </div>
 </template>
 
+<<<<<<< HEAD
 <style>
   table{
     width: 100%;
@@ -128,6 +133,8 @@
   }
 </style>
 
+=======
+>>>>>>> 6210b1748fc65bb080a06fc266c3d9e873db6c21
 
 <script>
 import customNavigation from '@/pages/4th_menu/custom_navigation'

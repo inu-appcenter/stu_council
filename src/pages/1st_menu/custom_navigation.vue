@@ -9,10 +9,10 @@
 </template>
 
 <style>
-  #custom_navigation{
-    padding: 0px;
-    margin: 0px;
-  }
+#custom_navigation {
+  padding: 0px;
+  margin: 0px;
+}
 </style>
 
 

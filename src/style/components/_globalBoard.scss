@@ -1,0 +1,63 @@
+.globalBoard {
+
+  table {
+    width: 100%;
+    border-spacing: 0px;
+  }
+
+  tr,
+  td {
+    text-align: center;
+    padding: $grid2x $grid2x;
+    border-bottom: 1px solid #111;
+  }
+
+  #title .headTd {
+    padding: $grid5x 0px;
+  }
+
+  .contentTd {
+    font-size: $grid4x;
+    text-align: left;
+    color: #111;
+  }
+
+  .headTd {
+    font-size: $grid4x;
+    font-weight: bold;
+    color: #111;
+  }
+
+  #financial .container {
+    padding: 90px 128px;
+  }
+
+  .body_container {
+    margin: $grid20x 0;
+    display: flex;
+    width: 100%;
+  }
+
+  #notice_contents {
+    margin-left: 7%;
+    width: 100%;
+  }
+
+  #content_name {
+    display: flex;
+    height: $grid8x;
+    width: 100%;
+    font-weight: bold;
+    color: $brand-blue;
+    @include font-size($grid6x);
+    @include line-height($grid4x);
+  }
+
+  #content_body {
+    margin-top: $grid2x;
+    width: 100%;
+    background-color: #fff;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid 0000;
+  }
+}

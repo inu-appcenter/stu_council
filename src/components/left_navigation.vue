@@ -9,52 +9,6 @@
     </div>
 </template>
 
-<style>
-    #navigation_title{
-        width: 250px;
-        height: 34px;
-        font-family: NotoSansCJKkr;
-        font-size: 23px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.48;
-        letter-spacing: normal;
-        color: #111111;
-    }
-
-    .btn_fix{
-        display: inline-block;
-        height: 50px;
-        width: 100%;
-        font-family: NotoSansCJKkr;
-        font-size: 18px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #111111;
-        padding-left: 30px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
-
-    #fix_table{
-        border-bottom: 1.5px solid #f5f5f5;
-        width: 95%;
-    }
-
-    #navigation_board{
-        width: 250px;
-        background-color: #ffffff;
-        border-top: 3px solid #000000;
-        border-bottom: 3px solid #000000;
-        margin-top: 7px;
-    }
-</style>
-
-
 <script>
 import router from '@/router'
 
