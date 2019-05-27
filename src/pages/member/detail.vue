@@ -44,95 +44,78 @@
 </template>
 
 <style>
-  table{
-    width: 100%;
-    border-spacing: 0px;
-  }
-    .detailComponent{
-        display: flex;
-        width: 100%;
-        padding: 5px 30px;
-    }
+table {
+  width: 100%;
+  border-spacing: 0px;
+}
+.detailComponent {
+  display: flex;
+  width: 100%;
+  padding: 5px 30px;
+}
 
-    .detailComponent#content{
-        min-height: 150px;
-        padding: 35px 30px;
-    }
+.detailComponent#content {
+  min-height: 150px;
+  padding: 35px 30px;
+}
 
-    #secondDiv{
-        display: flex;
-        margin-top: 7px;
-        width: 100%;
-        background-color: #ffffff;
-        border-bottom: 1px solid #f5f5f5;
-    }
-    .fixComponent{
-        width: 41px;
-        height: 22px;
-        font-family: NotoSansCJKkr;
-        font-size: 15px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.47;
-        letter-spacing: normal;
-        text-align: left;
-        color: #111111;
-    }
-    .flexComponent{
-        margin-left: 54px;
-        font-family: NotoSansCJKkr;
-        font-size: 15px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.47;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000000;
-    }
-    .detailComponent#titleDiv{
-        margin-top: 7px;
-        width: 100%;
-        background-color: #ffffff;
-        border-bottom: 3px solid #f5f5f5;
-    }
+#secondDiv {
+  display: flex;
+  margin-top: 7px;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f5f5f5;
+}
+.fixComponent {
+  width: 41px;
+  height: 22px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  color: #111111;
+}
+.flexComponent {
+  margin-left: 54px;
+  font-size: 15px;
+  text-align: left;
+  color: #000000;
+}
+.detailComponent#titleDiv {
+  margin-top: 7px;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 3px solid #f5f5f5;
+}
 
-    #detail.container{
-    padding: 90px 128px;
-  }
+#detail.container {
+  padding: 90px 128px;
+}
 
-  .body_container{
-    display: flex;
-    width: 100%;
-  }
+.body_container {
+  display: flex;
+  width: 100%;
+}
 
-  #notice_contents{
-    margin-left: 7%;
-    width: 100%;
-  }
+#notice_contents {
+  margin-left: 7%;
+  width: 100%;
+}
 
-  #content_name{
-    display: flex;
-    height: 34px;
-    width: 100%;
-    font-family: NotoSansCJKkr;
-    font-size: 23px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.48;
-    letter-spacing: normal;
-    color: #003e8f;
-  }
+#content_name {
+  display: flex;
+  height: 34px;
+  width: 100%;
+  font-size: 23px;
+  color: #003e8f;
+}
 
-  #content_body{
-    width: 100%;
-    margin-top: 7px;
-    background-color: #ffffff;
-    border-top: 3px solid #000000;
-    border-bottom: 3px solid #000000;
-  }
+#content_body {
+  width: 100%;
+  margin-top: 7px;
+  background-color: #ffffff;
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+}
 </style>
 
 

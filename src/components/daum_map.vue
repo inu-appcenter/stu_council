@@ -7,7 +7,7 @@
       :level.sync="level"
       :mapTypeId="mapTypeId"
       :libraries="libraries"
-      @load="onLoad"      
+      @load="onLoad"
     ></vue-daum-map>
   </div>
 </template>
