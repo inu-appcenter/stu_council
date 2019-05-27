@@ -2,7 +2,7 @@
   <div id="app">
     <headercom></headercom>
     <router-view></router-view>
-    <footercom class="footer"></footercom>
+    <!-- <footercom class="footer"></footercom> -->
   </div>
 </template>
 

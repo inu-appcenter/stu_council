@@ -31,6 +31,7 @@
         </div>
 
         <div class = "login-section">
+          <afLogin></afLogin>
         </div>
       </div>
     </div>
@@ -70,6 +71,9 @@
 </template>
 
 <script>
+import bfLogin from '@/components/home_bf_login'
+import afLogin from '@/components/home_af_login'
+
 export default {
   name: 'home',
 
@@ -81,7 +85,13 @@ export default {
 
   },
 
+  components: {
+    bfLogin,
+    afLogin
+  }
+
 }
+
 </script>
 
 
