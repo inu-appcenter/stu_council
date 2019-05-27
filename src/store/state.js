@@ -18,7 +18,7 @@ const state = {
   fail_access: e => {
     if (e) {
       alert('로그인 하신 후 이용해주세요.')
-      router.push('/')
+      router.push('/login')
     }
   },
 

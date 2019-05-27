@@ -210,7 +210,7 @@ export default {
 
       axios.post(`${base}/account/changeInfo`,
             {
-              "token": self.$session.get('member_token'),
+              token: self.$session.get('member_token'),
               passwd: self.sign_password,
               newPasswd: self.update_password,
               tel: self.update_phone,
@@ -219,8 +219,14 @@ export default {
             }
       )
       .then(response => {
-        self.$router.push('/')
         console.log(response)
+        let check = confirm("다음과 같이 수정하시겠습니까?")
+        if(check) {
+          self.$session.clear()
+          self.$session.destroy()
+          alert("수정되었습니다.\n다시 로그인 하시기 바랍니다.")
+          self.$router.push('/login')          
+        }
       })
       .catch(error => {
         console.error(error.response)

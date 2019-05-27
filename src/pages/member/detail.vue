@@ -63,7 +63,6 @@
         border-bottom: 1px solid #f5f5f5;
     }
     .fixComponent{
-        width: 41px;
         height: 22px;
         font-family: NotoSansCJKkr;
         font-size: 15px;
