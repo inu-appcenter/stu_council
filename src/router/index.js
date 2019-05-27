@@ -2,27 +2,29 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 //page import
-import home from '../pages/home'
-import login from '../pages/member/login'
-import logout from '../pages/member/logout'
-import signup from '../pages/member/signup'
-import mypage from '../pages/member/mypage'
-import signupsuccess from '../pages/member/signupsuccess'
-import findpw from '../pages/member/find_pw'
-import findsuccess from '../pages/member/find_success'
+import home from '@/pages/home'
+import login from '@/pages/member/login'
+import logout from '@/pages/member/logout'
+import signup from '@/pages/member/signup'
+import mypage from '@/pages/member/mypage'
+import signupsuccess from '@/pages/member/signupsuccess'
+import findpw from '@/pages/member/find_pw'
+import findsuccess from '@/pages/member/find_success'
+import detail from '@/pages/member/detail'
+import enroll from '@/pages/member/enroll'
 
-import introduce from '../pages/1st_menu/introduce'
-import location from '../pages/1st_menu/location'
+import introduce from '@/pages/1st_menu/introduce'
+import location from '@/pages/1st_menu/location'
 
-import board from '../pages/2nd_menu/board'
-import petition from '../pages/2nd_menu/petition'
+import board from '@/pages/2nd_menu/board'
+import petition from '@/pages/2nd_menu/petition'
 
-import conference from '../pages/3rd_menu/conference'
-import financial from '../pages/3rd_menu/financial'
-import formdoc from '../pages/3rd_menu/formdoc'
+import conference from '@/pages/3rd_menu/conference'
+import financial from '@/pages/3rd_menu/financial'
+import formdoc from '@/pages/3rd_menu/formdoc'
 
-import rental from '../pages/4th_menu/rental'
-import bus from '../pages/4th_menu/bus'
+import rental from '@/pages/4th_menu/rental'
+import bus from '@/pages/4th_menu/bus'
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,11 @@ Vue.use(VueRouter)
 // Hyouk: jslint 때문에 저장할때마다 자동으로 린팅이 되어서 ㅠㅠ 아래처럼 바뀌네요...
 export default new VueRouter({
   mode: 'history',
+
+  data: () => ({
+    index: '0',
+    title: 'noTitle'
+  }),
 
   routes: [{
       path: '*',
@@ -120,6 +127,16 @@ export default new VueRouter({
       name: 'bus',
       component: bus,
     },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: detail,
+    },
+    {
+      path: '/enroll',
+      name: 'enroll',
+      component: enroll,
+    }
   ],
 
   //페이지 이동시 화면 좌측상단으로 이동

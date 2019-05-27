@@ -1,7 +1,7 @@
 <template>
-  <div id="mypage">
-    <div class="update_wrapper">
-      <span class="update_wrapper-tile">개인정보수정</span>
+  <div id="mypage" class="container">
+    <div class="update__wrapper">
+      <span class="update__wrapper-title">개인정보수정</span>
       <label>
         <span>학번</span>
         <input class="update__wrapper-input" type="text" v-model.trim="update_id" disabled><br>
@@ -28,7 +28,7 @@
       </label>
       <label>
         <span>학과</span>
-        <select class="select-css" v-model="update_major" size="5">
+        <select class="select-css" v-model="update_major">
           <option value="" disabled>---------학과선택---------</option>
           <option value="교직원">교직원</option>
           <option value="" disabled>------------ㄱ------------</option>
@@ -203,33 +203,36 @@ export default {
         self.go_update(self.sign_password, self.update_password, self.update_name, self.update_phone, self.update_major)
       }
     },
-  /*
+
     go_update (sign_id, sign_password, sign_name, sign_phone, sign_major) {
       let self = this
       let base = global.base
 
       axios.post(`${base}/account/changeInfo`,
             {
-              "token": self.$session.get('member_token'),
-              auth: {
-                passwd: self.sign_password,
-                newPasswd: self.update_password,
-                tel: self.update_phone,
-                major: self.update_major,
-                name: self.update_name
-                }
+              token: self.$session.get('member_token'),
+              passwd: self.sign_password,
+              newPasswd: self.update_password,
+              tel: self.update_phone,
+              major: self.update_major,
+              name: self.update_name
             }
-          
-        
       )
       .then(response => {
         console.log(response)
+        let check = confirm("다음과 같이 수정하시겠습니까?")
+        if(check) {
+          self.$session.clear()
+          self.$session.destroy()
+          alert("수정되었습니다.\n다시 로그인 하시기 바랍니다.")
+          self.$router.push('/login')          
+        }
       })
       .catch(error => {
         console.error(error.response)
       })
     },
-*/
+
 
 
     bring_information () {

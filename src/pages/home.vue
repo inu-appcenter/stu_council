@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="home">
     <div class = "home-top-section">
       <div class = "home-top-img container">
@@ -68,6 +69,12 @@
     </div>
       <router-view></router-view>
     </div>
+=======
+  <div id="home" class="container" style="width:80%; padding: 0 0 0 0;">
+    <p>home</p>
+    <router-view></router-view>
+  </div>
+>>>>>>> 1f7f75ca125a850098d9a1e75b1746aae1c69f31
 </template>
 
 <script>

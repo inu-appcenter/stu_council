@@ -34,8 +34,8 @@ export default {
     },
 
   data: () => ({
-    fix_items: global.thirdPageItems,
-    page_name: '활동보고'
+    fix_items: global.firstPageItems,
+    page_name: '총학생회'
     }),
 
 

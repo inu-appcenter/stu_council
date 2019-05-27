@@ -19,7 +19,7 @@
       </label>
       <label style="height:48px">
         <span>비밀번호</span>
-        <input style="font-size:14px" class="signup__wrapper-input" type="password" v-model.trim="sign_password" placeholder="영문,숫자,특수문자 혼합 6~14자"><br> 
+        <input style="font-size:14px" class="signup__wrapper-input" type="password" v-model.trim="sign_password" placeholder="영문,숫자,특수문자 혼합 6~14자"><br>
       </label>
       <label>
         <span>비밀번호 확인</span>

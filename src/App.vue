@@ -2,17 +2,13 @@
   <div id="app">
     <headercom></headercom>
     <router-view></router-view>
+<<<<<<< HEAD
     <!-- <footercom class="footer"></footercom> -->
+=======
+    <footercom></footercom>
+>>>>>>> 1f7f75ca125a850098d9a1e75b1746aae1c69f31
   </div>
 </template>
-
-<style>
-  .footer{
-    position: absolute;
-    bottom: 0;
-  }
-</style>
-
 
 <script>
 import headercom from './components/headercom'
@@ -25,6 +21,9 @@ export default {
     headercom,
     footercom,
   },
+
+  data: () => ({
+    }),
 
 }
 </script>

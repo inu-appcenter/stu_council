@@ -1,0 +1,77 @@
+$width: 264px;
+
+#signupsuccess {
+  display: table;
+  margin: $grid64x auto;
+
+  .signupsuccess__wrapper {
+    width: $width;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    .signupsuccess__wrapper-title {
+      width: 300px;
+      margin: 0 auto;
+      display: block;
+      height: $grid10x;
+      font-weight: 700;
+      margin-bottom: $grid6x;
+      border-bottom: solid $grid $brand-yellow;
+      @include font-size($grid6x);
+    }
+
+    .signupsuccess__wrapper_content-1 {
+      width: $width;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin-bottom: $grid3x;
+      font-family: NotoSansCJKkr;
+      font-size: 20px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #111111;
+    }
+
+    .signupsuccess__wrapper_content-2 {
+      width: $width;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      font-size: 16px;
+      font-weight: normal;
+      color: #333333;
+    }
+
+    button {
+      margin-top: 12px;
+      margin-bottom: 20px;
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      height: $grid12x;      
+      background-color: $brand-blue;
+      @include font-size($grid4x);
+
+      a {
+        width: 74px;
+        height: 24px;
+        font-family: NotoSansCJKkr;
+        font-size: 14px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+  }
+}
