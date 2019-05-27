@@ -9,10 +9,10 @@
   td {
     text-align: center;
     padding: $grid2x $grid2x;
-    border-bottom: 1px solid #111111;
+    border-bottom: 1px solid #111;
   }
 
-  #title.headTd {
+  #title .headTd {
     padding: $grid5x 0px;
   }
 
@@ -28,7 +28,7 @@
     color: #111;
   }
 
-  #financial.container {
+  #financial .container {
     padding: 90px 128px;
   }
 
@@ -48,7 +48,7 @@
     height: $grid8x;
     width: 100%;
     font-weight: bold;
-    color: #003e8f;
+    color: $brand-blue;
     @include font-size($grid6x);
     @include line-height($grid4x);
   }
