@@ -1,5 +1,5 @@
 <template>
-  <div id="conference" class="container">
+  <div id="conference" class="container globalBoard">
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
@@ -35,7 +35,7 @@
 </template>
 
 <style>
-table {
+/* table {
   width: 100%;
   border-spacing: 0px;
 }
@@ -101,7 +101,7 @@ td {
   background-color: #ffffff;
   border-top: 3px solid #000000;
   border-bottom: 3px solid #000000;
-}
+} */
 </style>
 
 
