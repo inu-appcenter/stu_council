@@ -25,6 +25,11 @@
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
+          <div class="customPagination">
+          <pagination
+          id="pagination"
+          :contentsItem_list = "all_list"></pagination>
+        </div>
         </div>
       </div>
     </div>
@@ -35,6 +40,7 @@
 import customNavigation from '@/pages/2nd_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
+import pagination from '@/components/pagination'
 
 export default {
   name: 'petition',
@@ -45,9 +51,11 @@ export default {
 
   components: {
         customNavigation,
+        pagination,
     },
 
   data: () => ({
+    all_list: [1, 2],
     contents_list: [],
     content_name: '학생청원',
     boardKind: 1,
@@ -70,27 +78,40 @@ export default {
           var result = date.split(' ')
           return result[0]
     },
-    getContentsList(){
-          var self = this
-          axios.post(`${global.base}/board/all`, {boardKind: 1})
-          .then(response =>{
-            var petitionData = response.data[0]
-            console.log(petitionData)
-              for(var item in petitionData){
-                var content = new Object()
+    setItemList(rentalData){
+        var self = this
+        var pageNum = 1
+        var startItem = pageNum*7 - 7
+        var endItem = pageNum*7 - 1
+        for(var page = startItem; page <= endItem; page++){
+              var content = {
+              index: parseInt(page) + 1,
+              title: rentalData[page].title,
+              author: rentalData[page].author,
+              date: self.getDate(rentalData[page].date),
+              viewTime: rentalData[page].viewTime,
+              boardId: rentalData[page].boardId
+              }
 
-                content.index = parseInt(item) + 1
-                content.title = petitionData[item].title
-                content.author = petitionData[item].author
-                content.date = self.getDate(petitionData[item].date)
-                content.viewTime = petitionData[item].viewTime
-                content.boardId = petitionData[item].boardId
-
+              if(rentalData[page].notice){
+                self.notice_list.push(content)
+              }
+              else{
                 self.contents_list.push(content)
               }
+        }
+    },
+    getContentsList(){
+          var self = this
+
+          axios.post(`${global.base}/board/all`, {boardKind:6})
+          .then(response =>{
+            var rentalData = response.data[0]
+            self.all_list = rentalData
+            self.setItemList(rentalData)
           })
           .catch(error => {
-              console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음!!");
+              console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
           })
       },
   },
