@@ -54,6 +54,7 @@ export default {
       {id: self.id, passwd: self.password})
       .then(response => {
         self.$session.start()
+        self.$session.set('member_id', self.id)
         self.$session.set('member_token', response.data.token)
         window.location.href = '/'  // 로그인 전으로 이동하면 더 좋을 것 같음, self.$router.go(-1)로 할 경우 로그아웃 후 바로 로그인 했을시 바로 로그아웃 되버리는 현상 존재
         console.log(response)

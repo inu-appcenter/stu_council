@@ -2,7 +2,7 @@
     <div class= "home_mypage_section">
         <div class="mypage-top">
             <div class= "info-sec">
-                <span class="info-id">{{get_id}} 님</span><br>
+                <span class="info-id">{{this.$session.get('member_id')}} 님</span><br>
                 <button class="info-logout" @click="_logout">로그아웃</button>
                 <span>|</span>
                 <button class="info-logout"><router-link to="/mypage">정보변경</router-link></button>
@@ -28,7 +28,6 @@ export default {
   },
 
   data: _ => ({
-    get_id: '',
   }),
 
   methods: {
