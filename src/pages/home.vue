@@ -1,9 +1,8 @@
 <template>
-<<<<<<< HEAD
   <div id="home">
     <div class = "home-top-section">
       <div class = "home-top-img container">
-        <img class = "home-main-pic" src="http://via.placeholder.com/1440x560?text="/>
+        <img class = "home-main-pic" src="../assets/main.png"/>
       </div>
       <div class = "home-top-text">
       </div>
@@ -14,9 +13,7 @@
         <div class = "info-section">
           <div class = "work-time">
             <span class = "wt-1">업무시간</span>
-            <span class = "wt-2">오전 10시</span>
-            <span class = "wt-3">~</span>
-            <span class = "wt-4">오후 5시</span>
+            <span class = "wt-2">오전 10시 ~ 오후 5시</span>
           </div>
           <div class = "line-block"/>
           <div class = "A-E-C">
@@ -32,27 +29,25 @@
         </div>
 
         <div class = "login-section">
-          <afLogin></afLogin>
+          <afLogin v-if="this.$session.exists()"></afLogin>
+          <bfLogin v-else></bfLogin>
         </div>
       </div>
     </div>
     
     <div class = "home-bottom-section">
       <div class="bottom-container container">  
-        <div class = "facebook-block"/>
-        
+        <div class = "facebook-block">
+          <a href="https://www.facebook.com/inuchong/"><img src="../assets/총학 페이스북.png"/></a>
+        </div>
         <div class = "padding-block"/>
 
         <div class = "Every-Kakao-block">
           <div class = "Every-block">
-            <div class="block-image">
-              <!-- <img src="http://via.placeholder.com/385x229"/> -->
-            </div>
-            <div class="block-text">
-              <!-- <p>every-block</p> -->
-            </div>
+            <a href="https://inu.everytime.kr/416066"><img src="../assets/에타.png"/></a>
           </div>
           <div class = "Kakao-block">
+            <a href="http://pf.kakao.com/_AStxoxl"><img src="../assets/총학 플러스친구.png"/></a>
           </div>
         </div>
         
@@ -60,8 +55,10 @@
 
         <div class = "Insta-Ad-block">
           <div class = "Insta-block">
+            <a href="https://www.instagram.com/36inu_bounce/"><img src="../assets/총학 인스타.png"/></a>
           </div>
           <div class = "Ad-block">
+            <a href="https://inu-appcenter.firebaseapp.com/"><img src="../assets/앱센터.png"/></a>
           </div>
         </div>
       
@@ -69,12 +66,6 @@
     </div>
       <router-view></router-view>
     </div>
-=======
-  <div id="home" class="container" style="width:80%; padding: 0 0 0 0;">
-    <p>home</p>
-    <router-view></router-view>
-  </div>
->>>>>>> 1f7f75ca125a850098d9a1e75b1746aae1c69f31
 </template>
 
 <script>

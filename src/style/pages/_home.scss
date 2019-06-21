@@ -3,7 +3,11 @@
     padding:0px;
     max-width: 100%;
     width: 100%;
-  }
+
+
+    .home-top-section {
+      margin: 0 0 0 0 ;
+    }
     .home-main-pic{
       max-width:100%;
       height:auto;
@@ -15,8 +19,7 @@
       height: auto;
       background-color: #f3f3f3; 
       overflow: hidden; 
-      }
-  
+    }
     .info-section{
       width: 308px;
       height: auto;
@@ -28,10 +31,13 @@
       line-height: normal;
       letter-spacing: -1px;
       color: #111111;
-  
       margin-top: 36px;
       margin-bottom: 29px;
       float: left;
+    }
+    .work-time {
+      width: $grid104x;
+      padding-bottom: $grid2x;
     }
     .wt-1{
       font-size: 17px;
@@ -41,20 +47,12 @@
     .wt-2{
       letter-spacing: -1.6px;
     }
-    .wt-3{
-      letter-spacing: normal;
-    }
-    .wt-4{
-      letter-spacing: -1.3px;
-    }
-  
     .line-block{
-      width: 306px;
-      height: 1px;  
+      width: $grid80x;
+      height: 0.1px;  
       border: solid 1px #0a4a9b;
       background-color: #0a4a9b;
     }
-  
     .A-E-C{
     width: 50px;
     height: 114px;
@@ -81,37 +79,90 @@
       color: #111111;
       float: right;
     }
-  
     .login-section{
-      width: 387px;
+      width: 300px;
       height: 183px;
       background-color: #e4e4e4;
       margin-top: 29px;
       margin-bottom: 29px;
       float: right;
       text-align: center;
-    }
+      
+      a {
+        text-decoration: none;
+        color:#666666;
+      }
+
+      .home_login_button {
+        a {
+          text-decoration: none;
+          color:#e4e4e4;
+        }
+      }
+
+      .info-id {
+        font-size: 22px;
+        font-weight: bold;
+        color: #111111;
+      }
+
+      
+
+      .mypage-bottom{
+        
+        margin-top: $grid7x;
+        background-color: #4a90e2;
+        width: 300px;
+        height: 52px;
+        font-size: 15px;
+
+        
+        
+        a{
+          display: inline;
+          color:#ffffff;
+          text-decoration: none;
+          vertical-align: middle;
+          line-height: 52px;
+        }
+      }
     
+
+    }
+    .info-sec {
+      margin-top: $grid10x;
+      margin-bottom: $grid2x;
+
+      .info-logout{
+        width: 67px;
+        height: 26px;
+        padding: 0 0 0 0;
+        margin-top: $grid2x;
+        margin-left: 4px;
+        border-radius: 3px;
+        //border: solid 1px #979797;
+
+        a {
+          color: #333333;
+        }
+      }
+    }
+
     .bottom-container{
       margin-top: 59px;
       margin-bottom: 66px;
       display: flex;
-    }
-  
-    
-  
+    }  
     .block-image{
       position: absolute;
       z-index: 10;
     }
-  
     .block-text{
       position: absolute;
       top:50%;
       left:50%;
       z-index: 13;
     }
-
     .padding-block{
         flex: 1;
     }
@@ -125,34 +176,30 @@
         height: 480px;
         flex: 19;
     }
-
     .Kakao-block{
       width: 100%;
       height: 229px;
       background-color: #fcaf17;
       margin-top: 23px;
     }
-
     .Every-block{
         width: 100%;
         height: 229px;
         background-color: rgba(0, 41, 93, 0.41);
     }
-
     .Insta-Ad-block{
       height: 480px;
       flex: 19;
     }
-  
     .Insta-block{
       width: 100%;
       height: 229px;
       background-color: #0a4a9b;
     }
-  
     .Ad-block{
       width: 100%;
       height: 229px;
       background-color: rgba(110, 176, 255, 0.46);
       margin-top: 23px;
     }
+}

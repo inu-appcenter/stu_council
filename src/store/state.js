@@ -6,7 +6,7 @@ import {
 } from '@/global'
 
 const state = {
-  token: 'logout',
+  memberID: '',
 
   check_session: e => {
     if (e) {
@@ -25,6 +25,7 @@ const state = {
   logout(session) {
     let _confirm = confirm('로그아웃 하시겠습니까?')
     if (_confirm) {
+      this.$store.commit('setID','')
       session.clear()
       session.destroy()
       router.push('/login')
