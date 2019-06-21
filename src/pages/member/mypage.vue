@@ -132,6 +132,7 @@ export default {
   },
 
   mounted() {
+    
     this.fail_access(! this.$session.exists())
     this.bring_information()
     // this.get_user_info()

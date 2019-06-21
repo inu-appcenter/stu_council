@@ -2,9 +2,6 @@
 // (다른것들 getters, state, actions 모두 동일합니다!)
 
 export default {
-  setID: (state, data) => {
-    state.memberID = data
-  },
   
   USER_INFO: value => {
     for (let info in state.user_info) {

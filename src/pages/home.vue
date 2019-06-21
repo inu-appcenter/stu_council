@@ -37,28 +37,23 @@
     
     <div class = "home-bottom-section">
       <div class="bottom-container container">  
-        <div class = "facebook-block">
-          <a href="https://www.facebook.com/inuchong/"><img src="../assets/총학 페이스북.png"/></a>
+        <div class = "facebook-block" onclick="location.href='https://www.facebook.com/inuchong/'">
         </div>
         <div class = "padding-block"/>
 
         <div class = "Every-Kakao-block">
-          <div class = "Every-block">
-            <a href="https://inu.everytime.kr/416066"><img src="../assets/에타.png"/></a>
+          <div class = "Every-block" onclick="location.href='https://inu.everytime.kr/416066'">
           </div>
-          <div class = "Kakao-block">
-            <a href="http://pf.kakao.com/_AStxoxl"><img src="../assets/총학 플러스친구.png"/></a>
+          <div class = "Kakao-block" onclick="location.href='http://pf.kakao.com/_AStxoxl'">
           </div>
         </div>
         
         <div class = "padding-block"/>
 
         <div class = "Insta-Ad-block">
-          <div class = "Insta-block">
-            <a href="https://www.instagram.com/36inu_bounce/"><img src="../assets/총학 인스타.png"/></a>
+          <div class = "Insta-block" onclick="location.href='https://www.instagram.com/36inu_bounce/'">
           </div>
-          <div class = "Ad-block">
-            <a href="https://inu-appcenter.firebaseapp.com/"><img src="../assets/앱센터.png"/></a>
+          <div class = "Ad-block" onclick="location.href='https://inu-appcenter.firebaseapp.com/'">
           </div>
         </div>
       
