@@ -25,6 +25,11 @@
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
+          <div class="customPagination">
+          <pagination
+          id="pagination"
+          :contentsItem_list = "all_list"></pagination>
+        </div>
         </div>
       </div>
     </div>
@@ -35,6 +40,7 @@
 import customNavigation from '@/pages/2nd_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
+import pagination from '@/components/pagination'
 
 export default {
   name: 'board',
@@ -45,9 +51,11 @@ export default {
 
   components: {
         customNavigation,
+        pagination,
     },
 
   data: () => ({
+    all_list: [1, 2],
     contents_list: [],
     content_name: '게시판',
     boardKind: 2,
@@ -71,23 +79,37 @@ export default {
           return result[0]
     },
 
+    setItemList(rentalData){
+        var self = this
+        var pageNum = 1
+        var startItem = pageNum*7 - 7
+        var endItem = pageNum*7 - 1
+        for(var page = startItem; page <= endItem; page++){
+              var content = {
+              index: parseInt(page) + 1,
+              title: rentalData[page].title,
+              author: rentalData[page].author,
+              date: self.getDate(rentalData[page].date),
+              viewTime: rentalData[page].viewTime,
+              boardId: rentalData[page].boardId
+              }
+
+              if(rentalData[page].notice){
+                self.notice_list.push(content)
+              }
+              else{
+                self.contents_list.push(content)
+              }
+        }
+    },
     getContentsList(){
           var self = this
-          axios.post(`${global.base}/board/all`, {boardKind: 2})
+
+          axios.post(`${global.base}/board/all`, {boardKind:2})
           .then(response =>{
-            var boardData = response.data[0]
-              for(var item in boardData){
-                var content = new Object()
-
-                content.index = parseInt(item) + 1
-                content.title = boardData[item].title
-                content.author = boardData[item].author
-                content.date = self.getDate(boardData[item].date)
-                content.viewTime = boardData[item].viewTime
-                content.boardId = boardData[item].boardId
-
-              self.contents_list.push(content)
-              }
+            var rentalData = response.data[0]
+            self.all_list = rentalData
+            self.setItemList(rentalData)
           })
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
