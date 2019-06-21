@@ -172,6 +172,7 @@
     height: 480px;
     cursor: pointer;
     background-image: url("/src/assets/chong_facebook.png");
+    background-size: 100% 480px;
   }
   .Every-Kakao-block{
       height: 480px;
@@ -183,13 +184,15 @@
     background-color: #fcaf17;
     margin-top: 23px;
     cursor: pointer;
-    background-image: url("/src/assets/chong_plus.png");
+    background: url("/src/assets/chong_plus.png");
+    background-size: 100% 229px;
   }
   .Every-block{
       width: 100%;
       height: 229px;
       cursor: pointer;
       background-image: url("/src/assets/chong_every.png");
+      background-size: 100% 229px;
   }
   .Insta-Ad-block{
     height: 480px;
@@ -200,6 +203,7 @@
     height: 229px;
     cursor: pointer;
     background-image: url("/src/assets/chong_insta.png");
+    background-size: 100% 229px;
   }
   .Ad-block{
     width: 100%;
@@ -207,5 +211,6 @@
     margin-top: 23px;
     cursor: pointer;
     background-image: url("/src/assets/appcen_logo.png");
+    background-size: 100% 229px;
   }
 }
