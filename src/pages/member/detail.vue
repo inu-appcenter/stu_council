@@ -19,7 +19,7 @@
                 <div id="secondDiv">
                     <div class="detailComponent">
                         <p class="fixComponent">작성자</p>
-                        <p class="flexComponent">{{author}}</p>
+                        <p class="flexComponent">{{authorName}}</p>
                     </div>
                     <div class="detailComponent">
                         <p class="fixComponent">작성일</p>
@@ -38,103 +38,23 @@
         </div>
             </table>
         </div>
+        <div class="button_left">
+          <button type="button" @click="update_detail()">수정</button>
+          <button type="button" @click="delete_detail()">삭제</button>
+        </div>
+        <div class="button_right">
+          <button type="button" @click="go_back()">목록보기</button>
+        </div>
+
+
       </div>
     </div>
   </div>
 </template>
+<style> 
 
-<<<<<<< HEAD
-<style>
-  table{
-    width: 100%;
-    border-spacing: 0px;
-  }
-    .detailComponent{
-        display: flex;
-        width: 100%;
-        padding: 5px 30px;
-    }
-
-    .detailComponent#content{
-        min-height: 150px;
-        padding: 35px 30px;
-    }
-
-    #secondDiv{
-        display: flex;
-        margin-top: 7px;
-        width: 100%;
-        background-color: #ffffff;
-        border-bottom: 1px solid #f5f5f5;
-    }
-    .fixComponent{
-        height: 22px;
-        font-family: NotoSansCJKkr;
-        font-size: 15px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.47;
-        letter-spacing: normal;
-        text-align: left;
-        color: #111111;
-    }
-    .flexComponent{
-        margin-left: 54px;
-        font-family: NotoSansCJKkr;
-        font-size: 15px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.47;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000000;
-    }
-    .detailComponent#titleDiv{
-        margin-top: 7px;
-        width: 100%;
-        background-color: #ffffff;
-        border-bottom: 3px solid #f5f5f5;
-    }
-
-    #detail.container{
-    padding: 90px 128px;
-  }
-
-  .body_container{
-    display: flex;
-    width: 100%;
-  }
-
-  #notice_contents{
-    margin-left: 7%;
-    width: 100%;
-  }
-
-  #content_name{
-    height: 34px;
-    font-family: NotoSansCJKkr;
-    font-size: 23px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.48;
-    letter-spacing: normal;
-    color: #003e8f;
-  }
-
-  #content_body{
-    width: 100%;
-    margin-top: 7px;
-    background-color: #ffffff;
-    border-top: 3px solid #000000;
-    border-bottom: 3px solid #000000;
-  }
 </style>
 
-=======
->>>>>>> 6210b1748fc65bb080a06fc266c3d9e873db6c21
 
 <script>
 import customNavigation from '@/pages/4th_menu/custom_navigation'
@@ -171,6 +91,7 @@ export default {
       boardKind: 'INUAPPCEN',
       title: '',
       author: '',
+      authorName: '',
       date: '',
       viewCount: '',
       body: '',
@@ -194,13 +115,43 @@ export default {
                 var detailData = response.data
                 self.title = detailData.title
                 self.author = detailData.author
+                self.authorName = detailData.authorName
                 self.date = self.getDate(detailData.date)
                 self.viewCount = detailData.viewTime
                 self.body = detailData.content
+                console.log(response)
             })
             .catch(error => {
                 console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음!!");
             })
+        },
+        delete_detail() {
+          var self = this
+          let _confirm = confirm("해당 게시물을 삭제하시겠습니까?")
+          if(_confirm) {
+            if(self.author == self.$session.get('member_id')) {
+              axios.post(`${global.base}/board/delete`,
+              {
+                token: self.$session.get('member_token'),
+                boardKind: self.boardKind,
+                boardId: self.boardId
+              })
+              .then(response => {
+                alert("게시물이 삭제되었습니다.")
+                self.go_back()
+                console.log(response)
+              })
+              .catch(error => {
+                console.error(error.response)
+              })
+            }
+            else {
+              alert("해당 게시물 삭제에 대한 권한이 없습니다.")
+            }
+          }
+        },
+        go_back() {
+          this.$router.go(-1)
         }
     }
 }

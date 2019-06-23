@@ -34,6 +34,7 @@
 
   .body_container {
     margin: $grid20x 0;
+    min-height: $grid128x;
     display: flex;
     width: 100%;
   }
