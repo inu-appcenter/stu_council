@@ -29,7 +29,6 @@ export default {
         title: '',
         content: '',
         file: '',
-        testKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwMTMwMTQ4NCIsIm5hbWUiOiLsnoTrj5nsmYQiLCJtYWpvciI6ImNvbXB1dGVyU2NpZW5jZSIsInRlbCI6IjAxMDEyMzQ1Njc4IiwidHlwZSI6MSwiaWF0IjoxNTU4ODczMTM1LCJleHAiOjE1NjE0NjUxMzUsInN1YiI6InVzZXJJbmZvIn0.7Fjsj_sJm6P_wlOBFNOjgVdISEfZ9k7oZyrZoAXCA_I'
     }),
 
     methods: {
@@ -42,7 +41,7 @@ export default {
 
             let config = {
                 headers: {
-                'x-access-token': self.testKey
+                'x-access-token': self.$session.get('member_token')
                 }
             }
 

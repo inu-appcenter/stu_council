@@ -23,7 +23,7 @@
             <tr v-for="(item, index) in contents_list" :key="index">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
-              <td style="width:10%;">{{item.author}}</td>
+              <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{item.date}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
@@ -117,7 +117,7 @@ export default {
               var content = {
               index: parseInt(page) + 1,
               title: rentalData[page].title,
-              author: rentalData[page].author,
+              authorName: rentalData[page].authorName,
               date: self.getDate(rentalData[page].date),
               viewTime: rentalData[page].viewTime,
               boardId: rentalData[page].boardId
