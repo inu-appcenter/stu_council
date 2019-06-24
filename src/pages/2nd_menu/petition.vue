@@ -21,7 +21,7 @@
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.author}}</td>
-              <td style="width:10%;">{{item.date}}</td>
+              <td style="width:10%;">{{getDate(item.date)}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
@@ -99,7 +99,7 @@ export default {
     getContentsList(){
           var self = this
 
-          axios.post(`${global.base}/board/all`, {boardKind:6})
+          axios.post(`${global.base}/board/all`, {boardKind:1})
           .then(response =>{
             var rentalData = response.data[0]
             for(var item in rentalData){

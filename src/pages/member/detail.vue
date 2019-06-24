@@ -34,6 +34,10 @@
                 </div>
 
         <div>
+          <div>
+            <p>{{files}}</p>
+            <button style="width: 100%; background: #EAEAEA; text-align: left;">{{files}}</button>
+          </div>
             <div class="detailComponent" id="content">
                 <p>{{body}}</p>
             </div>
@@ -119,6 +123,7 @@ customNavigation1,
                 'x-access-token': self.$session.get('member_token')
                 }
             }
+            console.log(self.$session.get('member_token'))
             axios.post(`${global.base}/board/one`, {boardKind: self.boardKind, boardId: self.boardId}, config)
             .then(response =>{
                 var detailData = response.data
@@ -128,6 +133,7 @@ customNavigation1,
                 self.date = self.getDate(detailData.date)
                 self.viewCount = detailData.viewTime
                 self.body = detailData.content
+                self.files = detailData.file[0]
                 console.log(response)
             })
             .catch(error => {
