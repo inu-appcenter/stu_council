@@ -115,6 +115,7 @@ export default {
     },
     setItemList(rentalData){
         var self = this
+        
         var startItem = self.checkedPage*7 - 7
         var endItem = self.checkedPage*7 - 1
         for(var page = startItem; page <= endItem; page++){

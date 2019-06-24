@@ -96,7 +96,8 @@ export default {
       self.$router.push({
         name: 'enroll',
         query: {
-          boardKind: self.boardKind
+          boardKind: self.boardKind,
+          update: 0
         }
       })
         },

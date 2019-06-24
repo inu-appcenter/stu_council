@@ -103,18 +103,30 @@ export default {
     boardKind: 0,
     boardId: 0,
     navigationKind: 0,
-    content_name: "물품대여"
+    content_name: "물품대여",
+    modify: false,
   }),
 
   mounted() {
     this.boardKind = this.$route.query.boardKind;
     this.boardKindFilter(this.boardKind);
+
+    if(this.$route.query.update == 1){
+      this.modify = true
+      this.title = this.$route.params.pre_title;
+      this.content = this.$route.params.pre_content;
+      this.boardKind = this.$route.params.pre_boardKind;
+      this.boardId = this.$route.params.pre_boardId;
+    }
     console.log(this.$session.get('member_id'))
   },
 
   watch:{
       file_name: function(){
           this.file_name = this.file_name
+      },
+      modify: function(){
+        return this.modify
       }
   },
 
@@ -160,9 +172,52 @@ export default {
           alert("내용을 입력해주세요")
       }
       else{
-          this.createBoard()
+        if(self.modify){
+          self.update()
+        }
+        else{
+          self.createBoard()
+        }
       }
 
+    },
+    update(){
+        var self = this;
+        let config = {
+        headers: {
+          "x-access-token": self.$session.get("member_token")
+        }
+      };
+
+      const formData = new FormData();
+      formData.append("boardKind", self.boardKind);
+      formData.append("title", self.title);
+      formData.append("content", self.content);
+      formData.append("userFile", self.file);
+      formData.append("boardId", self.boardId);
+
+      axios
+        .post(`${global.base}/board/update`, formData, config)
+        .then(response => {
+          if (response.data.ans == "success") {
+              console.log("게시판 수정")
+              alert("정상적으로 수정되었습니다.")
+          }
+        })
+        .catch(error => {
+          console.error(
+            error.response + "에러 발생, 게시판 리스트를 불러올 수 없음"
+          );
+        });
+
+
+    self.$router.push({
+        name: 'detail',
+        query: {
+          boardKind: self.boardKind,
+          boardId: self.boardId
+          },
+        })
     },
     createBoard(){
         var self = this;
@@ -183,6 +238,7 @@ export default {
         .then(response => {
           if (response.data.ans == "success") {
               console.log("게시판 생성")
+              alert("정상적으로 등록되었습니다.")
           }
         })
         .catch(error => {

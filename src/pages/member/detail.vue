@@ -125,6 +125,23 @@ export default {
                 console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음!!");
             })
         },
+        update_detail(){
+          var self = this
+          self.$router.push({
+          name: 'enroll',
+          query: {
+          boardKind: self.boardKind,
+          update: 1
+        },
+        params: {
+          pre_boardKind: self.boardKind,
+          pre_boardId: self.boardId,
+          pre_title: self.title,
+          pre_content: self.body,
+        }
+      })
+
+        },
         delete_detail() {
           var self = this
           let _confirm = confirm("해당 게시물을 삭제하시겠습니까?")
