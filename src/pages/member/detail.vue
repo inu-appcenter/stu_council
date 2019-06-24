@@ -1,7 +1,9 @@
 <template>
   <div id=detail class="container">
     <div class="body_container">
-      <custom-navigation></custom-navigation>
+      <custom-navigation1 v-if="navigationKind === 1"></custom-navigation1>
+      <custom-navigation2 v-else-if="navigationKind === 2"></custom-navigation2>
+      <custom-navigation3 v-else-if="navigationKind === 3"></custom-navigation3>
       <div id="notice_contents">
         <div id="content_name">
           <div>
@@ -57,13 +59,21 @@
 
 
 <script>
-import customNavigation from '@/pages/4th_menu/custom_navigation'
+import customNavigation1 from "@/pages/2nd_menu/custom_navigation";
+import customNavigation2 from "@/pages/3rd_menu/custom_navigation";
+import customNavigation3 from "@/pages/4th_menu/custom_navigation";
 import axios from 'axios'
 import { global } from '@/global'
 import { mapState } from 'vuex'
 
 export default {
   name: 'detail',
+
+  components:{
+customNavigation1,
+    customNavigation2,
+    customNavigation3
+  },
 
   computed: {
     ...mapState([
@@ -79,13 +89,11 @@ export default {
     this.boardId = this.$route.query.boardId
     this.boardKind = this.$route.query.boardKind
     this.getData()
-  },
-
-  components: {
-      customNavigation,
+    this.setBoardFilter(this.boardKind)
   },
 
   data: () => ({
+    navigationKind: 0,
       boardName: '',
       content_name: '물품대여',
       boardId: '0',
@@ -171,25 +179,39 @@ export default {
         setBoardFilter(boardKind){
         var self = this
         if(boardKind == 1){
-            self.boardName = 'petition'
+          self.content_name = "학생청원";
+            self.boardName = 'petition';
+            self.navigationKind = 1;
         }
         else if(boardKind == 2){
-            self.boardName = 'board'
+          self.content_name = "게시판";
+            self.boardName = 'board';
+            self.navigationKind = 1;
         }
         else if(boardKind == 3){
+          self.content_name = "회의보고";
             self.boardName = 'conference'
+            self.navigationKind = 2;
         }
         else if(boardKind == 4){
+          self.content_name = "재정보고";
             self.boardName = 'financial'
+            self.navigationKind = 2;
         }
         else if(boardKind == 5){
+          self.content_name = "서식자료실";
             self.boardName = 'formdoc'
+            self.navigationKind = 2;
         }
         else if(boardKind == 6){
+          self.content_name = "물품대여";
             self.boardName = 'rental'
+            self.navigationKind = 3;
         }
         else{
+          self.content_name = "통학버스 및 귀향버스";
             self.boardName = 'bus'
+            self.navigationKind = 3;
         }
     },
         go_back() {
@@ -197,9 +219,9 @@ export default {
           self.boardKind = self.$route.query.boardKind
           self.setBoardFilter(self.boardKind)
           self.$router.push({
-                  name: 'rental',
+                  name: self.boardName,
                   query: {
-                      boardKind: self.boardName,
+                      boardKind: self.boardKind,
                       page: 1
                   }
               })

@@ -29,7 +29,10 @@
                         <input id="ip_box" type="file" ref="file" @change="handleFileUpload($event.target.name, $event.target.files)" @drop="handleFileUpload($event.target.name, $event.target.files)">
                         <p>첨부파일을 마우스로 끌어 놓으세요</p>
                     </div>
-                    <button id="bt_submit" type="button" @click="submit()">게시하기</button>
+                    <div id="div_options">
+                      <button id="bt_submit" type="button" @click="submit()">게시하기</button>
+                      <input type="checkbox" v-model="notice"> 공지등록
+                    </div>
                 </div>
             </div>
           </div>
@@ -105,6 +108,7 @@ export default {
     navigationKind: 0,
     content_name: "물품대여",
     modify: false,
+    notice: false,
   }),
 
   mounted() {
@@ -195,6 +199,7 @@ export default {
       formData.append("content", self.content);
       formData.append("userFile", self.file);
       formData.append("boardId", self.boardId);
+      formData.append("notice", self.notice);
 
       axios
         .post(`${global.base}/board/update`, formData, config)
@@ -232,6 +237,7 @@ export default {
       formData.append("title", self.title);
       formData.append("content", self.content);
       formData.append("userFile", self.file);
+      formData.append("notice", self.notice);
 
       axios
         .post(`${global.base}/board/create`, formData, config)
@@ -246,7 +252,6 @@ export default {
             error.response + "에러 발생, 게시판 리스트를 불러올 수 없음"
           );
         });
-
     self.getContentsList()
     },
     getContentsList(){
@@ -255,8 +260,8 @@ export default {
           axios.post(`${global.base}/board/all`, {boardKind:self.boardKind})
           .then(response =>{
             var rentalData = response.data[0]
+            console.log(rentalData[0])
             console.log(self.$session.get('member_id'))
-            console.log(rentalData)
             for(var item in rentalData){
                 if(rentalData[item].author == self.$session.get('member_id')){
                     self.boardId = rentalData[item].boardId

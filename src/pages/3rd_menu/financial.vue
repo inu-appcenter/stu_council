@@ -20,7 +20,14 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
-            <tr v-for="(item, index) in contents_list" :key="index">
+            <tr v-for="(item, index) in notice_list" :key="index" style="background: #EAEAEA;">
+              <td class="headTd" style="width:5%;">공지</td>
+              <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
+              <td style="width:10%;">{{item.authorName}}</td>
+              <td style="width:10%;">{{getDate(item.date)}}</td>
+              <td style="width:10%;">{{item.viewTime}}</td>
+            </tr>
+            <tr v-for="(item, index) in current_list" :key="index">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.author}}</td>
@@ -31,7 +38,7 @@
           <div class="customPagination">
 <pagination
           id="pagination"
-          :contentsItem_list = "all_list"
+          :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
         </div>
         </div>
@@ -79,9 +86,9 @@ export default {
     },
 
   data: () => ({
-    all_list: [1, 2],
     contents_list: [],
     notice_list: [],
+    current_list: [],
     content_name: '재정보고',
     boardKind: 4,
     boardId: 'INUAPPCEN',
@@ -91,6 +98,7 @@ export default {
   methods: {
     getEnroll(){
       var self = this
+      self.boardKind = self.$route.query.boardKind
       self.$router.push({
         name: 'enroll',
         query: {
@@ -101,6 +109,7 @@ export default {
     putParams(id){
       var self = this
       self.boardId = id
+      self.boardKind = self.$route.query.boardKind
       self.$router.push({
         name: 'detail',
         query: {
@@ -119,25 +128,26 @@ export default {
         var startItem = self.checkedPage*7 - 7
         var endItem = self.checkedPage*7 - 1
         for(var page = startItem; page <= endItem; page++){
+              if(rentalData[page] != null){
               var content = {
               index: parseInt(page) + 1,
               title: rentalData[page].title,
-              author: rentalData[page].author,
+              authorName: rentalData[page].authorName,
               date: self.getDate(rentalData[page].date),
               viewTime: rentalData[page].viewTime,
               boardId: rentalData[page].boardId
               }
 
-              if(rentalData[page].notice){
-                self.notice_list.push(content)
-              }
-              else{
-                self.contents_list.push(content)
-              }
+              self.current_list.push(content)
+
+            }
         }
+        console.log("콘리" + self.contents_list)
+        console.log("공리" + self.notice_list)
     },
     changePage(){
       var self = this
+      self.current_list.length = 0
       self.contents_list.length = 0
       self.notice_list.length = 0
       self.checkedPage = self.$route.query.page
@@ -149,8 +159,15 @@ export default {
           axios.post(`${global.base}/board/all`, {boardKind:4})
           .then(response =>{
             var rentalData = response.data[0]
-            self.all_list = rentalData
-            self.setItemList(rentalData)
+            for(var item in rentalData){
+              if(rentalData[item].notice){
+                self.notice_list.push(rentalData[item])
+              }
+              else{
+                self.contents_list.push(rentalData[item])
+              }
+            }
+            self.setItemList(self.contents_list)
           })
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
