@@ -102,8 +102,15 @@ export default {
           axios.post(`${global.base}/board/all`, {boardKind:6})
           .then(response =>{
             var rentalData = response.data[0]
-            self.all_list = rentalData
-            self.setItemList(rentalData)
+            for(var item in rentalData){
+              if(rentalData[item].notice){
+                self.notice_list.push(rentalData[item])
+              }
+              else{
+                self.contents_list.push(rentalData[item])
+              }
+            }
+            self.setItemList(self.contents_list)
           })
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");

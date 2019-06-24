@@ -20,14 +20,14 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
-            <tr v-for="(item, index) in notice_list" :key="index" style="background: #EAEAEA;">
+            <tr v-for="item in notice_list" :key="item" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{getDate(item.date)}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
-            <tr v-for="(item, index) in current_list" :key="index">
+            <tr v-for="item in current_list" :key="item">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
