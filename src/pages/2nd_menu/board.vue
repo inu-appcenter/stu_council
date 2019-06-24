@@ -7,6 +7,9 @@
           <div>
             {{content_name}}
           </div>
+          <div id="bt_write_div">
+            <button type="button" id="bt_write" @click='getEnroll()'>글쓰기</button>
+          </div>
         </div>
         <div id="content_body">
           <table>
@@ -36,6 +39,23 @@
   </div>
 </template>
 
+<style>
+#bt_write_div {
+  margin-left: auto;
+}
+
+#bt_write {
+  width: 60px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #003e8f;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+</style>
+
 <script>
 import customNavigation from '@/pages/2nd_menu/custom_navigation'
 import axios from 'axios'
@@ -63,6 +83,15 @@ export default {
     }),
 
   methods: {
+    getEnroll(){
+      var self = this
+      self.$router.push({
+        name: 'enroll',
+        query: {
+          boardKind: self.boardKind
+        }
+      })
+        },
     putParams(id){
       var self = this
       self.boardId = id

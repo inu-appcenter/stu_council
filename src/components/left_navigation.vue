@@ -29,8 +29,12 @@ export default {
     created(){
     },
 
+    mounted(){
+    },
+
     data: () => ({
         selected: true,
+        boardKind: 0,
     }),
 
   methods: {
@@ -41,32 +45,68 @@ export default {
           }
           else if(itemName == '총학생회 위치'){
               self.$router.push('location')
-
           }
           else if(itemName == '회의보고'){
-              self.$router.push('conference')
+              self.$router.push({
+                  name: 'conference',
+                  query: {
+                      boardKind: 3
+                  }
+              })
           }
           else if(itemName == '재정보고'){
-              self.$router.push('financial')
+              self.$router.push({
+                  name: 'financial',
+                  query: {
+                      boardKind: 4
+                  }
+              })
           }
           else if(itemName == '자료실'){
-              self.$router.push('formdoc')
+              self.$router.push({
+                  name: 'formdoc',
+                  query: {
+                      boardKind: 5
+                  }
+              })
           }
           else if(itemName == '학생청원'){
-              self.$router.push('petition')
+              self.$router.push({
+                  name: 'petition',
+                  query: {
+                      boardKind: 1
+                  }
+              })
           }
           else if(itemName == '게시판'){
-              self.$router.push('board')
+              self.$router.push({
+                  name: 'board',
+                  query: {
+                      boardKind: 2
+                  }
+              })
           }
           else if(itemName == '물품대여'){
-              self.$router.push('rental')
+              self.$router.push({
+                  name: 'rental',
+                  query: {
+                      boardKind: 6
+                  }
+              })
           }
           else if(itemName == '통학버스 및 귀향버스'){
-              self.$router.push('bus')
+              self.$router.push({
+                  name: 'bus',
+                  query: {
+                      boardKind: 7
+                  }
+              })
           }
           else{
               console.error("경로가 잘못 되었습니다")
           }
+
+          self.boardKind = this.$route.query.boardKind
       },
   },
 }

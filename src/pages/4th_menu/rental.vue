@@ -91,7 +91,12 @@ export default {
   methods: {
     getEnroll(){
       var self = this
-      self.$router.push('enroll')
+      self.$router.push({
+        name: 'enroll',
+        query: {
+          boardKind: self.boardKind
+        }
+      })
         },
     putParams(id){
       var self = this

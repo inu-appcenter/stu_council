@@ -13,6 +13,7 @@
   padding: 0px;
   margin: 0px;
 }
+
 </style>
 
 
@@ -29,13 +30,16 @@ export default {
   methods: {
   },
 
+  watch:{
+  },
+
   components: {
         leftNavigation,
     },
 
   data: () => ({
     fix_items: global.secondPageItems,
-    page_name: '소통창구'
+    page_name: '소통창구',
     }),
 
 
