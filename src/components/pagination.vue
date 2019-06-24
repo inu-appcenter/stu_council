@@ -96,24 +96,19 @@ name: 'rental',
             var itemLength = self.contentsItem_list.length
             console.log(itemLength)
             if(itemLength % 7 == 0){ //숫자 셋팅
-                    self.contentsAmount = parseInt(itemLength/7)+1
-                    if(self.contentsAmount < 7){
-                        self.startPage = 1
-                    }
-                    else{
-                        self.startPage = self.contentsAmount - 6
-                    }
-                    self.endPage = self.contentsAmount
+            self.startPage = 1
+            self.contentsAmount = parseInt(itemLength/7)
+            self.endPage = self.contentsAmount
+              }
+              else if(itemLength/7 > 1){
+                  self.startPage = 1
+                  self.contentsAmount = parseInt(itemLength/7) + 1
+                  self.endPage = self.contentsAmount
               }
               else{
-                  self.contentsAmount = parseInt(itemLength/7)
-                  if(self.contentsAmount < 7){
-                    self.startPage = 1
-                  }
-                  else{
-                    self.startPage = self.contentsAmount - 6
-                  }
-                  self.endPage = self.contentsAmount+1
+                  self.startPage = 1
+                  self.contentsAmount = 1
+                  self.endPage = self.contentsAmount
               }
 
 

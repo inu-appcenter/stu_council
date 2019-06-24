@@ -86,6 +86,7 @@ export default {
   },
 
   data: () => ({
+      boardName: '',
       content_name: '물품대여',
       boardId: '0',
       boardKind: 'INUAPPCEN',
@@ -167,8 +168,41 @@ export default {
             }
           }
         },
+        setBoardFilter(boardKind){
+        var self = this
+        if(boardKind == 1){
+            self.boardName = 'petition'
+        }
+        else if(boardKind == 2){
+            self.boardName = 'board'
+        }
+        else if(boardKind == 3){
+            self.boardName = 'conference'
+        }
+        else if(boardKind == 4){
+            self.boardName = 'financial'
+        }
+        else if(boardKind == 5){
+            self.boardName = 'formdoc'
+        }
+        else if(boardKind == 6){
+            self.boardName = 'rental'
+        }
+        else{
+            self.boardName = 'bus'
+        }
+    },
         go_back() {
-          this.$router.go(-1)
+          var self = this
+          self.boardKind = self.$route.query.boardKind
+          self.setBoardFilter(self.boardKind)
+          self.$router.push({
+                  name: 'rental',
+                  query: {
+                      boardKind: self.boardName,
+                      page: 1
+                  }
+              })
         }
     }
 }

@@ -45,6 +45,10 @@
   margin-left: auto;
 }
 
+.customPagination{
+  width: 100%;
+}
+
 #bt_write {
   width: 60px;
   height: 36px;
@@ -121,6 +125,7 @@ export default {
         var startItem = self.checkedPage*7 - 7
         var endItem = self.checkedPage*7 - 1
         for(var page = startItem; page <= endItem; page++){
+            if(rentalData[page] != null){
               var content = {
               index: parseInt(page) + 1,
               title: rentalData[page].title,
@@ -136,6 +141,7 @@ export default {
               else{
                 self.contents_list.push(content)
               }
+            }
         }
     },
     changePage(){
