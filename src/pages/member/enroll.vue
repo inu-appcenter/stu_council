@@ -152,7 +152,21 @@ export default {
     submit() {
       var self = this;
 
-      let config = {
+
+      if(self.title.length < 1){
+          alert("제목을 입력해주세요")
+      }
+      else if(self.content < 1){
+          alert("내용을 입력해주세요")
+      }
+      else{
+          this.createBoard()
+      }
+
+    },
+    createBoard(){
+        var self = this;
+        let config = {
         headers: {
           "x-access-token": self.$session.get("member_token")
         }
@@ -178,12 +192,11 @@ export default {
         });
 
     self.getContentsList()
-
     },
     getContentsList(){
           var self = this
 
-          axios.post(`${global.base}/board/all`, {boardKind:6})
+          axios.post(`${global.base}/board/all`, {boardKind:self.boardKind})
           .then(response =>{
             var rentalData = response.data[0]
             console.log(self.$session.get('member_id'))
