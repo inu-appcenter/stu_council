@@ -31,7 +31,8 @@
           <div class="customPagination">
           <pagination
           id="pagination"
-          :contentsItem_list = "all_list"></pagination>
+          :contentsItem_list = "all_list"
+          v-on:pageChanged="changePage"></pagination>
         </div>
         </div>
       </div>
@@ -61,8 +62,6 @@
 import customNavigation from '@/pages/4th_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
-import detailPage from '@/pages/member/detail'
-import router from '@/router'
 import pagination from '@/components/pagination'
 
 export default {
@@ -72,9 +71,12 @@ export default {
     this.getContentsList()
   },
 
+  mounted(){
+    this.checkedPage = this.$route.query.page
+  },
+
   components: {
         customNavigation,
-        detailPage,
         pagination,
     },
 
@@ -85,7 +87,7 @@ export default {
     content_name: '물품대여',
     boardKind: 6,
     boardId: 'INUAPPCEN',
-    checkedPage: 0
+    checkedPage: 1
     }),
 
   methods: {
@@ -115,9 +117,8 @@ export default {
     },
     setItemList(rentalData){
         var self = this
-        var pageNum = 1
-        var startItem = pageNum*7 - 7
-        var endItem = pageNum*7 - 1
+        var startItem = self.checkedPage*7 - 7
+        var endItem = self.checkedPage*7 - 1
         for(var page = startItem; page <= endItem; page++){
               var content = {
               index: parseInt(page) + 1,
@@ -135,6 +136,13 @@ export default {
                 self.contents_list.push(content)
               }
         }
+    },
+    changePage(){
+      var self = this
+      self.contents_list.length = 0
+      self.notice_list.length = 0
+      self.checkedPage = self.$route.query.page
+      self.getContentsList()
     },
     getContentsList(){
           var self = this

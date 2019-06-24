@@ -22,7 +22,11 @@ name: 'rental',
   watch:{
       contentsItem_list: function(){
           this.getContentsList(this.contentsItem_list)
-      }
+      },
+  },
+
+  mounted(){
+      this.boardKind = this.$route.query.boardKind
   },
 
     props: {
@@ -33,33 +37,65 @@ name: 'rental',
         notice_list: {
             type: Array,
             default: () =>(['아이템1', '아이템2', '아이템3', '아이템4', '아이템5'])
-        },
-        checkedPage: {
-            type: Number,
-            default: () => 1
         }
     },
 
   data: () => ({
+    boardName: 'rental',
+    checkedPage: 1,
+    boardKind: 0,
     contentsAmount: 0,
     startPage: 0,
     endPage: 10,
-    pageNumList: []
+    pageNumList: [],
     }),
 
   methods: {
-    setCheckedPage(checkedPageNum){
+    setBoardFilter(boardKind){
         var self = this
+        if(boardKind == 1){
+            self.boardName = 'petition'
+        }
+        else if(boardKind == 2){
+            self.boardName = 'board'
+        }
+        else if(boardKind == 3){
+            self.boardName = 'conference'
+        }
+        else if(boardKind == 4){
+            self.boardName = 'financial'
+        }
+        else if(boardKind == 5){
+            self.boardName = 'formdoc'
+        }
+        else if(boardKind == 6){
+            self.boardName = 'rental'
+        }
+        else{
+            self.boardName = 'bus'
+        }
+    },
+    setCheckedPage(checkedPageNum){ 
+        var self = this
+        self.pageNumList.length = 0
         self.checkedPage = checkedPageNum
-        self.$emit("clickcPageNum", self.checkedPage)
-        alert(checkedPageNum)
+        self.boardKind = self.$route.query.boardKind
+        self.setBoardFilter(self.boardKind)
+        self.$router.push({
+                  name: self.boardName,
+                  query: {
+                      boardKind: self.boardKind,
+                      page: self.checkedPage
+                  }
+              })
+        self.$emit('pageChanged')
     },
     getContentsList(){
           var self = this
 
             var itemLength = self.contentsItem_list.length
             console.log(itemLength)
-            if(itemLength % 7 == 0){
+            if(itemLength % 7 == 0){ //숫자 셋팅
                     self.contentsAmount = parseInt(itemLength/7)+1
                     if(self.contentsAmount < 7){
                         self.startPage = 1

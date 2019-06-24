@@ -26,9 +26,6 @@
             </tr>
           </table>
           <div class="customPagination">
-          <pagination
-          id="pagination"
-          :contentsItem_list = "all_list"></pagination>
         </div>
         </div>
       </div>
@@ -40,7 +37,6 @@
 import customNavigation from '@/pages/2nd_menu/custom_navigation'
 import axios from 'axios'
 import { global } from '@/global'
-import pagination from '@/components/pagination'
 
 export default {
   name: 'petition',
@@ -51,7 +47,6 @@ export default {
 
   components: {
         customNavigation,
-        pagination,
     },
 
   data: () => ({

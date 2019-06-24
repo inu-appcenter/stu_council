@@ -29,9 +29,10 @@
             </tr>
           </table>
           <div class="customPagination">
-          <pagination
+<pagination
           id="pagination"
-          :contentsItem_list = "all_list"></pagination>
+          :contentsItem_list = "all_list"
+          v-on:pageChanged="changePage"></pagination>
         </div>
         </div>
       </div>
@@ -68,18 +69,23 @@ export default {
   created() {
     this.getContentsList();
   },
+  mounted(){
+    this.checkedPage = this.$route.query.page
+  },
 
   components: {
         customNavigation,
-        pagination
+        pagination,
     },
 
   data: () => ({
     all_list: [1, 2],
     contents_list: [],
+    notice_list: [],
     content_name: '재정보고',
     boardKind: 4,
-    boardId: 'INUAPPCEN'
+    boardId: 'INUAPPCEN',
+    checkedPage: 1
     }),
 
   methods: {
@@ -109,9 +115,8 @@ export default {
     },
     setItemList(rentalData){
         var self = this
-        var pageNum = 1
-        var startItem = pageNum*7 - 7
-        var endItem = pageNum*7 - 1
+        var startItem = self.checkedPage*7 - 7
+        var endItem = self.checkedPage*7 - 1
         for(var page = startItem; page <= endItem; page++){
               var content = {
               index: parseInt(page) + 1,
@@ -129,6 +134,13 @@ export default {
                 self.contents_list.push(content)
               }
         }
+    },
+    changePage(){
+      var self = this
+      self.contents_list.length = 0
+      self.notice_list.length = 0
+      self.checkedPage = self.$route.query.page
+      self.getContentsList()
     },
     getContentsList(){
           var self = this

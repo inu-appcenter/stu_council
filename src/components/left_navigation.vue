@@ -50,7 +50,8 @@ export default {
               self.$router.push({
                   name: 'conference',
                   query: {
-                      boardKind: 3
+                      boardKind: 3,
+                      page: 1
                   }
               })
           }
@@ -58,7 +59,8 @@ export default {
               self.$router.push({
                   name: 'financial',
                   query: {
-                      boardKind: 4
+                      boardKind: 4,
+                      page: 1
                   }
               })
           }
@@ -66,7 +68,8 @@ export default {
               self.$router.push({
                   name: 'formdoc',
                   query: {
-                      boardKind: 5
+                      boardKind: 5,
+                      page: 1
                   }
               })
           }
@@ -74,7 +77,8 @@ export default {
               self.$router.push({
                   name: 'petition',
                   query: {
-                      boardKind: 1
+                      boardKind: 1,
+                      page: 1
                   }
               })
           }
@@ -82,7 +86,8 @@ export default {
               self.$router.push({
                   name: 'board',
                   query: {
-                      boardKind: 2
+                      boardKind: 2,
+                      page: 1
                   }
               })
           }
@@ -90,7 +95,8 @@ export default {
               self.$router.push({
                   name: 'rental',
                   query: {
-                      boardKind: 6
+                      boardKind: 6,
+                      page: 1
                   }
               })
           }
@@ -98,7 +104,8 @@ export default {
               self.$router.push({
                   name: 'bus',
                   query: {
-                      boardKind: 7
+                      boardKind: 7,
+                      page: 1
                   }
               })
           }
