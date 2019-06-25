@@ -38,7 +38,7 @@
             <button v-if="files != null" style="width: 100%; background: #EAEAEA; text-align: left;">{{files}}</button>
           </div>
             <div class="detailComponent" id="content">
-                <p>{{body}}</p>
+                <p v-html="body"></p>
             </div>
         </div>
             </table>
@@ -146,7 +146,7 @@ customNavigation1,
                 self.authorName = detailData.authorName
                 self.date = self.getDate(detailData.date)
                 self.viewCount = detailData.viewTime
-                self.body = detailData.content
+                self.body = detailData.content.replace(/(?:\r\n|\r|\n)/g, '<br />')
                 self.files = detailData.file[0]
                 console.log(response)
             })
