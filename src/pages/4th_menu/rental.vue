@@ -20,6 +20,9 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
+            <tr>
+              <td id="table_intro" colspan="5">총학생회 {{content_name}}에 대한 게시판 입니다.</td>
+            </tr>
             <tr v-for="item in notice_list" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
@@ -36,10 +39,10 @@
             </tr>
           </table>
           <div class="customPagination">
-            <div id="pagination">
+            <div>
             {{checkedPage}} Pages
           </div>
-          <div id="pagination">
+          <div>
             <pagination
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
@@ -56,10 +59,15 @@
   margin-left: auto;
 }
 
+.customPagination{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-#pagination{
-  width: 100%;
-  text-align: center;
+#table_intro{
+  color: #003e8f;
+  background-color: #EAEAEA;
 }
 
 #bt_write {
