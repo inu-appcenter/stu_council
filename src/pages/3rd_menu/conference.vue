@@ -20,14 +20,14 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
-            <tr v-for="item in notice_list" :key="item" style="background: #EAEAEA;">
+            <tr v-for="item in notice_list" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{getDate(item.date)}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
-            <tr v-for="item in current_list" :key="item">
+            <tr v-for="item in current_list">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
@@ -36,11 +36,15 @@
             </tr>
           </table>
           <div class="customPagination">
+            <div id="pagination">
+            {{checkedPage}} Pages
+          </div>
+          <div id="pagination">
             <pagination
-          id="pagination"
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
-        </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -50,6 +54,11 @@
 <style>
 #bt_write_div {
   margin-left: auto;
+}
+
+#pagination{
+  width: 100%;
+  text-align: center;
 }
 
 #bt_write {
