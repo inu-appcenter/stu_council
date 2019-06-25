@@ -14,7 +14,7 @@
             <table>
                 <div>
                     <div class="detailComponent" id="titleDiv">
-                        <p class="fixComponent">제목</p>
+                        <p class="fixComponent">제목 + {{secret}}</p>
                         <p class="flexComponent">{{title}}</p>
                     </div>
                 </div>
@@ -35,8 +35,7 @@
 
         <div>
           <div>
-            <p>{{files}}</p>
-            <button style="width: 100%; background: #EAEAEA; text-align: left;">{{files}}</button>
+            <button v-if="files != null" style="width: 100%; background: #EAEAEA; text-align: left;">{{files}}</button>
           </div>
             <div class="detailComponent" id="content">
                 <p>{{body}}</p>
@@ -44,7 +43,7 @@
         </div>
             </table>
         </div>
-        <div class="button_left">
+        <div class="button_left" v-if="owner">
           <button type="button" @click="update_detail()">수정</button>
           <button type="button" @click="delete_detail()">삭제</button>
         </div>
@@ -109,12 +108,28 @@ customNavigation1,
       viewCount: '',
       body: '',
       files: '',
+      owner: false,
+      secret: false,
     }),
 
+    watch:{
+      author: function(){
+        this.boardOwner()
+      }
+    },
+
     methods: {
+      boardOwner(){
+        if(this.author == this.$session.get('member_id')){
+          this.owner = true
+        }
+        else{
+          this.owner = false
+        }
+      },
         getDate(date){
-          var result = date.split(' ')
-          return result[0]
+          var result = date.split(' ');
+          return result[0] + " " +  result[1]
         },
         getData(){
             var self = this
@@ -134,6 +149,7 @@ customNavigation1,
                 self.viewCount = detailData.viewTime
                 self.body = detailData.content
                 self.files = detailData.file[0]
+                self.secret = true
                 console.log(response)
             })
             .catch(error => {

@@ -129,7 +129,7 @@ mounted(){
         for(var page = startItem; page <= endItem; page++){
               if(rentalData[page] != null){
               var content = {
-              index: parseInt(page) + 1,
+                index: parseInt(page) + 1,
               title: rentalData[page].title,
               authorName: rentalData[page].authorName,
               date: self.getDate(rentalData[page].date),

@@ -30,8 +30,15 @@
                         <p>첨부파일을 마우스로 끌어 놓으세요</p>
                     </div>
                     <div id="div_options">
-                      <button id="bt_submit" type="button" @click="submit()">게시하기</button>
-                      <input type="checkbox" v-model="notice"> 공지등록
+                      <div>
+                        <button id="bt_submit" type="button" @click="submit()">게시하기</button>
+                      </div>
+                      <div v-if="visibleMode" id="div_notice">
+                        <input type="checkbox" v-model="notice">&nbsp 공지 등록
+                      </div>
+                      <div v-else id="div_hide">
+                        <input id="check_hide" type="checkbox" v-model="hide">&nbsp 비밀글 등록
+                      </div>
                     </div>
                 </div>
             </div>
@@ -43,6 +50,10 @@
 </template>
 
 <style>
+#div_options{
+  width: 90%;
+  display: flex;
+}
 textarea{
     resize: none;
 }
@@ -77,6 +88,11 @@ textarea{
   color: #ffffff;
   margin-top: 10px;
 }
+
+#div_notice, #div_hide{
+  margin-top: 15px;
+  margin-left: auto;
+}
 </style>
 
 
@@ -98,7 +114,18 @@ export default {
     customNavigation3
   },
 
+  computed: {
+    ...mapState([
+      'fail_access',
+    ]),
+  },
+
+created() {
+      this.fail_access(! this.$session.exists())
+  },
+  
   data: () => ({
+    visibleMode: true,
     title: "",
     content: "",
     file: "",
@@ -109,6 +136,7 @@ export default {
     content_name: "물품대여",
     modify: false,
     notice: false,
+    hide: false,
   }),
 
   mounted() {
@@ -155,6 +183,7 @@ export default {
       } else if (kind == 6) {
         self.content_name = "물품대여";
         self.navigationKind = 3;
+        self.visibleMode = false;
       } else if (kind == 7) {
         self.content_name = "통학버스 및 귀향버스";
         self.navigationKind = 3;
@@ -200,6 +229,7 @@ export default {
       formData.append("userFile", self.file);
       formData.append("boardId", self.boardId);
       formData.append("notice", self.notice);
+      formData.append("boardSecret", self.visibleMode);
 
       axios
         .post(`${global.base}/board/update`, formData, config)
@@ -238,6 +268,7 @@ export default {
       formData.append("content", self.content);
       formData.append("userFile", self.file);
       formData.append("notice", self.notice);
+      formData.append("boardSecret", self.visibleMode);
 
       axios
         .post(`${global.base}/board/create`, formData, config)
