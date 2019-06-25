@@ -109,7 +109,6 @@ customNavigation1,
       body: '',
       files: '',
       owner: false,
-      secret: false,
     }),
 
     watch:{
@@ -149,7 +148,6 @@ customNavigation1,
                 self.viewCount = detailData.viewTime
                 self.body = detailData.content
                 self.files = detailData.file[0]
-                self.secret = true
                 console.log(response)
             })
             .catch(error => {

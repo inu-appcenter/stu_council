@@ -25,29 +25,47 @@
             </tr>
             <tr v-for="item in notice_list" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
-              <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
+              <td class="contentTd" style="width:50%;">
+                <div id="div_secret">
+                  <div v-if="item.boardSecret" id="div_secret_text">
+                    [비밀글]&nbsp &nbsp
+                  </div>
+                  <div>
+                    <a href="" v-on:click="certificateUser(item)">{{item.title}}</a>
+                  </div>
+                </div>
+                </td>
               <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{getDate(item.date)}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
             <tr v-for="item in current_list">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
-              <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
+              <td class="contentTd" style="width:50%;">
+                <div id="div_secret">
+                  <div v-if="item.boardSecret" id="div_secret_text">
+                    [비밀글]&nbsp &nbsp
+                  </div>
+                  <div>
+                    <a href="" v-on:click="certificateUser(item)">{{item.title}}</a>
+                  </div>
+                </div>
+              </td>
               <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{item.date}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
-          <div class="customPagination">
-            <div>
+        </div>
+        <div class="customPagination">
+            <div style="margin-top:15px;">
             {{checkedPage}} Pages
           </div>
-          <div>
+          <div style="margin-top:25px;">
             <pagination
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -57,6 +75,14 @@
 <style>
 #bt_write_div {
   margin-left: auto;
+}
+
+#div_secret{
+  display: flex;
+}
+
+#div_secret_text{
+  color: gray;
 }
 
 .customPagination{
@@ -126,6 +152,20 @@ export default {
         }
       })
         },
+    certificateUser(item){
+      var self = this
+      if(item.boardSecret){
+        if(item.author == self.$session.get('member_id')){
+                  self.putParams(item.boardId)
+                }
+                else{
+                  alert('해당 게시글에 접근 권한이 없습니다')
+                }
+      }
+      else{
+        self.putParams(item.boardId)
+      }
+    },
     putParams(id){
       var self = this
       self.boardId = id
@@ -152,9 +192,11 @@ export default {
               index: parseInt(page) + 1,
               title: rentalData[page].title,
               authorName: rentalData[page].authorName,
+              author: rentalData[page].author,
               date: self.getDate(rentalData[page].date),
               viewTime: rentalData[page].viewTime,
-              boardId: rentalData[page].boardId
+              boardId: rentalData[page].boardId,
+              boardSecret: rentalData[page].boardSecret
               }
 
               self.current_list.push(content)

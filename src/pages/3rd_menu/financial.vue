@@ -38,7 +38,8 @@
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
-          <div class="customPagination">
+        </div>
+        <div class="customPagination">
             <div>
             {{checkedPage}} Pages
           </div>
@@ -47,7 +48,6 @@
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
           </div>
-        </div>
         </div>
       </div>
     </div>
