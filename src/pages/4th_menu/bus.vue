@@ -40,7 +40,17 @@
           id="pagination"
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
-        </div>
+          </div>
+          <!--
+          <div class="filtering">
+            <select class="filtering-option" v-model="filter_option">
+              <option value="search">제목</option>
+              <option value="name">작성자</option>
+            </select>
+            <input type="text" v-model="filter_content"/>
+            <button class="bt_submit" type="button" @click="getFilteredList()">검색</button>
+          </div>
+          -->
         </div>
       </div>
     </div>
@@ -90,7 +100,8 @@ export default {
     content_name: '통학버스 및 귀향버스',
     boardKind: 7,
     boardId: 'INUAPPCEN',
-    checkedPage: 1
+    checkedPage: 1,
+    //filter_content: ''
     }),
 
   methods: {
@@ -167,7 +178,31 @@ export default {
           .catch(error => {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
           })
-      },
+    },
+    /*
+    getFilteredList() {
+      var self = this
+      self.contents_list.length = 0
+      self.notice_list.length = 0
+      axios.post(`${global.base}/board/search`, {boardkind: 7, search: self.filter_content})
+      .then(response => {
+        var rentalData = response.data[0]
+        for(var item in rentalData){
+          if(rentalData[item].notice){
+            self.notice_list.push(rentalData[item])
+          }
+          else{
+            self.contents_list.push(rentalData[item])
+          }
+        }
+        console.log(response)
+        self.setItemList(self.contents_list)
+      })
+      .catch(error => {
+        console.error(error.response)
+      })
+
+    }*/
   },
 
 
