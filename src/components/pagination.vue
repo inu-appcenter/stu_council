@@ -53,6 +53,7 @@ name: 'rental',
 
   data: () => ({
     boardName: 'rental',
+    filter_content: '',
     checkedPage: 1,
     boardKind: 0,
     contentsAmount: 0,
@@ -91,12 +92,14 @@ name: 'rental',
         self.pageNumList.length = 0
         self.checkedPage = checkedPageNum
         self.boardKind = self.$route.query.boardKind
+        self.filter_content = self.$route.query.filter_content
         self.setBoardFilter(self.boardKind)
         self.$router.push({
                   name: self.boardName,
                   query: {
                       boardKind: self.boardKind,
-                      page: self.checkedPage
+                      page: self.checkedPage,
+                      filter_content: self.filter_content
                   }
               })
         self.$emit('pageChanged')

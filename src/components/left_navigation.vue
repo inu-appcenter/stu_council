@@ -54,6 +54,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '재정보고'){
               self.$router.push({
@@ -63,6 +64,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '자료실'){
               self.$router.push({
@@ -72,6 +74,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '학생청원'){
               self.$router.push({
@@ -81,6 +84,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '게시판'){
               self.$router.push({
@@ -90,6 +94,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '물품대여'){
               self.$router.push({
@@ -99,6 +104,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else if(itemName == '통학버스 및 귀향버스'){
               self.$router.push({
@@ -108,6 +114,7 @@ export default {
                       page: 1
                   }
               })
+              window.location.reload(true)
           }
           else{
               console.error("경로가 잘못 되었습니다")

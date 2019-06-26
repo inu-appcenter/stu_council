@@ -12,7 +12,6 @@ import findpw from '@/pages/member/find_pw'
 import findsuccess from '@/pages/member/find_success'
 import detail from '@/pages/member/detail'
 import enroll from '@/pages/member/enroll'
-import filteredlist from '@/pages/member/filteredlist'
 
 import introduce from '@/pages/1st_menu/introduce'
 import location from '@/pages/1st_menu/location'
@@ -138,11 +137,6 @@ export default new VueRouter({
       name: 'enroll',
       component: enroll,
     },
-    {
-      path: '/filteredlist',
-      name: 'filteredlist',
-      component: filteredlist
-    }
   ],
 
   //페이지 이동시 화면 좌측상단으로 이동
