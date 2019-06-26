@@ -1,0 +1,47 @@
+.filtering {
+    margin-top: $grid5x;
+    height: $grid10x;
+    
+    select {
+        width: $grid20x;
+        height: $grid12x;
+        font-family: NotoSansCJKkr;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #333333;
+        
+        margin-right: -$grid2x;
+        border-radius: 8px 0 0 8px;
+        border: 1px solid #666666;
+    }
+    .filter_content {
+        width: $grid73x;
+        height: $grid11x;
+        font-family: NotoSansCJKkr;
+        font-size: 15px;
+        letter-spacing: normal;
+        border: 1px solid #666666;
+        background: none;
+        outline: 0;
+        border-left: 0;
+        border-right: 0;
+        text-indent: $grid2x
+        
+    }
+    button {
+        
+        margin-left: -$grid2x;
+        width: $grid13x;
+        height: $grid12x;
+        background-color: #666666;
+        border-radius: 0 8px 8px 0;
+        font-family: NotoSansCJKkr;
+        font-size: 15px;
+        color: #ffffff;
+    }
+}

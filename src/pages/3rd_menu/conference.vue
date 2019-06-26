@@ -20,6 +20,9 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
+            <tr>
+              <td id="table_intro" colspan="5">총학생회 {{content_name}}에 대한 게시판 입니다.</td>
+            </tr>
             <tr v-for="item in notice_list" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
@@ -35,15 +38,23 @@
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
           </table>
-          <div class="customPagination">
-            <div id="pagination">
+        </div>
+        <div class="customPagination">
+            <div style="margin-top:15px;">
             {{checkedPage}} Pages
           </div>
-          <div id="pagination">
+          <div style="margin-top:25px;">
             <pagination
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
           </div>
+          <div class="filtering">
+            <select class="filtering-option" v-model="filter_option">
+              <option value="search">제목</option>
+              <option value="name">작성자</option>
+            </select>
+            <input type="text" v-model="filter_content"/>
+            <button class="bt_submit" type="button" @click="putParams2()">검색</button>
           </div>
         </div>
       </div>
@@ -56,9 +67,15 @@
   margin-left: auto;
 }
 
-#pagination{
-  width: 100%;
-  text-align: center;
+.customPagination{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#table_intro{
+  color: #003e8f;
+  background-color: #EAEAEA;
 }
 
 #bt_write {
@@ -101,7 +118,9 @@ mounted(){
     content_name: '회의보고',
     boardKind: 3,
     boardId: 'INUAPPCEN',
-    checkedPage: 1
+    checkedPage: 1,
+    filter_option: 'search',
+    filter_content: ''
     }),
 
   methods: {
@@ -127,6 +146,16 @@ mounted(){
           },
         })
       },
+    putParams2(filter_content){
+      var self = this
+      self.$router.push({
+        name:'filteredlist',
+        query: {
+          boardKind: self.boardKind,
+          filter_content: self.filter_content
+        },
+      })
+    },
     getDate(date){
           var result = date.split(' ')
           return result[0]

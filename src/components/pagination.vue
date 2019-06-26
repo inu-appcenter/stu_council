@@ -1,14 +1,25 @@
 <template>
     <div>
-        <tbody>
-            <tr>
-                <td v-for="(item, index) in pageNumList" :key="index"><button v-on:click="setCheckedPage(item)">{{item}}</button></td>
+        <table id="pagination_table">
+            <tbody>
+                <tr>
+                <td id="pagination_td" v-for="(item, index) in pageNumList" :key="index"><button v-on:click="setCheckedPage(item)">{{item}}</button></td>
             </tr>
-        </tbody>
+            </tbody>
+        </table>
     </div>
 </template>
 
 <style>
+#pagination_table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  #pagination_td {
+    border: 1px solid #444444;
+    padding: 0px 6px;
+  }
 </style>
 
 <script>

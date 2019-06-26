@@ -33,11 +33,13 @@
                       <div>
                         <button id="bt_submit" type="button" @click="submit()">게시하기</button>
                       </div>
-                      <div v-if="visibleMode" id="div_notice">
+                      <div id="notice_hide">
+                        <div id="div_notice">
                         <input type="checkbox" v-model="notice">&nbsp 공지 등록
                       </div>
-                      <div v-else id="div_hide">
+                      <div v-if="invisibleMode" id="div_hide">
                         <input id="check_hide" type="checkbox" v-model="hide">&nbsp 비밀글 등록
+                      </div>
                       </div>
                     </div>
                 </div>
@@ -89,9 +91,13 @@ textarea{
   margin-top: 10px;
 }
 
-#div_notice, #div_hide{
-  margin-top: 15px;
+#notice_hide{
+  display: flex;
   margin-left: auto;
+}
+
+#div_notice, #div_hide{
+  margin: 15px 15px;
 }
 </style>
 
@@ -125,7 +131,7 @@ created() {
   },
   
   data: () => ({
-    visibleMode: true,
+    invisibleMode: false,
     title: "",
     content: "",
     file: "",
@@ -183,7 +189,7 @@ created() {
       } else if (kind == 6) {
         self.content_name = "물품대여";
         self.navigationKind = 3;
-        self.visibleMode = false;
+        self.invisibleMode = true;
       } else if (kind == 7) {
         self.content_name = "통학버스 및 귀향버스";
         self.navigationKind = 3;
@@ -268,7 +274,7 @@ created() {
       formData.append("content", self.content);
       formData.append("userFile", self.file);
       formData.append("notice", self.notice);
-      formData.append("boardSecret", self.visibleMode);
+      formData.append("boardSecret", self.hide);
 
       axios
         .post(`${global.base}/board/create`, formData, config)

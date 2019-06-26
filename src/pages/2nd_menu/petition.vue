@@ -42,6 +42,7 @@ export default {
   name: 'petition',
 
   created() {
+    this.go_back()
     this.getContentsList();
   },
 
@@ -58,6 +59,10 @@ export default {
     }),
 
   methods: {
+    go_back() {
+      alert("추후 서비스 제공될 예정입니다.")
+      this.$router.push({name:'home'})
+    },
     putParams(id){
       var self = this
       self.boardId = id
