@@ -20,14 +20,14 @@
               <td id="title" class="headTd">날짜</td>
               <td id="title" class="headTd">조회</td>
             </tr>
-            <tr v-for="item in notice_list" :key="item" style="background: #EAEAEA;">
+            <tr v-for="item in notice_list" style="background: #EAEAEA;">
               <td class="headTd" style="width:5%;">공지</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
               <td style="width:10%;">{{getDate(item.date)}}</td>
               <td style="width:10%;">{{item.viewTime}}</td>
             </tr>
-            <tr v-for="item in current_list" :key="item">
+            <tr v-for="item in current_list">
               <td class="headTd" style="width:5%;">{{item.index}}</td>
               <td class="contentTd" style="width:50%;"><a href="" v-on:click="putParams(item.boardId)">{{item.title}}</a></td>
               <td style="width:10%;">{{item.authorName}}</td>
@@ -36,30 +36,39 @@
             </tr>
           </table>
           <div class="customPagination">
+            <div id="pagination">
+            {{checkedPage}} Pages
+          </div>
+          <div id="pagination">
             <pagination
-          id="pagination"
           :contentsItem_list = "contents_list"
           v-on:pageChanged="changePage"></pagination>
           </div>
-          <!--
+          
           <div class="filtering">
             <select class="filtering-option" v-model="filter_option">
               <option value="search">제목</option>
               <option value="name">작성자</option>
             </select>
             <input type="text" v-model="filter_content"/>
-            <button class="bt_submit" type="button" @click="getFilteredList()">검색</button>
+            <button class="bt_submit" type="button" @click="putParams2()">검색</button>
           </div>
-          -->
+          
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
 <style>
 #bt_write_div {
   margin-left: auto;
+}
+
+#pagination{
+  width: 100%;
+  text-align: center;
 }
 
 #bt_write {
@@ -101,7 +110,8 @@ export default {
     boardKind: 7,
     boardId: 'INUAPPCEN',
     checkedPage: 1,
-    //filter_content: ''
+    filter_option: '',
+    filter_content: ''
     }),
 
   methods: {
@@ -123,10 +133,21 @@ export default {
         name: 'detail',
         query: {
           boardKind: self.boardKind,
+          content_name: self.content_name,
           boardId: self.boardId
           },
         })
       },
+    putParams2(filter_content){
+      var self = this
+      self.$router.push({
+        name:'filteredlist',
+        query: {
+          boardKind: self.boardKind,
+          filter_content: self.filter_content
+        },
+      })
+    },
     getDate(date){
           var result = date.split(' ')
           return result[0]
@@ -179,30 +200,7 @@ export default {
               console.error(error.response + "에러 발생, 게시판 리스트를 불러올 수 없음");
           })
     },
-    /*
-    getFilteredList() {
-      var self = this
-      self.contents_list.length = 0
-      self.notice_list.length = 0
-      axios.post(`${global.base}/board/search`, {boardkind: 7, search: self.filter_content})
-      .then(response => {
-        var rentalData = response.data[0]
-        for(var item in rentalData){
-          if(rentalData[item].notice){
-            self.notice_list.push(rentalData[item])
-          }
-          else{
-            self.contents_list.push(rentalData[item])
-          }
-        }
-        console.log(response)
-        self.setItemList(self.contents_list)
-      })
-      .catch(error => {
-        console.error(error.response)
-      })
-
-    }*/
+    
   },
 
 

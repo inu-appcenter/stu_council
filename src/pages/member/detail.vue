@@ -14,7 +14,7 @@
             <table>
                 <div>
                     <div class="detailComponent" id="titleDiv">
-                        <p class="fixComponent">제목 + {{secret}}</p>
+                        <p class="fixComponent">제목</p>
                         <p class="flexComponent">{{title}}</p>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ export default {
   name: 'detail',
 
   components:{
-customNavigation1,
+    customNavigation1,
     customNavigation2,
     customNavigation3
   },
