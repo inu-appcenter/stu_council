@@ -36,7 +36,7 @@
 
   .body_container {
     margin: $grid20x 0;
-    min-height: $grid128x;
+
     display: flex;
     width: 100%;
   }
@@ -57,6 +57,7 @@
   }
 
   #content_body {
+    min-height: $grid120x;
     margin-top: $grid2x;
     width: 100%;
     background-color: #fff;

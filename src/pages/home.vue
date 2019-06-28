@@ -36,25 +36,23 @@
 
     <div class="home-bottom-section">
       <div class="bottom-container">
-        <div class="facebook-block" onclick="location.href='https://www.facebook.com/inuchong/'"></div>
+        <div class="facebook-block" onclick="window.open('https://www.facebook.com/inuchong/')"></div>
         <div class="padding-block"/>
 
         <div class="Every-Kakao-block">
-          <div class="Every-block" onclick="location.href='https://inu.everytime.kr/416066'"></div>
-          <div class="Kakao-block" onclick="location.href='http://pf.kakao.com/_AStxoxl'"></div>
+          <div class="Every-block" onclick="window.open('https://inu.everytime.kr/416066')"></div>
+          <div class="Kakao-block" onclick="window.open('http://pf.kakao.com/_AStxoxl')"></div>
         </div>
 
         <div class="padding-block"/>
 
         <div class="Insta-Ad-block">
-          <div
-            class="Insta-block"
-            onclick="location.href='https://www.instagram.com/36inu_bounce/'"
-          ></div>
-          <div class="Ad-block" onclick="location.href='https://inu-appcenter.firebaseapp.com/'"></div>
+          <div class="Insta-block" onclick="window.open('https://www.instagram.com/36inu_bounce/')"></div>
+          <div class="Ad-block" onclick="window.open('https://inu-appcenter.firebaseapp.com/')"></div>
         </div>
       </div>
     </div>
+
     <router-view></router-view>
   </div>
 </template>
