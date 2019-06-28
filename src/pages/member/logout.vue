@@ -4,14 +4,13 @@
 
 <script>
 export default {
-  name: 'logout',
+  name: "logout",
 
-  mounted () {
-    this.$session.clear()
-    this.$session.destroy()
-    window.location.href = '/'
-    this.$router.go(-1)
-  },
-
-}
+  mounted() {
+    this.$session.clear();
+    this.$session.destroy();
+    window.location.href = "/";
+    this.$router.go(-1);
+  }
+};
 </script>

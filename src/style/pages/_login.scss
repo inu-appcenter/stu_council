@@ -1,8 +1,9 @@
-$width: 264px;
+$width: $grid46x;
 
 #login {
   display: table;
-  margin: $grid64x auto;
+  margin: 0 auto;
+  padding: $grid64x;
 
   a {
     margin-left: 4px;

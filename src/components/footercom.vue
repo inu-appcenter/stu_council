@@ -32,21 +32,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: 'footercom',
+  name: "footercom",
 
   data: _ => ({
-    title: '인천대학교 총학생회',
+    title: "인천대학교 총학생회"
   }),
 
   computed: {
-    ...mapState([
-      'footer_info',
-      'footer_terms',
-    ])
-  },
-
-}
+    ...mapState(["footer_info", "footer_terms"])
+  }
+};
 </script>

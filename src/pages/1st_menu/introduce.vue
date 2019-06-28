@@ -168,7 +168,6 @@
                 <span>민태홍</span>
               </label>
             </div>
-
           </div>
         </div>
       </div>
@@ -210,19 +209,18 @@
 
 
 <script>
-import customNavigation from '@/pages/1st_menu/custom_navigation'
+import customNavigation from "@/pages/1st_menu/custom_navigation";
 
 export default {
-  name: 'introduce',
+  name: "introduce",
 
   components: {
-        customNavigation,
-    },
+    customNavigation
+  },
 
   data: () => ({
-    content_name: '총학생회 소개',
-    }),
-
-}
+    content_name: "총학생회 소개"
+  })
+};
 </script>
 

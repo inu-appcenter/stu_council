@@ -1,7 +1,7 @@
 #detail {
 
   .button_left {
-    
+
     float: left;
 
     button {
@@ -23,6 +23,7 @@
 
   .button_right {
     text-align: right;
+
     button {
       margin-top: $grid5x;
       text-align: center;
@@ -36,13 +37,14 @@
       font-stretch: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      
+
       color: #ffffff;
     }
   }
 
 
   padding: $grid22x $grid32x;
+
   table {
     width: 100%;
     border-spacing: 0px;
@@ -142,5 +144,5 @@
     border-bottom: 3px solid #000;
   }
 
-  
+
 }

@@ -2,7 +2,8 @@ $width: 264px;
 
 #signupsuccess {
   display: table;
-  margin: $grid64x auto;
+  margin: 0 auto;
+  padding: $grid64x;
 
   .signupsuccess__wrapper {
     width: $width;
@@ -55,7 +56,7 @@ $width: 264px;
       border: none;
       outline: none;
       cursor: pointer;
-      height: $grid12x;      
+      height: $grid12x;
       background-color: $brand-blue;
       @include font-size($grid4x);
 

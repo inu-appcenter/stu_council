@@ -2,7 +2,8 @@ $width: 264px;
 
 #find_success {
   display: table;
-  margin: $grid64x auto;
+  margin: 0 auto;
+  padding: $grid64x;
 
   .find_success__wrapper {
     width: $width;

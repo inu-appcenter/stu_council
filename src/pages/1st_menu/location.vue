@@ -14,7 +14,7 @@
 </template>
 
 <style>
-#location.container {
+#location {
   padding: 90px 128px;
 }
 
@@ -51,22 +51,20 @@
 </style>
 
 <script>
-import DaumMap from '@/components/daum_map'
-import customNavigation from '@/pages/1st_menu/custom_navigation'
+import DaumMap from "@/components/daum_map";
+import customNavigation from "@/pages/1st_menu/custom_navigation";
 
 export default {
-  name: 'location',
+  name: "location",
 
   components: {
     DaumMap,
-    customNavigation,
-
+    customNavigation
   },
 
   data: () => ({
-    content_name: '총학생회 위치',
-    }),
-
-}
+    content_name: "총학생회 위치"
+  })
+};
 </script>
 

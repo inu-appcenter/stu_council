@@ -1,27 +1,27 @@
 <template>
   <div id="app">
     <headercom></headercom>
-    <router-view></router-view>
+    <div class="main">
+      <router-view></router-view>
+    </div>
     <footercom></footercom>
   </div>
 </template>
 
 <script>
-import headercom from './components/headercom'
-import footercom from './components/footercom'
+import headercom from "./components/headercom";
+import footercom from "./components/footercom";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     headercom,
-    footercom,
+    footercom
   },
 
-  data: () => ({
-    }),
-
-}
+  data: () => ({})
+};
 </script>
 
 <style lang="scss">

@@ -5,8 +5,10 @@ $height: $grid10x;
 
 #mypage {
   display: table;
-  margin: $grid32x auto;
-  
+  margin: 0 auto;
+  padding-top: $grid32x;
+  padding-bottom: $grid32x;
+
   .sign_info {
     font-size: 9px;
   }
@@ -54,7 +56,7 @@ $height: $grid10x;
           color: #666666;
           font-size: 8px;
         }
-        
+
       }
     }
 

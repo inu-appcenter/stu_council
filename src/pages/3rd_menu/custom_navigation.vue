@@ -1,10 +1,6 @@
 <template>
   <div id="custom_navigation" class="container">
-    <left-navigation
-    class="board"
-    :fix_notice_items = "fix_items"
-    :page_name = page_name
-    ></left-navigation>
+    <left-navigation class="board" :fix_notice_items="fix_items" :page_name="page_name"></left-navigation>
   </div>
 </template>
 
@@ -17,28 +13,24 @@
 
 
 <script>
-import leftNavigation from '@/components/left_navigation'
-import {global} from '@/global'
+import leftNavigation from "@/components/left_navigation";
+import { global } from "@/global";
 
 export default {
-  name: 'custom_navigation',
+  name: "custom_navigation",
 
-  created() {
-  },
+  created() {},
 
-  methods: {
-  },
+  methods: {},
 
   components: {
-        leftNavigation,
-    },
+    leftNavigation
+  },
 
   data: () => ({
     fix_items: global.thirdPageItems,
-    page_name: '활동보고'
-    }),
-
-
-}
+    page_name: "활동보고"
+  })
+};
 </script>
 

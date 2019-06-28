@@ -2,7 +2,8 @@ $width: 264px;
 
 #find_pw {
   display: table;
-  margin: $grid64x auto;
+  margin: 0 auto;
+  padding: $grid64x;
 
   .url {
     width: 81px;
@@ -45,13 +46,13 @@ $width: 264px;
     }
 
     .find_pw__wrapper-input-2 {
-        width: $width;
-        height: $grid10x;
-        padding-left: $grid4x;
-        padding-right: $grid4x;
-        margin-bottom: $grid3x;
-        border: 1px solid #666;
-      }
+      width: $width;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin-bottom: $grid3x;
+      border: 1px solid #666;
+    }
 
     .find_pw__wrapper-btn {
       width: 100%;
