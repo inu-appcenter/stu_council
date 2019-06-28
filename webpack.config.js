@@ -10,9 +10,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
-  // plugins: [
-  //   new Dotenv()
-  // ],
+  plugins: [
+    new Dotenv()
+  ],
   module: {
     rules: [{
         test: /\.css$/,
@@ -96,7 +96,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    port:7003,
+    port: 7003,
 
     headers: {
       "Access-Control-Allow-Origin": "*",

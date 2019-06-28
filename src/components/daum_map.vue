@@ -21,7 +21,7 @@ export default {
   },
 
   data: () => ({
-    appKey: "5cae4bedea290bb528d059a8f19df251", //키값 .env 에 넣을것
+    appKey: process.env.KAKAO_KEY,
     center: { lat: 37.374449, lng: 126.631773 },
     // 인천대학교 중심 좌표 -> 37.3750548,126.6307111
     // 복지회관 중심 좌표 -> 37.374449, 126.631773
