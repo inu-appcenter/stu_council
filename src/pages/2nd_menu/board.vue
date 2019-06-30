@@ -51,7 +51,7 @@
               <option value="search">제목</option>
               <option value="name">작성자</option>
             </select>
-            <input type="text" v-model="filter_content">
+            <input type="text" v-model="filter_content" />
             <button class="bt_submit" type="button" v-on:click="putParams2()">검색</button>
           </div>
         </div>
@@ -61,31 +61,6 @@
 </template>
 
 <style>
-#bt_write_div {
-  margin-left: auto;
-}
-
-.customPagination {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#table_intro {
-  color: #003e8f;
-  background-color: #eaeaea;
-}
-
-#bt_write {
-  width: 60px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: #003e8f;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-  color: #ffffff;
-}
 </style>
 
 <script>

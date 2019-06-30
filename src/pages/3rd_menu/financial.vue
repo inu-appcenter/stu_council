@@ -61,31 +61,6 @@
 </template>
 
 <style>
-#bt_write_div {
-  margin-left: auto;
-}
-
-.customPagination {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#table_intro {
-  color: #003e8f;
-  background-color: #eaeaea;
-}
-
-#bt_write {
-  width: 60px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: #003e8f;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-  color: #ffffff;
-}
 </style>
 
 <script>
