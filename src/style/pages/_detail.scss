@@ -59,6 +59,15 @@
   .detailComponent#content {
     min-height: $grid40x;
     padding: $grid9x $grid8x;
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
   }
 
   #secondDiv {
