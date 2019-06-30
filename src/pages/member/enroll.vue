@@ -32,7 +32,7 @@
                     ref="file"
                     @change="handleFileUpload($event.target.name, $event.target.files)"
                     @drop="handleFileUpload($event.target.name, $event.target.files)"
-                  >
+                  />
                   <p>첨부파일을 마우스로 끌어 놓으세요</p>
                 </div>
                 <div id="div_options">
@@ -41,10 +41,10 @@
                   </div>
                   <div id="notice_hide">
                     <div id="div_notice">
-                      <input type="checkbox" v-model="notice">&nbsp 공지 등록
+                      <input type="checkbox" v-model="notice" />&nbsp 공지 등록
                     </div>
                     <div v-if="invisibleMode" id="div_hide">
-                      <input id="check_hide" type="checkbox" v-model="hide">&nbsp 비밀글 등록
+                      <input id="check_hide" type="checkbox" v-model="hide" />&nbsp 비밀글 등록
                     </div>
                   </div>
                 </div>
@@ -128,7 +128,8 @@ export default {
   },
 
   computed: {
-    ...mapState(["fail_access"])
+    ...mapState(["fail_access"]),
+    ...mapState(["check_admin"])
   },
 
   created() {
@@ -161,6 +162,7 @@ export default {
       this.boardKind = this.$route.params.pre_boardKind;
       this.boardId = this.$route.params.pre_boardId;
     }
+    this.allow_admin();
     console.log(this.$session.get("member_id"));
   },
 
@@ -174,6 +176,15 @@ export default {
   },
 
   methods: {
+    allow_admin() {
+      if (this.boardKind == 3 || this.boardKind == 4 || this.boardKind == 5) {
+        if (this.check_admin()) {
+        } else {
+          alert("관리자만 작성가능한 페이지입니다.");
+          this.$router.go(-1);
+        }
+      }
+    },
     boardKindFilter(kind) {
       var self = this;
       if (kind == 1) {
@@ -266,7 +277,7 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       };
-      
+
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
@@ -283,9 +294,7 @@ export default {
           }
         })
         .catch(error => {
-          console.error(
-            error.response + "에러 발생, 업로드 오류"
-          );
+          console.error(error.response + "에러 발생, 업로드 오류");
         });
       self.getContentsList();
     },

@@ -6,7 +6,7 @@
         <div id="content_name">
           <div>{{content_name}}</div>
           <div id="bt_write_div">
-            <button type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
+            <button v-if="admin" type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
           </div>
         </div>
         <div id="content_body">
@@ -51,7 +51,7 @@
               <option value="search">제목</option>
               <option value="name">작성자</option>
             </select>
-            <input type="text" v-model="filter_content">
+            <input type="text" v-model="filter_content" />
             <button class="bt_submit" type="button" v-on:click="putParams2()">검색</button>
           </div>
         </div>
@@ -93,10 +93,13 @@ import customNavigation from "@/pages/3rd_menu/custom_navigation";
 import axios from "axios";
 import { global } from "@/global";
 import pagination from "@/components/pagination";
+import { mapState } from "vuex";
 
 export default {
   name: "conference",
-
+  computed: {
+    ...mapState(["check_admin"])
+  },
   mounted() {
     this.checkedPage = this.$route.query.page;
     //새로고쳐졌을 때 불러올 데이터
@@ -106,6 +109,7 @@ export default {
     } else {
       this.getfilteredData();
     }
+    this.admin = this.check_admin();
   },
   components: {
     customNavigation,
@@ -113,6 +117,7 @@ export default {
   },
 
   data: () => ({
+    admin: 0,
     contents_list: [],
     notice_list: [],
     current_list: [],

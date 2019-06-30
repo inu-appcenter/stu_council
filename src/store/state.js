@@ -29,6 +29,13 @@ const state = {
       this.check_login = true
     }
   },
+  check_admin() {
+    if (this.$session.get("member_id") == "admin") {
+      return 1
+    } else {
+      return 0
+    }
+  },
 
   // get_user_info() {
   //   let base = global.base
