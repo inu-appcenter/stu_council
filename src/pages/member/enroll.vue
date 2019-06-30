@@ -139,7 +139,7 @@ export default {
     invisibleMode: false,
     title: "",
     content: "",
-    file: "",
+    file: [],
     file_name: "",
     boardKind: 0,
     boardId: 0,
@@ -227,7 +227,6 @@ export default {
           "x-access-token": self.$session.get("member_token")
         }
       };
-
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
@@ -263,10 +262,11 @@ export default {
       var self = this;
       let config = {
         headers: {
-          "x-access-token": self.$session.get("member_token")
+          "x-access-token": self.$session.get("member_token"),
+          "Content-Type": "multipart/form-data"
         }
       };
-
+      
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
@@ -274,7 +274,6 @@ export default {
       formData.append("userFile", self.file);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.hide);
-
       axios
         .post(`${global.base}/board/create`, formData, config)
         .then(response => {
@@ -285,7 +284,7 @@ export default {
         })
         .catch(error => {
           console.error(
-            error.response + "에러 발생, 게시판 리스트를 불러올 수 없음"
+            error.response + "에러 발생, 업로드 오류"
           );
         });
       self.getContentsList();
@@ -298,7 +297,6 @@ export default {
         .then(response => {
           var rentalData = response.data[0];
           console.log(rentalData[0]);
-          console.log(self.$session.get("member_id"));
           for (var item in rentalData) {
             if (rentalData[item].author == self.$session.get("member_id")) {
               self.boardId = rentalData[item].boardId;

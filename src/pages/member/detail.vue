@@ -36,6 +36,7 @@
                 <button
                   v-if="files != null"
                   style="width: 100%; background: #EAEAEA; text-align: left;"
+                  @click="download()"
                 >{{files}}</button>
               </div>
               <div class="detailComponent" id="content">
@@ -104,6 +105,7 @@ export default {
     viewCount: "",
     body: "",
     files: "",
+    fileFolder: "",
     owner: false
   }),
 
@@ -148,6 +150,7 @@ export default {
           self.viewCount = detailData.viewTime;
           self.body = detailData.content.replace(/(?:\r\n|\r|\n)/g, "<br />");
           self.files = detailData.file[0];
+          self.fileFolder = detailData.fileFolder;
           console.log(response);
         })
         .catch(error => {
@@ -239,6 +242,36 @@ export default {
           page: 1
         }
       });
+    },
+    download() {
+      var self = this;
+      let config = {
+        headers: {
+          "x-access-token": self.$session.get("member_token")
+        }
+      };
+
+      console.log(self.files)
+      const formData = new FormData();
+      formData.append("fileFolder", self.fileFolder);
+      formData.append("filename", self.files);
+
+      axios
+        .get(`${global.base}/download?fileFolder=`+self.fileFolder+`&filename=`+self.files,{responseType:'arraybuffer'},config)
+        .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        //link.setAttribute('download', 'file.pdf'); //or any other extension
+        link.download = self.files
+        document.body.appendChild(link);
+        link.click();
+      })
+        .catch(error => {
+          console.error(
+            error.response + "에러 발생, 업로드 오류"
+          );
+        });
     }
   }
 };
