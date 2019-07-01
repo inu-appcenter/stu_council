@@ -7,7 +7,8 @@
   vertical-align: middle;
   z-index: 9999;
 
-  @supports ((position: -webkit-sticky) or (position: sticky)) or (position: -webkit-sticky) {
+  @supports ((position: -webkit-sticky) or (position: sticky)) or
+    (position: -webkit-sticky) {
     position: -webkit-sticky;
     position: sticky;
   }
@@ -86,7 +87,7 @@
         @include font-size($grid4x);
       }
 
-      >a {
+      > a {
         cursor: pointer;
         color: $text111;
         padding: $grid6x 0 $grid6x $grid10x;

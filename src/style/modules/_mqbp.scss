@@ -16,14 +16,12 @@ $ip6: "screen and (max-width : 375px )";
 $mobile: "screen and (max-width : 360px )";
 $mini: "screen and (max-width : 320px )";
 
-
 /* ==============================
   browser specific
 ============================== */
 $chrome: "screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm)";
 $firefox: "screen and (min--moz-device-pixel-ratio:0) and (min-resolution: .001dpcm)";
 $ie: "screen and (-ms-high-contrast: active), (-ms-high-contrast: none)";
-
 
 /* ==============================
   필요에 따라 @ 뒤의 코드를 복붙!
