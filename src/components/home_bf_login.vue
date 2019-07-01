@@ -5,7 +5,7 @@
     </button>
     <div class="find_and_join">
       <router-link to="/findpw">비밀번호 찾기</router-link>
-      <br>
+      <br />
       <router-link to="/signup">회원가입</router-link>
     </div>
   </div>
