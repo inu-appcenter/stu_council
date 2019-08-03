@@ -184,7 +184,8 @@ export default {
             .post(`${global.base}/board/delete`, {
               token: self.$session.get("member_token"),
               boardKind: self.boardKind,
-              boardId: self.boardId
+              boardId: self.boardId,
+              fileFolder: self.fileFolder
             })
             .then(response => {
               alert("게시물이 삭제되었습니다.");
