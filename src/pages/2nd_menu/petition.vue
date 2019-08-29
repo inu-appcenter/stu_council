@@ -41,7 +41,7 @@ export default {
   name: "petition",
 
   created() {
-    this.go_back();
+    //this.go_back();
     this.getContentsList();
   },
 
@@ -50,9 +50,9 @@ export default {
   },
 
   data: () => ({
-    all_list: [1, 2],
+    all_list: [],
     contents_list: [],
-    content_name: "학생청원",
+    content_name: "학생회 소식",
     boardKind: 1,
     boardId: "INUAPPCEN"
   }),

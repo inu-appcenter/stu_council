@@ -1,0 +1,254 @@
+#home {
+  margin: 0px;
+  padding: 0px;
+  max-width: 100%;
+  width: 100%;
+
+  .container {
+    padding: 0 $grid30x;
+    margin: auto;
+  }
+
+
+  .home-top-section {
+    margin: 0 0 0 0;
+    text-align: center;
+  }
+
+  .home-main-pic {
+    margin: 0 0 0 0;
+    width: 1400px;
+
+
+  }
+
+  .home-middle-section {
+    margin-left: calc(-50vw+50%);
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    background-color: #f3f3f3;
+    overflow: hidden;
+
+
+  }
+
+  .info-section {
+    width: 308px;
+    height: auto;
+    /* font-family: NotoSansCJKkr; */
+    font-size: 27px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -1px;
+    color: #111111;
+    margin-top: 36px;
+    margin-bottom: 29px;
+    float: left;
+  }
+
+  .work-time {
+    width: $grid104x;
+    padding-bottom: $grid2x;
+  }
+
+  .wt-1 {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: normal;
+  }
+
+  .wt-2 {
+    letter-spacing: -1.6px;
+  }
+
+  .line-block {
+    width: $grid80x;
+    height: 0.1px;
+    border: solid 1px #0a4a9b;
+    background-color: #0a4a9b;
+  }
+
+  .A-E-C {
+    width: 50px;
+    height: 114px;
+    /*font-family: NotoSansCJKkr;*/
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    color: #333333;
+    float: left;
+  }
+
+  .A-E-C-Info {
+    width: 242px;
+    height: 107px;
+    /*font-family: NotoSansCJKkr;*/
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    color: #111111;
+    float: right;
+  }
+
+  .login-section {
+    width: 300px;
+    height: 183px;
+    background-color: #e4e4e4;
+    margin-top: 29px;
+    margin-bottom: 29px;
+    float: right;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #666666;
+    }
+
+    .home_login_button {
+
+      a {
+        display: inline-block;
+        width: 183px;
+        height: 50px;
+        text-decoration: none;
+        color: #e4e4e4;
+        padding-top: 20px;
+      }
+    }
+
+    .info-id {
+      font-size: 22px;
+      font-weight: bold;
+      color: #111111;
+    }
+
+
+
+    .mypage-bottom {
+
+      margin-top: $grid7x;
+      background-color: #4a90e2;
+      width: 300px;
+      height: 52px;
+      font-size: 15px;
+
+
+
+      a {
+        display: inline;
+        color: #ffffff;
+        text-decoration: none;
+        vertical-align: middle;
+        line-height: 52px;
+      }
+    }
+
+
+  }
+
+  .info-sec {
+    margin-top: $grid10x;
+    margin-bottom: $grid2x;
+
+    .info-logout {
+      width: 67px;
+      height: 26px;
+      padding: 0 0 0 0;
+      margin-top: $grid2x;
+      margin-left: 4px;
+      border-radius: 3px;
+      //border: solid 1px #979797;
+
+      a {
+        color: #333333;
+      }
+    }
+  }
+
+  .bottom-container {
+    padding: 0 $grid30x;
+    margin-top: $grid10x;
+    margin-bottom: $grid10x;
+    display: flex;
+  }
+
+  .block-image {
+    position: absolute;
+    z-index: 10;
+  }
+
+  .block-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 13;
+  }
+
+  .padding-block {
+    flex: 1;
+  }
+
+  .facebook-block {
+    flex: 19;
+    height: 480px;
+    cursor: pointer;
+    background-image: url("/src/assets/chong_facebook.png");
+    background-size: 100% 480px;
+  }
+
+  .Every-Kakao-block {
+    height: 480px;
+    flex: 19;
+  }
+
+  .Kakao-block {
+    width: 100%;
+    height: 229px;
+    background-color: #fcaf17;
+    margin-top: 23px;
+    cursor: pointer;
+    background: url("/src/assets/chong_plus.png");
+    background-size: 100% 229px;
+  }
+
+  .Every-block {
+    width: 100%;
+    height: 229px;
+    cursor: pointer;
+    background-image: url("/src/assets/chong_every.png");
+    background-size: 100% 229px;
+  }
+
+  .Insta-Ad-block {
+    height: 480px;
+    flex: 19;
+  }
+
+  .Insta-block {
+    width: 100%;
+    height: 229px;
+    cursor: pointer;
+    background-image: url("/src/assets/chong_insta.png");
+    background-size: 100% 229px;
+  }
+
+  .Ad-block {
+    width: 100%;
+    height: 229px;
+    margin-top: 23px;
+    cursor: pointer;
+    background-image: url("/src/assets/appcen_logo.png");
+    background-size: 100% 229px;
+  }
+
+
+}

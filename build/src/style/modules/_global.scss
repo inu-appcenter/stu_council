@@ -1,0 +1,95 @@
+/* ==============================
+  normalize css
+============================== */
+body {
+  outline: none;
+  background-color: #fff;
+  @include font-settings();
+  @include font-stack-html();
+  @include font-size($grid4x);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+
+select,
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  tap-highlight-color: rgba(0, 0, 0, 0) !important;
+
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  }
+}
+
+
+select:focus,
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+  }
+
+  &::-webkit-contacts-auto-fill-button,
+  &::-webkit-credentials-auto-fill-button {
+    right: 0;
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+    display: none !important;
+  }
+}
+
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+::-khtml-placeholder {
+  color: #666;
+}
+
+::-moz-placeholder {
+  color: #666;
+}
+
+::-ms-placeholder {
+  color: #666;
+}
+
+::-o-placeholder {
+  color: #666;
+}
+
+::placeholder {
+  color: #666;
+}
+
+.main {
+  width: $grid350x;
+  margin: auto;
+}

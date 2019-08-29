@@ -1,0 +1,157 @@
+#detail {
+
+  .button_left {
+
+    float: left;
+
+    button {
+      width: $grid30x;
+      height: $grid10x;
+      background-color: #666666;
+      margin-top: $grid5x;
+      margin-right: $grid4x;
+      font-family: NotoSansCJKkr;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #ffffff;
+    }
+  }
+
+  .button_right {
+    text-align: right;
+
+    button {
+      margin-top: $grid5x;
+      text-align: center;
+      width: $grid48x;
+      height: $grid10x;
+      background-color: #003e8f;
+      font-family: NotoSansCJKkr;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+
+      color: #ffffff;
+    }
+  }
+
+
+  padding: $grid22x $grid32x;
+
+  table {
+    width: 100%;
+    border-spacing: 0px;
+  }
+
+  .detailComponent {
+    display: flex;
+    width: 100%;
+    padding: $grid $grid8x;
+  }
+
+  .detailComponent#content {
+    min-height: $grid40x;
+    padding: $grid9x $grid8x;
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+  }
+
+  #secondDiv {
+    display: flex;
+    margin-top: $grid2x;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .fixComponent {
+    width: $grid12x;
+    height: $grid6x;
+    font-weight: bold;
+    text-align: left;
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #111;
+    @include font-size($grid4x);
+  }
+
+  .flexComponent {
+    margin-left: $grid14x;
+    text-align: left;
+    font-family: NotoSansCJKkr;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #000000;
+    @include font-size($grid4x);
+  }
+
+  .detailComponent#titleDiv {
+    margin-top: $grid2x;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 3px solid #f5f5f5;
+  }
+
+
+  .body_container {
+    margin: $grid20x 0;
+    display: flex;
+    width: 100%;
+  }
+
+  #notice_contents {
+    margin-left: 7%;
+    width: 100%;
+  }
+
+  #content_name {
+    display: flex;
+    height: $grid8x;
+    width: 100%;
+    color: $brand-blue;
+    font-weight: 700;
+    font-family: NotoSansCJKkr;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.48;
+    letter-spacing: normal;
+    color: #003e8f;
+    @include font-size($grid6x);
+    @include line-height($grid4x);
+  }
+
+  #content_body {
+    width: 100%;
+    margin-top: $grid2x;
+    background-color: #fff;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+  }
+
+
+}
