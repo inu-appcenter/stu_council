@@ -30,6 +30,7 @@
                     id="ip_box"
                     type="file"
                     ref="file"
+                    multiple
                     @change="handleFileUpload($event.target.name, $event.target.files)"
                     @drop="handleFileUpload($event.target.name, $event.target.files)"
                   />
@@ -213,7 +214,7 @@ export default {
     },
     handleFileUpload(name, files) {
       var self = this;
-      self.file = files[0];
+      self.file = files;
       self.file_name = files[0].name;
     },
     submit() {
@@ -235,18 +236,21 @@ export default {
       var self = this;
       let config = {
         headers: {
-          "x-access-token": self.$session.get("member_token")
+          "x-access-token": self.$session.get("member_token"),
+          "Content-Type": "multipart/form-data"
         }
       };
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
       formData.append("content", self.content);
-      formData.append("userFile", self.file);
       formData.append("boardId", self.boardId);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.visibleMode);
-
+      for( var i = 0; i < self.file.length; i++ ){
+        let file = self.file[i];
+        formData.append('userFile', file);
+      }
       axios
         .post(`${global.base}/board/update`, formData, config)
         .then(response => {
@@ -282,13 +286,17 @@ export default {
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
       formData.append("content", self.content);
-      formData.append("userFile", self.file);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.hide);
+      for( var i = 0; i < self.file.length; i++ ){
+        let file = self.file[i];
+        formData.append('userFile', file);
+      }
       axios
         .post(`${global.base}/board/create`, formData, config)
         .then(response => {
           if (response.data.ans == "success") {
+            console.log(self.file)
             console.log("게시판 생성");
             alert("정상적으로 등록되었습니다.");
           }
