@@ -22,15 +22,15 @@ export default {
 
   data: () => ({
     appKey: process.env.KAKAO_KEY,
-    center: { lat: 37.374449, lng: 126.631773 },
+    center: { lat: 37.374482, lng: 126.630852 },
     // 인천대학교 중심 좌표 -> 37.3750548,126.6307111
     // 복지회관 중심 좌표 -> 37.374449, 126.631773
     level: 3, // 지도의 레벨(확대, 축소 정도),
     mapTypeId: VueDaumMap.MapTypeId.NORMAL, // 맵 타입
     libraries: [], // 추가로 불러올 라이브러리
     map: null, // 지도 객체. 지도가 로드되면 할당됨.
-    mLat: 37.374449,
-    mLng: 126.631773
+    mLat: 37.374482,
+    mLng: 126.630852
   }),
 
   methods: {
