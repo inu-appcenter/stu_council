@@ -35,9 +35,10 @@
               <div>
                 <button
                   v-if="files != null"
+                  v-for="fileItem in files"
                   style="width: 100%; background: #EAEAEA; text-align: left;"
-                  @click="download()"
-                >{{files}}</button>
+                  @click="download(fileItem)"
+                >{{fileItem}}</button>
               </div>
               <div class="detailComponent" id="content">
                 <p v-html="body"></p>
@@ -104,7 +105,7 @@ export default {
     date: "",
     viewCount: "",
     body: "",
-    files: "",
+    files: [],
     fileFolder: "",
     owner: false
   }),
@@ -149,7 +150,7 @@ export default {
           self.date = self.getDate(detailData.date);
           self.viewCount = detailData.viewTime;
           self.body = detailData.content.replace(/(?:\r\n|\r|\n)/g, "<br />");
-          self.files = detailData.file[0];
+          self.files = detailData.file;
           self.fileFolder = detailData.fileFolder;
           console.log(response);
         })
@@ -184,7 +185,8 @@ export default {
             .post(`${global.base}/board/delete`, {
               token: self.$session.get("member_token"),
               boardKind: self.boardKind,
-              boardId: self.boardId
+              boardId: self.boardId,
+              fileFolder: self.fileFolder
             })
             .then(response => {
               alert("게시물이 삭제되었습니다.");
@@ -243,7 +245,7 @@ export default {
         }
       });
     },
-    download() {
+    download(fileItem) {
       var self = this;
       let config = {
         headers: {
@@ -251,19 +253,19 @@ export default {
         }
       };
 
-      console.log(self.files)
+      console.log(fileItem)
       const formData = new FormData();
       formData.append("fileFolder", self.fileFolder);
-      formData.append("filename", self.files);
+      formData.append("filename", fileItem);
 
       axios
-        .get(`${global.base}/download?fileFolder=`+self.fileFolder+`&filename=`+self.files,{responseType:'arraybuffer'},config)
+        .get(`${global.base}/download?fileFolder=`+self.fileFolder+`&filename=`+fileItem,{responseType:'arraybuffer'},config)
         .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
         //link.setAttribute('download', 'file.pdf'); //or any other extension
-        link.download = self.files
+        link.download = fileItem
         document.body.appendChild(link);
         link.click();
       })

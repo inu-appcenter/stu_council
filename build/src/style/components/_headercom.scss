@@ -1,0 +1,157 @@
+#headercom {
+  width: 100%;
+  position: sticky;
+  -webkit-box-shadow: 2px 0 4px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 2px 0 4px 2px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  vertical-align: middle;
+  z-index: 9999;
+
+  @supports ((position: -webkit-sticky) or (position: sticky)) or
+    (position: -webkit-sticky) {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  a,
+  ul,
+  ol {
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  li {
+    text-decoration: none;
+    list-style-type: none;
+  }
+}
+
+.above_link {
+  padding: 0 $container;
+  height: 36px;
+  background-color: $brand-yellow;
+  vertical-align: middle;
+  text-align: right;
+  padding-top: $grid3x;
+
+  a,
+  span {
+    cursor: pointer;
+    height: 10px;
+    margin: 0px 7px 7px 7px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: $text333;
+  }
+
+  .above_first {
+    width: 42px;
+  }
+
+  .above_second {
+    width: 52px;
+  }
+}
+
+.below_link {
+  width: 100%;
+  height: 84px;
+
+  .home_logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+
+    img {
+      height: 44px;
+    }
+  }
+
+  .menubar {
+    float: right;
+
+    li {
+      font-weight: 700;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      @include font-size($grid6x);
+
+      &:not(:last-child) {
+        padding-right: $grid10x;
+      }
+
+      @media #{$default} {
+        @include font-size($grid4x);
+      }
+
+      > a {
+        cursor: pointer;
+        color: $text111;
+        padding: $grid6x 0 $grid6x $grid10x;
+
+        &:hover {
+          color: $brand-blue;
+        }
+
+        // 임시방편... 디자이너분들이 mqbp를 지정해주셔야 합니다!
+        @media #{$mq_1240} {
+          padding: $grid7x 0 $grid7x $grid6x;
+          @include font-size($grid5x);
+        }
+
+        @media #{$pro_land} {
+          padding: $grid7x 0 $grid7x $grid4x;
+          @include font-size($grid5x);
+        }
+
+        @media #{$default} {
+          padding: $grid8x 0 $grid8x $grid4x;
+          @include font-size($grid4x);
+        }
+
+        @media #{$pro2} {
+          padding-left: $grid2x;
+        }
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $brand-blue;
+
+        ul {
+          margin-top: $grid21x;
+          display: inline-block;
+          width: 200px;
+
+          a {
+            color: $text111;
+
+            &:hover {
+              color: $brand-blue;
+            }
+
+            li {
+              height: 15px;
+              display: block;
+              width: 100%;
+              margin-top: 2px;
+              background-color: #f4f4f4;
+              text-align: center;
+              padding: $grid2x $grid2x $grid4x $grid3x;
+              position: relative;
+              @include font-size($grid4x);
+            }
+          }
+        }
+      }
+    }
+  }
+}

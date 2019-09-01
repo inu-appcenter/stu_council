@@ -6,7 +6,7 @@
         <div id="content_name">
           <div>{{content_name}}</div>
           <div id="bt_write_div">
-            <button type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
+            <button v-if="admin" type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
           </div>
         </div>
         <div id="content_body">
@@ -91,7 +91,7 @@ export default {
     contents_list: [],
     notice_list: [],
     current_list: [],
-    content_name: "게시판",
+    content_name: "학생청원",
     boardKind: 2,
     boardId: "INUAPPCEN",
     checkedPage: 1,

@@ -1,0 +1,32 @@
+.container {
+  padding: 0 $grid72x;
+  margin: 0 auto;
+
+  @media #{$mq_1240} {
+    padding: 0 $grid32x;
+  }
+
+  @media #{$pro_land} {
+    padding: 0 $grid28x;
+  }
+
+  @media #{$pro2} {
+    padding: 0 $grid24x;
+  }
+
+  @media #{$tablet} {
+    padding: 0 $grid16x;
+  }
+
+  @media #{$landsc} {
+    padding: 0 $grid12x;
+  }
+
+  @media #{$pablet2} {
+    padding: 0 $grid6x;
+  }
+
+  @media #{$ip6} {
+    padding: 0 $grid4x;
+  }
+}

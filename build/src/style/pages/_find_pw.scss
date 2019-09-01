@@ -1,0 +1,69 @@
+$width: 264px;
+
+#find_pw {
+  display: table;
+  margin: 0 auto;
+  padding: $grid64x;
+
+  .url {
+    width: 81px;
+    height: 24px;
+    font-family: NotoSansCJKkr;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #666666;
+  }
+
+  .find_pw__wrapper {
+    width: $width;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    .find_pw__wrapper-title {
+      width: 160px;
+      margin: 0 auto;
+      display: block;
+      height: $grid10x;
+      font-weight: 700;
+      margin-bottom: $grid6x;
+      border-bottom: solid $grid $brand-yellow;
+      @include font-size($grid6x);
+    }
+
+    .find_pw__wrapper-input-1 {
+      width: 180px;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin-bottom: $grid3x;
+      border: 1px solid #666;
+    }
+
+    .find_pw__wrapper-input-2 {
+      width: $width;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin-bottom: $grid3x;
+      border: 1px solid #666;
+    }
+
+    .find_pw__wrapper-btn {
+      width: 100%;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+      height: $grid12x;
+      font-weight: 600;
+      background-color: $brand-blue;
+      @include font-size($grid4x);
+    }
+  }
+}

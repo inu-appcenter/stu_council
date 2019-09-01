@@ -30,10 +30,10 @@
             <router-link to="/petition?boardKind=1&page=1">소통창구</router-link>
             <ul>
               <router-link to="/petition?boardKind=1&page=1">
-                <li>학생청원</li>
+                <li>학생회 소식</li>
               </router-link>
               <router-link to="/board?boardKind=2&page=1">
-                <li>게시판</li>
+                <li>학생청원</li>
               </router-link>
             </ul>
           </li>

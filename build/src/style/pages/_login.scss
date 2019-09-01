@@ -1,0 +1,61 @@
+$width: $grid46x;
+
+#login {
+  display: table;
+  margin: 0 auto;
+  padding: $grid64x;
+
+  a {
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 20px;
+    color: #003e8f !important;
+    font-family: NotoSansCJKkr;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+  }
+
+  .login__wrapper {
+    width: $width;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    .login__wrapper-title {
+      width: 144px;
+      margin: 0 auto;
+      display: block;
+      height: $grid10x;
+      font-weight: 700;
+      margin-bottom: $grid6x;
+      border-bottom: solid $grid $brand-yellow;
+      @include font-size($grid6x);
+    }
+
+    .login__wrapper-input {
+      width: $width;
+      height: $grid10x;
+      padding-left: $grid4x;
+      padding-right: $grid4x;
+      margin-bottom: $grid3x;
+      border: 1px solid #666;
+    }
+
+    .login__wrapper-btn {
+      width: 100%;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+      height: $grid12x;
+      font-weight: 600;
+      background-color: $brand-blue;
+      @include font-size($grid4x);
+    }
+  }
+}
