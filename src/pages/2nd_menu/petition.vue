@@ -52,7 +52,7 @@ export default {
   data: () => ({
     all_list: [],
     contents_list: [],
-    content_name: "학생회 소식",
+    content_name: "학생청원",
     boardKind: 1,
     boardId: "INUAPPCEN"
   }),

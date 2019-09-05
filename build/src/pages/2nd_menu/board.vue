@@ -1,12 +1,12 @@
 <template>
-  <div id="board" class="container globalBoard">
+  <div id="conference" class="container globalBoard">
     <div class="body_container">
       <custom-navigation></custom-navigation>
       <div id="notice_contents">
         <div id="content_name">
           <div>{{content_name}}</div>
           <div id="bt_write_div">
-            <button type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
+            <button v-if="admin" type="button" id="bt_write" @click="getEnroll()">글쓰기</button>
           </div>
         </div>
         <div id="content_body">
@@ -68,30 +68,35 @@ import customNavigation from "@/pages/2nd_menu/custom_navigation";
 import axios from "axios";
 import { global } from "@/global";
 import pagination from "@/components/pagination";
+import { mapState } from "vuex";
 
 export default {
   name: "board",
-
+  computed: {
+    ...mapState(["check_admin"])
+  },
   mounted() {
     this.checkedPage = this.$route.query.page;
+    //새로고쳐졌을 때 불러올 데이터
     var filter_data = this.$route.query.filter_content;
     if (filter_data == null) {
       this.getContentsList();
     } else {
       this.getfilteredData();
     }
+    this.admin = this.check_admin();
   },
-
   components: {
     customNavigation,
     pagination
   },
 
   data: () => ({
+    admin: 0,
     contents_list: [],
     notice_list: [],
     current_list: [],
-    content_name: "게시판",
+    content_name: "학생회 소식",
     boardKind: 2,
     boardId: "INUAPPCEN",
     checkedPage: 1,
@@ -139,7 +144,6 @@ export default {
       var result = date.split(" ");
       return result[0];
     },
-
     setItemList(rentalData) {
       var self = this;
       var startItem = self.checkedPage * 7 - 7;
@@ -183,7 +187,7 @@ export default {
       var self = this;
 
       axios
-        .post(`${global.base}/board/all`, { boardKind: 2 })
+        .post(`${global.base}/board/all`, { boardKind: 3 })
         .then(response => {
           var rentalData = response.data[0];
           for (var item in rentalData) {

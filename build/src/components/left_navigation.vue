@@ -78,7 +78,7 @@ export default {
           }
         });
         window.location.reload(true);
-      } else if (itemName == "게시판") {
+      } else if (itemName == "학생회 소식") {
         self.$router.push({
           name: "board",
           query: {

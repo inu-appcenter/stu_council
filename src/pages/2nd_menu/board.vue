@@ -68,6 +68,7 @@ import customNavigation from "@/pages/2nd_menu/custom_navigation";
 import axios from "axios";
 import { global } from "@/global";
 import pagination from "@/components/pagination";
+import { mapState } from "vuex";
 
 export default {
   name: "board",
@@ -80,18 +81,22 @@ export default {
     } else {
       this.getfilteredData();
     }
+    this.admin = this.check_admin();
   },
 
   components: {
     customNavigation,
     pagination
   },
+  computed: {
+    ...mapState(["check_admin"])
+  },
 
   data: () => ({
     contents_list: [],
     notice_list: [],
     current_list: [],
-    content_name: "학생청원",
+    content_name: "학생회 소식",
     boardKind: 2,
     boardId: "INUAPPCEN",
     checkedPage: 1,

@@ -10,7 +10,7 @@
       <div class="below_link">
         <div class="home_logo">
           <router-link to="/">
-            <img src="../assets/header_logo.png">
+            <img src="../assets/header_logo.png" />
           </router-link>
           <!--src/assets/header_logo.png-->
         </div>
@@ -30,10 +30,10 @@
             <router-link to="/petition?boardKind=1&page=1">소통창구</router-link>
             <ul>
               <router-link to="/petition?boardKind=1&page=1">
-                <li>학생회 소식</li>
+                <li>학생청원</li>
               </router-link>
               <router-link to="/board?boardKind=2&page=1">
-                <li>학생청원</li>
+                <li>학생회 소식</li>
               </router-link>
             </ul>
           </li>
