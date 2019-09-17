@@ -41,7 +41,7 @@
                     <button id="bt_submit" type="button" @click="submit()">게시하기</button>
                   </div>
                   <div id="notice_hide">
-                    <div id="div_notice">
+                    <div id="div_notice" v-if="notice_toggle">
                       <input type="checkbox" v-model="notice" />&nbsp 공지 등록
                     </div>
                     <div v-if="invisibleMode" id="div_hide">
@@ -134,10 +134,11 @@ export default {
   },
 
   created() {
-    this.fail_access(!this.$session.exists());
+    //this.fail_access(!this.$session.exists());
   },
 
   data: () => ({
+    notice_toggle: false,
     invisibleMode: false,
     title: "",
     content: "",
@@ -178,6 +179,11 @@ export default {
 
   methods: {
     allow_admin() {
+      if (this.check_admin()) {
+        this.notice_toggle = true;
+      } else {
+        this.notice_toggle = false;
+      }
       if (this.boardKind == 3 || this.boardKind == 4 || this.boardKind == 5) {
         if (this.check_admin()) {
         } else {
@@ -247,9 +253,9 @@ export default {
       formData.append("boardId", self.boardId);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.visibleMode);
-      for( var i = 0; i < self.file.length; i++ ){
+      for (var i = 0; i < self.file.length; i++) {
         let file = self.file[i];
-        formData.append('userFile', file);
+        formData.append("userFile", file);
       }
       axios
         .post(`${global.base}/board/update`, formData, config)
@@ -288,15 +294,15 @@ export default {
       formData.append("content", self.content);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.hide);
-      for( var i = 0; i < self.file.length; i++ ){
+      for (var i = 0; i < self.file.length; i++) {
         let file = self.file[i];
-        formData.append('userFile', file);
+        formData.append("userFile", file);
       }
       axios
         .post(`${global.base}/board/create`, formData, config)
         .then(response => {
           if (response.data.ans == "success") {
-            console.log(self.file)
+            console.log(self.file);
             console.log("게시판 생성");
             alert("정상적으로 등록되었습니다.");
           }
