@@ -16,6 +16,18 @@
                 <textarea name="e_textarea_title" id="ip_box" v-model="title" rows="1"></textarea>
               </div>
             </div>
+            <div id="e_content" v-if="notice_toggle">
+              <p>날짜</p>
+              <div id="div_content">
+                <textarea
+                  name="admin_date"
+                  placeholder="10글자(ex:2019-09-11)"
+                  id="ip_box"
+                  v-model="ad_date"
+                  rows="1"
+                ></textarea>
+              </div>
+            </div>
             <div id="e_content">
               <p>내용</p>
               <div id="div_content">
@@ -138,6 +150,7 @@ export default {
   },
 
   data: () => ({
+    ad_date: "",
     notice_toggle: false,
     invisibleMode: false,
     title: "",
@@ -249,6 +262,7 @@ export default {
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
+      formData.append("ad_date", self.ad_date);
       formData.append("content", self.content);
       formData.append("boardId", self.boardId);
       formData.append("notice", self.notice);
@@ -291,6 +305,7 @@ export default {
       const formData = new FormData();
       formData.append("boardKind", self.boardKind);
       formData.append("title", self.title);
+      formData.append("ad_date", self.ad_date);
       formData.append("content", self.content);
       formData.append("notice", self.notice);
       formData.append("boardSecret", self.hide);
