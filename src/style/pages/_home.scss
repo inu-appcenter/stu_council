@@ -9,17 +9,15 @@
     margin: auto;
   }
 
-
   .home-top-section {
     margin: 0 0 0 0;
     text-align: center;
   }
 
   .home-main-pic {
+    position: relative;
     margin: 0 0 0 0;
     width: 1400px;
-
-
   }
 
   .home-middle-section {
@@ -29,8 +27,6 @@
     height: auto;
     background-color: #f3f3f3;
     overflow: hidden;
-
-
   }
 
   .info-section {
@@ -114,7 +110,6 @@
     }
 
     .home_login_button {
-
       a {
         display: inline-block;
         width: 183px;
@@ -131,17 +126,12 @@
       color: #111111;
     }
 
-
-
     .mypage-bottom {
-
       margin-top: $grid7x;
       background-color: #4a90e2;
       width: 300px;
       height: 52px;
       font-size: 15px;
-
-
 
       a {
         display: inline;
@@ -151,8 +141,6 @@
         line-height: 52px;
       }
     }
-
-
   }
 
   .info-sec {
@@ -249,6 +237,4 @@
     background-image: url("/src/assets/appcen_logo.png");
     background-size: 100% 229px;
   }
-
-
 }
