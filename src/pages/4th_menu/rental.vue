@@ -52,7 +52,7 @@
           </table>
         </div>
         <div class="customPagination">
-          <div style="margin-top:15px;">{{checkedPage}} Pages</div>
+          <!--<div style="margin-top:15px;">{{checkedPage}} Pages</div>-->
           <div style="margin-top:25px;">
             <pagination :contentsItem_list="contents_list" v-on:pageChanged="changePage"></pagination>
           </div>

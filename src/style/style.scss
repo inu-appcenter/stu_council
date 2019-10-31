@@ -4,18 +4,19 @@
 modules
 */
 @import "./modules/grid", "./modules/mqbp", "./modules/color",
-"./modules/mixins", "./modules/global", "./modules/layout";
+  "./modules/mixins", "./modules/global", "./modules/layout";
 
 /*
 components
 */
 @import "./components/headercom", "./components/footercom",
-"./components/location", "./components/_left_navigation",
-"./components/globalBoard", "./components/sitelist", "./components/filtering", "./components/home-login";
+  "./components/location", "./components/_left_navigation",
+  "./components/globalBoard", "./components/sitelist", "./components/filtering",
+  "./components/home-login", "./components/pagination";
 
 /*
 pages
 */
 @import "./pages/login", "./pages/signup", "./pages/home", "./pages/mypage",
-"./pages/find_pw", "./pages/find_success", "./pages/signupsuccess",
-"./pages/introduce", "./pages/detail";
+  "./pages/find_pw", "./pages/find_success", "./pages/signupsuccess",
+  "./pages/introduce", "./pages/detail";

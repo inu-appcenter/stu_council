@@ -3,9 +3,15 @@
     <table id="pagination_table">
       <tbody>
         <tr>
-          <td id="pagination_td" v-for="(item, index) in pageNumList" :key="index">
-            <button v-on:click="setCheckedPage(item)">{{item}}</button>
-          </td>
+          <vue-ads-pagination
+            :total-items="totalItems"
+            :max-visible-pages="maxVisiblePages"
+            :page="page"
+            :loading="loading"
+            :items-per-page="itemsPerPage"
+            @range-change="rangeChange"
+            @page-change="pageChange"
+          />
         </tr>
       </tbody>
     </table>
@@ -13,21 +19,13 @@
 </template>
 
 <style>
-#pagination_table {
-  width: 100%;
-  border: 1px solid #444444;
-  border-collapse: collapse;
-}
-#pagination_td {
-  border: 1px solid #444444;
-  padding: 0px 6px;
-}
 </style>
 
 <script>
 import axios from "axios";
 import { global } from "@/global";
 import router from "@/router";
+import VueAdsPagination from "vue-ads-pagination";
 
 export default {
   name: "rental",
@@ -36,10 +34,6 @@ export default {
     contentsItem_list: function() {
       this.getContentsList(this.contentsItem_list);
     }
-  },
-
-  mounted() {
-    this.boardKind = this.$route.query.boardKind;
   },
 
   props: {
@@ -52,6 +46,12 @@ export default {
       default: () => ["아이템1", "아이템2", "아이템3", "아이템4", "아이템5"]
     }
   },
+  mounted() {
+    this.boardKind = this.$route.query.boardKind;
+    console.log(this.$route.query.page);
+  },
+
+  components: { VueAdsPagination },
 
   data: () => ({
     boardName: "rental",
@@ -61,7 +61,16 @@ export default {
     contentsAmount: 0,
     startPage: 0,
     endPage: 10,
-    pageNumList: []
+    pageNumList: [],
+    add_pageNum: 0,
+
+    start: null,
+    end: null,
+    page: 0,
+    maxVisiblePages: 4,
+    totalItems: 0,
+    loading: false,
+    itemsPerPage: 7
   }),
 
   methods: {
@@ -85,6 +94,7 @@ export default {
     },
     setCheckedPage(checkedPageNum) {
       var self = this;
+      self.page = checkedPageNum - 1;
       self.pageNumList.length = 0;
       self.checkedPage = checkedPageNum;
       self.boardKind = self.$route.query.boardKind;
@@ -102,9 +112,8 @@ export default {
     },
     getContentsList() {
       var self = this;
-
       var itemLength = self.contentsItem_list.length;
-      console.log(itemLength);
+      self.totalItems = self.contentsItem_list.length;
       if (itemLength % 7 == 0) {
         //숫자 셋팅
         self.startPage = 1;
@@ -120,9 +129,18 @@ export default {
         self.endPage = self.contentsAmount;
       }
 
+      self.lastpage = Math.floor((self.contentsItem_list.length - 0.1) / 7) + 1;
       for (var page = self.startPage; page <= self.endPage; page++) {
         self.pageNumList.push(page);
       }
+    },
+    pageChange(page) {
+      this.page = page;
+      this.setCheckedPage(page + 1);
+    },
+    rangeChange(start, end) {
+      this.start = start;
+      this.end = end;
     }
   }
 };

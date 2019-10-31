@@ -21,9 +21,6 @@ import VueSession from "vue-session"
 Vue.use(VueSession)
 Vue.use(VueLodash)
 
-import VueA11yDialog from "vue-a11y-dialog"
-Vue.use(VueA11yDialog)
-
 new Vue({
   el: "#app",
   router,
