@@ -41,7 +41,7 @@ export default {
   name: "petition",
 
   created() {
-    //this.go_back();
+    this.go_back();
     this.getContentsList();
   },
 

@@ -48,6 +48,7 @@ export default {
   },
   mounted() {
     this.boardKind = this.$route.query.boardKind;
+    this.page = this.$route.query.page - 1;
     console.log(this.$route.query.page);
   },
 
@@ -67,7 +68,7 @@ export default {
     start: null,
     end: null,
     page: 0,
-    maxVisiblePages: 4,
+    maxVisiblePages: 5,
     totalItems: 0,
     loading: false,
     itemsPerPage: 7
