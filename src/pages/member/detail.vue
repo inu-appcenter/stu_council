@@ -40,6 +40,11 @@
                   @click="download(fileItem)"
                 >{{fileItem}}</button>
               </div>
+
+              <div class="detailComponent" id="content">
+                <p v-html="body"></p>
+              </div>
+
               <!-- 2019.11.04 start -->
               <div class="img_area">
                 <span v-for="imgfile in imgfiles">
@@ -47,9 +52,6 @@
                 </span>
               </div>
               <!--2019.11.04 end-->
-              <div class="detailComponent" id="content">
-                <p v-html="body"></p>
-              </div>
             </div>
           </table>
         </div>
