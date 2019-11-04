@@ -46,7 +46,7 @@
                   <img v-bind:src="imgfile" />
                 </span>
               </div>
-              <!-- 2019.11.04 end -->
+              <!--2019.11.04 end-->
               <div class="detailComponent" id="content">
                 <p v-html="body"></p>
               </div>
