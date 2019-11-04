@@ -40,6 +40,13 @@
                   @click="download(fileItem)"
                 >{{fileItem}}</button>
               </div>
+              <!-- 2019.11.04 start -->
+              <div class="img_area">
+                <span v-for="imgfile in imgfiles">
+                  <img v-bind:src="imgfile" />
+                </span>
+              </div>
+              <!-- 2019.11.04 end -->
               <div class="detailComponent" id="content">
                 <p v-html="body"></p>
               </div>
@@ -107,6 +114,7 @@ export default {
     body: "",
     files: [],
     fileFolder: "",
+    imgfiles: [],
     owner: false
   }),
 
@@ -153,6 +161,27 @@ export default {
           self.files = detailData.file;
           self.fileFolder = detailData.fileFolder;
           console.log(response);
+
+          // 2019.11.04 start
+          for (var i = 0; i < self.files.length; i++) {
+            if (
+              self.files[i]
+                .substring(self.files[i].length, self.files[i].length - 3)
+                .toLowerCase() == "jpg" ||
+              self.files[i]
+                .substring(self.files[i].length, self.files[i].length - 3)
+                .toLowerCase() == "png"
+            ) {
+              self.imgfiles.push(
+                `${global.base}` +
+                  "/imgload/" +
+                  self.fileFolder +
+                  "/" +
+                  self.files[i]
+              );
+            }
+          }
+          //2019.11.04 end
         })
         .catch(error => {
           console.error(
@@ -253,26 +282,31 @@ export default {
         }
       };
 
-      console.log(fileItem)
+      console.log(fileItem);
       const formData = new FormData();
       formData.append("fileFolder", self.fileFolder);
       formData.append("filename", fileItem);
 
       axios
-        .get(`${global.base}/download?fileFolder=`+self.fileFolder+`&filename=`+fileItem,{responseType:'arraybuffer'},config)
-        .then((response) => {
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
-        link.href = url;
-        //link.setAttribute('download', 'file.pdf'); //or any other extension
-        link.download = fileItem
-        document.body.appendChild(link);
-        link.click();
-      })
+        .get(
+          `${global.base}/download?fileFolder=` +
+            self.fileFolder +
+            `&filename=` +
+            fileItem,
+          { responseType: "arraybuffer" },
+          config
+        )
+        .then(response => {
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          //link.setAttribute('download', 'file.pdf'); //or any other extension
+          link.download = fileItem;
+          document.body.appendChild(link);
+          link.click();
+        })
         .catch(error => {
-          console.error(
-            error.response + "에러 발생, 업로드 오류"
-          );
+          console.error(error.response + "에러 발생, 업로드 오류");
         });
     }
   }
