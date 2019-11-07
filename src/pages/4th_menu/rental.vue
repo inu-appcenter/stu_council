@@ -126,7 +126,10 @@ export default {
     certificateUser(item) {
       var self = this;
       if (item.boardSecret) {
-        if (item.author == self.$session.get("member_id")) {
+        if (
+          item.author == self.$session.get("member_id") ||
+          self.$session.get("member_id") == "admin"
+        ) {
           self.putParams(item.boardId);
         } else {
           alert("해당 게시글에 접근 권한이 없습니다");

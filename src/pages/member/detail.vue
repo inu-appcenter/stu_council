@@ -48,7 +48,7 @@
               <!-- 2019.11.04 start -->
               <div class="img_area">
                 <span v-for="imgfile in imgfiles">
-                  <img v-bind:src="imgfile" />
+                  <img v-bind:src="imgfile" @click="img_bigger(imgfile)" title="이미지 크게보기" />
                 </span>
               </div>
               <!--2019.11.04 end-->
@@ -310,6 +310,9 @@ export default {
         .catch(error => {
           console.error(error.response + "에러 발생, 업로드 오류");
         });
+    },
+    img_bigger(imgfile) {
+      window.open(imgfile);
     }
   }
 };
