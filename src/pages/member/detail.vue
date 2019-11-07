@@ -154,6 +154,17 @@ export default {
         )
         .then(response => {
           var detailData = response.data;
+          if (detailData.boardSecret) {
+            if (
+              !(
+                detailData.author == self.$session.get("member_id") ||
+                self.$session.get("member_id") == "admin"
+              )
+            ) {
+              alert("해당 게시글에 접근 권한이 없습니다");
+              return self.$router.go(-1);
+            }
+          }
           self.title = detailData.title;
           self.author = detailData.author;
           self.authorName = detailData.authorName;
