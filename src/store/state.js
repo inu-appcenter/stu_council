@@ -4,6 +4,7 @@ import VueSession from "vue-session"
 import { global } from "@/global"
 
 const state = {
+
   check_session: e => {
     if (e) {
       alert("로그인 상태로 접근할 수 없는 페이지입니다.")
@@ -34,7 +35,14 @@ const state = {
       return false
     }
   },
+  modalState:true,
+  imageFile:[],
+  check_Modal:(modal,imgfile)=>{
+    state.modalState=modal
+    state.imageFile=imgfile
+  },
 
+ 
   // get_user_info() {
   //   let base = global.base
 

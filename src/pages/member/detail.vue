@@ -48,7 +48,7 @@
               <!-- 2019.11.04 start -->
               <div class="img_area">
                 <span v-for="imgfile in imgfiles">
-                  <img v-bind:src="imgfile" @click="img_bigger(imgfile)" title="이미지 크게보기" />
+                  <img v-bind:src="imgfile" @click="check_Modal(false,imgfile)" title="이미지 크게보기" />
                 </span>
               </div>
               <!--2019.11.04 end-->
@@ -76,7 +76,7 @@ import customNavigation2 from "@/pages/3rd_menu/custom_navigation";
 import customNavigation3 from "@/pages/4th_menu/custom_navigation";
 import axios from "axios";
 import { global } from "@/global";
-import { mapState } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "detail",
@@ -88,11 +88,13 @@ export default {
   },
 
   computed: {
-    ...mapState(["fail_access"])
+    ...mapState(["fail_access","check_Modal"]),
+
+
   },
 
   created() {
-    this.fail_access(!this.$session.exists());
+    this.fail_access(!this.$session.exists())
   },
 
   mounted() {
@@ -117,7 +119,8 @@ export default {
     files: [],
     fileFolder: "",
     imgfiles: [],
-    owner: false
+    owner: false,
+    showModal:false
   }),
 
   watch: {
@@ -322,9 +325,7 @@ export default {
           console.error(error.response + "에러 발생, 업로드 오류");
         });
     },
-    img_bigger(imgfile) {
-      window.open(imgfile);
-    }
+
   }
 };
 </script>
