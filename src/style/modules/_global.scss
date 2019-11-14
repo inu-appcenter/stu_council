@@ -2,6 +2,8 @@
   normalize css
 ============================== */
 body {
+  //overflow: hidden;
+
   outline: none;
   background-color: #fff;
   @include font-settings();
@@ -12,14 +14,12 @@ body {
   tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
-
 a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
-
 
 select,
 button {
@@ -40,7 +40,6 @@ button {
     tap-highlight-color: rgba(0, 0, 0, 0) !important;
   }
 }
-
 
 select:focus,
 input:focus,
@@ -63,7 +62,6 @@ textarea:focus {
     display: none !important;
   }
 }
-
 
 ::-webkit-input-placeholder {
   color: #666;

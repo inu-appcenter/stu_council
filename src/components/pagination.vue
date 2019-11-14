@@ -48,8 +48,8 @@ export default {
   },
   mounted() {
     this.boardKind = this.$route.query.boardKind;
+    this.checkedPage = this.$route.query.page;
     this.page = this.$route.query.page - 1;
-    console.log(this.$route.query.page);
   },
 
   components: { VueAdsPagination },

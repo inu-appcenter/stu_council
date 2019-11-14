@@ -32,13 +32,11 @@
             </div>
 
             <div>
-              <div>
-                <button
-                  v-if="files != null"
-                  v-for="fileItem in files"
-                  style="width: 100%; background: #EAEAEA; text-align: left;"
-                  @click="download(fileItem)"
-                >{{fileItem}}</button>
+              <div class="file_button">
+                <button v-if="files != null" v-for="fileItem in files" @click="download(fileItem)">
+                  <img src="../../assets/files.png" />
+                  {{fileItem}}
+                </button>
               </div>
 
               <div class="detailComponent" id="content">
@@ -47,6 +45,7 @@
 
               <!-- 2019.11.04 start -->
               <div class="img_area">
+                <p v-if="img">이미지 미리보기</p>
                 <span v-for="imgfile in imgfiles">
                   <img v-bind:src="imgfile" @click="check_Modal(false,imgfile)" title="이미지 크게보기" />
                 </span>
@@ -64,10 +63,17 @@
         </div>
       </div>
     </div>
+    <transition name="modal" v-if="!modalState">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container" title="이미지 닫기" @click="check_Modal(true)">
+            <img v-bind:src="imageFile" />
+          </div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
-<style>
-</style>
 
 
 <script>
@@ -88,13 +94,12 @@ export default {
   },
 
   computed: {
-    ...mapState(["fail_access","check_Modal"]),
-
-
+    ...mapState(["fail_access", "check_Modal"]),
+    ...mapState(["modalState", "imageFile"])
   },
 
   created() {
-    this.fail_access(!this.$session.exists())
+    this.fail_access(!this.$session.exists());
   },
 
   mounted() {
@@ -120,7 +125,8 @@ export default {
     fileFolder: "",
     imgfiles: [],
     owner: false,
-    showModal:false
+    img: false
+    //showModal: false
   }),
 
   watch: {
@@ -188,6 +194,7 @@ export default {
                 .substring(self.files[i].length, self.files[i].length - 3)
                 .toLowerCase() == "png"
             ) {
+              self.img = true;
               self.imgfiles.push(
                 `${global.base}` +
                   "/imgload/" +
@@ -280,6 +287,8 @@ export default {
     },
     go_back() {
       var self = this;
+      self.$router.go(-1);
+      /*
       self.boardKind = self.$route.query.boardKind;
       self.setBoardFilter(self.boardKind);
       self.$router.push({
@@ -288,7 +297,7 @@ export default {
           boardKind: self.boardKind,
           page: 1
         }
-      });
+      })*/
     },
     download(fileItem) {
       var self = this;
@@ -324,8 +333,7 @@ export default {
         .catch(error => {
           console.error(error.response + "에러 발생, 업로드 오류");
         });
-    },
-
+    }
   }
 };
 </script>
